@@ -1,8 +1,6 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import { Footer, Navbar } from "~/components/layouts";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter, spaceGrotesk } from "~/utils/fonts";
 
 export const metadata = {
   title: "ram.codes",
@@ -16,9 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`bg-stone-950 ${inter.className}`}>
+      <body className={`relative bg-stone-950 ${inter.className}`}>
         <Navbar />
-        <main className="z-10 mt-14 ">{children}</main>
+        {/* mt-14 is used to offset the height of navbar */}
+        <main className="z-10 mt-14">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,8 +1,10 @@
+"use client";
+
 export function Navbar() {
   return (
     <header
       className={
-        " w-full  backdrop-blur-sm border-b mix-blend-difference border-b-gray-900 fixed top-0"
+        " w-full z-50 backdrop-blur-sm border-b mix-blend-difference border-b-gray-900 fixed top-0"
       }
     >
       <div className={"max-w-7xl mx-auto py-4"}>
