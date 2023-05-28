@@ -1,7 +1,14 @@
 {
   "name": "ram.codes",
   "version": "0.1.0",
+  "description": "Personal website of Ram Shankar",
+  "author": "Ram Shankar Choudhary",
+  "license": "GPL-3.0-only",
   "private": true,
+  "homepage": "https://github.com/BlankRiser/ram.codes",
+  "bugs": {
+    "url": "https://github.com/BlankRiser/ram.codes/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

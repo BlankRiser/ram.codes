@@ -32,8 +32,6 @@ export default function Home() {
           quantity={100}
         />
       </section>
-      <div className=" min-h-screen bg-stone-900">red</div>
-      <div className=" min-h-screen bg-stone-900">yellow</div>
     </div>
   );
 }
