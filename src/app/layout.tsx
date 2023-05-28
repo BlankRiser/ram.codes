@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Footer, Navbar } from "~/components/layouts";
+import { Analytics } from "~/components/layouts/analytics";
 import { ScrollToTop } from "~/components/shared";
 import { inter } from "~/utils/fonts";
 
@@ -48,6 +49,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Analytics />
+      </head>
       <body className={`relative bg-stone-950 ${inter.className}`}>
         <Navbar />
         <ScrollToTop />
