@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Footer, Navbar } from "~/components/layouts";
-import { inter, spaceGrotesk } from "~/utils/fonts";
+import { ScrollToTop } from "~/components/shared";
+import { inter } from "~/utils/fonts";
 
 export const metadata = {
   title: "ram.codes",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`relative bg-stone-950 ${inter.className}`}>
         <Navbar />
+        <ScrollToTop />
         {/* mt-14 is used to offset the height of navbar */}
         <main className="z-10 mt-14">{children}</main>
         <Footer />
