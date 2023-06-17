@@ -2,7 +2,7 @@ import "./globals.css";
 import { Footer, Navbar } from "~/components/layouts";
 import { Analytics } from "~/components/layouts/analytics";
 import { ScrollToTop } from "~/components/shared";
-import { inter } from "~/utils/fonts";
+import { generalSans, inter } from "~/utils/fonts";
 
 export const metadata = {
   title: "ram.codes",
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${generalSans.variable} font-sans`}>
       <head>
         <Analytics />
       </head>
