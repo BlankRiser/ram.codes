@@ -1,6 +1,6 @@
-import React from "react";
 import { Marquee } from "./marquee";
 import { Divider } from "../ui";
+import { motion } from "framer-motion";
 
 const tech = [
   "React",
@@ -31,7 +31,7 @@ const tech = [
 
 export function TechMarquee() {
   return (
-    <div className={`absolute bottom-0 `}>
+    <motion.div className={`absolute bottom-0 `}>
       <Marquee>
         {tech.map((t, i) => (
           <span key={i} className="inline-block px-4 py-4 text-gray-400">
@@ -40,6 +40,6 @@ export function TechMarquee() {
         ))}
       </Marquee>
       <Divider className="my-0" />
-    </div>
+    </motion.div>
   );
 }
