@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Balancer } from "react-wrap-balancer";
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return <span className="whitespace-nowrap">{children}</span>;
@@ -49,47 +50,49 @@ export function RevealText(props: {
   const Tag: keyof JSX.IntrinsicElements = type;
 
   return (
-    <motion.div
-      className="text-center"
-      initial="hidden"
-      // animate="visible"
-      animate={"visible"}
-      variants={{
-        visible: {
-          transition: {
-            staggerChildren: 0.025,
+    <Balancer>
+      <motion.div
+        className="text-center"
+        initial="hidden"
+        // animate="visible"
+        animate={"visible"}
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.025,
+            },
           },
-        },
-      }}
-    >
-      <Tag>
-        {words.map((word, index) => {
-          return (
-            // Wrap each word in the Wrapper component
-            <Wrapper key={index}>
-              {words[index].flat().map((element, index) => {
-                return (
-                  <span
-                    style={{
-                      overflow: "hidden",
-                      display: "inline-block",
-                    }}
-                    key={index}
-                  >
-                    <motion.span
-                      className={className}
-                      style={{ ...style, display: "inline-block" }}
-                      variants={item}
+        }}
+      >
+        <Tag>
+          {words.map((word, index) => {
+            return (
+              // Wrap each word in the Wrapper component
+              <Wrapper key={index}>
+                {words[index].flat().map((element, index) => {
+                  return (
+                    <span
+                      style={{
+                        overflow: "hidden",
+                        display: "inline-block",
+                      }}
+                      key={index}
                     >
-                      {element}
-                    </motion.span>
-                  </span>
-                );
-              })}
-            </Wrapper>
-          );
-        })}
-      </Tag>
-    </motion.div>
+                      <motion.span
+                        className={className}
+                        style={{ ...style, display: "inline-block" }}
+                        variants={item}
+                      >
+                        {element}
+                      </motion.span>
+                    </span>
+                  );
+                })}
+              </Wrapper>
+            );
+          })}
+        </Tag>
+      </motion.div>
+    </Balancer>
   );
 }

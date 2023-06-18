@@ -1,13 +1,16 @@
-import React from "react";
 import { FadeInText, RevealText } from "~/components/shared";
 import { Particles } from "~/components/ui";
-import { generalSans, ibmPlexSans, spaceGrotesk } from "~/utils/fonts";
+import { generalSans, spaceGrotesk } from "~/utils/fonts";
 
 type Props = {};
 
 export default function Hero({}: Props) {
   return (
     <section className="h-[calc(100vh-56px)] relative flex  justify-center items-center flex-col ">
+      <Particles
+        className="absolute inset-0 -z-10 animate-fade-in"
+        quantity={100}
+      />
       <RevealText
         className="text-5xl  md:text-7xl lg:text-8xl font-medium py-4 leading-[0.5]"
         color={"#000"}
@@ -19,12 +22,7 @@ export default function Hero({}: Props) {
       />
       <FadeInText
         text={"A CREATIVE DEVELOPER"}
-        className={`${generalSans.className} font-semibold text-2xl `}
-      />
-
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
+        className={`${generalSans.className} font-light text-2xl `}
       />
     </section>
   );

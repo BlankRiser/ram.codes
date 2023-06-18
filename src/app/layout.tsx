@@ -57,7 +57,7 @@ export default function RootLayout({
         <ScrollToTop />
         {/* mt-14 is used to offset the height of navbar */}
         <main className="z-10 mt-14">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -10,6 +10,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        mono: ["var(--font-jetbrains-mono)", ...defaultTheme.fontFamily.mono],
+        spaceGrotesk: [
+          "var(--font-space-grotesk)",
+          ...defaultTheme.fontFamily.sans,
+        ],
+        generalSans: [
+          "var(--font-general-sans)",
+          ...defaultTheme.fontFamily.sans,
+        ],
+      },
       colors: {
         primary: "#34d572",
         secondary: "#f4f7fa",
@@ -17,9 +29,8 @@ module.exports = {
         "off-black": "#1a1a1a",
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "conic-gradient(var(--conic-position), var(--tw-gradient-stops))",
       },
       keyframes: (theme) => ({
         "text-blink": {

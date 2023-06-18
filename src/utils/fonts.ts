@@ -1,18 +1,26 @@
-import { Inter, Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
+import {
+  Inter,
+  Space_Grotesk,
+  IBM_Plex_Sans,
+  JetBrains_Mono,
+} from "next/font/google";
 import localFont from "next/font/local";
 
 export const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "greek"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
 });
 
-export const ibmPlexSans = IBM_Plex_Sans({
+export const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "200", "100", "800"],
+  variable: "--font-jetbrains-mono",
 });
 
 export const generalSans = localFont({
