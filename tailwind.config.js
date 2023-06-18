@@ -80,10 +80,20 @@ module.exports = {
             opacity: "100%",
           },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        marqueeReverse: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
       }),
       animation: {
         "text-blink": "text-blink 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         title: "title 3s ease-out forwards",
+        marquee: "marquee 25s linear infinite",
+        marqueeReverse: "marqueeReverse 25s linear infinite",
       },
     },
   },

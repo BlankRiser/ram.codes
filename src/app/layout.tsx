@@ -1,5 +1,6 @@
-import "./globals.css";
-import { Footer, Navbar } from "~/components/layouts";
+import "../styles/globals.css";
+
+import { Navbar } from "~/components/layouts";
 import { Analytics } from "~/components/layouts/analytics";
 import { ScrollToTop } from "~/components/shared";
 import { generalSans, inter } from "~/utils/fonts";

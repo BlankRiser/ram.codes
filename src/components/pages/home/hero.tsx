@@ -1,4 +1,5 @@
 import { FadeInText, RevealText } from "~/components/shared";
+import { TechMarquee } from "~/components/shared/tech-marquee";
 import { Particles } from "~/components/ui";
 import { generalSans, spaceGrotesk } from "~/utils/fonts";
 
@@ -24,6 +25,7 @@ export default function Hero({}: Props) {
         text={"A CREATIVE DEVELOPER"}
         className={`${generalSans.className} font-light text-2xl `}
       />
+      <TechMarquee />
     </section>
   );
 }
