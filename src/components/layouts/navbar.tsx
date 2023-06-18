@@ -2,7 +2,9 @@
 
 export function Navbar() {
   return (
-    <header className={" w-full z-50 backdrop-blur-md px-4 fixed top-0"}>
+    <header
+      className={" w-full z-50  px-4 fixed top-0"} // backdrop-blur-md
+    >
       <div className={"max-w-7xl mx-auto py-4"}>
         <nav className={`flex justify-between items-center h-full `}>
           <p className={"font-semibold"}>Ram Shankar</p>
