@@ -1,8 +1,19 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export function Navbar() {
   return (
-    <header
+    <motion.header
+
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      }}
       className={" w-full z-50  px-4 fixed top-0"} // backdrop-blur-md
     >
       <div className={"max-w-7xl mx-auto py-4"}>
@@ -15,6 +26,6 @@ export function Navbar() {
           <a href="mailto:ram.codes@gmail.com">ram.codes@gmail.com</a>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

@@ -1,11 +1,13 @@
+'use client';
 import { FadeInText, RevealText } from "~/components/shared";
 import { TechMarquee } from "~/components/shared/tech-marquee";
 import { Particles } from "~/components/ui";
 import { generalSans, spaceGrotesk } from "~/utils/fonts";
+import { motion } from "framer-motion";
 
 type Props = {};
 
-export default function Hero({}: Props) {
+export default function Hero({ }: Props) {
   return (
     <section className="h-[calc(100vh-56px)] relative flex  justify-center items-center flex-col ">
       <Particles className="absolute inset-0 -z-10 " quantity={100} />
@@ -22,7 +24,10 @@ export default function Hero({}: Props) {
         text={"A CREATIVE DEVELOPER"}
         className={`${generalSans.className} font-light text-2xl `}
       />
+
       <TechMarquee />
     </section>
   );
 }
+
+

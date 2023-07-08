@@ -1,5 +1,5 @@
 "use client";
-export { ScrollToTop } from "./smooth-scroll";
-export { RevealText } from "./reveal-text";
-export { FadeInText } from "./fadein-text";
-export { WavyText } from "./wavy-text";
+export * from "./smooth-scroll";
+export * from "./reveal-text";
+export * from "./fadein-text";
+export * from "./wavy-text";

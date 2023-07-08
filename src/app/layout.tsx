@@ -1,6 +1,7 @@
+
 import "./globals.css";
 
-import { Navbar } from "~/components/layouts";
+import { Global, Navbar } from "~/components/layouts";
 import { Analytics } from "~/components/layouts/analytics";
 import { ScrollToTop } from "~/components/shared";
 import { generalSans, inter } from "~/utils/fonts";
@@ -55,9 +56,9 @@ export default function RootLayout({
       </head>
       <body className={`relative bg-stone-950 ${inter.className}`}>
         <Navbar />
-        <ScrollToTop />
         {/* mt-14 is used to offset the height of navbar */}
-        <main className="z-10 mt-14">{children}</main>
+        <Global>{children}</Global>
+        <ScrollToTop />
         {/* <Footer /> */}
       </body>
     </html>

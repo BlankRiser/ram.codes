@@ -1,5 +1,5 @@
 "use client";
 
-export { Dock } from "./dock";
-export { Particles } from "./patterns";
-export { Divider } from "./divider";
+export * from "./dock";
+export * from "./patterns";
+export * from "./divider";
