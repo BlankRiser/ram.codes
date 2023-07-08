@@ -7,8 +7,10 @@ export const ScrollToTop = () => {
 
   useEffect(() => {
     const handleWindowScroll = () => {
-      if (window.scrollY > 200) setShow(true);
-      else setShow(false);
+      if (window.scrollY > 200) {
+        setShow(true)
+      }
+      else { setShow(false) }
     };
 
     window.addEventListener("scroll", handleWindowScroll);

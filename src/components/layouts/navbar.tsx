@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { LINKS } from "~/constants/links";
 
 export function Navbar() {
   return (
@@ -18,10 +20,10 @@ export function Navbar() {
     >
       <div className={"max-w-7xl mx-auto py-4"}>
         <nav className={`flex justify-between items-center h-full `}>
-          <p className={"font-semibold"}>Ram Shankar</p>
+          <a href={LINKS.HOME} className={"font-semibold"}>Ram Shankar</a>
           <ul className="flex items-center gap-4 justify-between">
-            <a href="#">Blog</a>
-            <a href="#">Work</a>
+            <Link href={LINKS.HOME}>Blog</Link>
+            <Link href={LINKS.WORK}>Work</Link>
           </ul>
           <a href="mailto:ram.codes@gmail.com">ram.codes@gmail.com</a>
         </nav>
