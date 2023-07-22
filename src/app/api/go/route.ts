@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const PROFILES = {
-	github: '',
+	github: 'github.com/BlankRiser',
 	twitter: '',
 	threads: '',
 	blog: '',
@@ -19,3 +19,5 @@ export async function GET(request: Request, context: { params: { profile: Profil
 
 	return NextResponse.redirect('/');
 }
+
+// example = https://blankriser.dev/api/go/github

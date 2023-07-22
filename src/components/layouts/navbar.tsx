@@ -21,10 +21,10 @@ export function Navbar() {
       <div className={"max-w-7xl mx-auto py-4"}>
         <nav className={`flex justify-between items-center h-full `}>
           <a href={LINKS.HOME} className={"font-semibold"}>Ram Shankar</a>
-          <ul className="flex items-center gap-4 justify-between">
+          {/* <ul className="flex items-center gap-4 justify-between">
             <Link href={LINKS.HOME}>Blog</Link>
             <Link href={LINKS.WORK}>Work</Link>
-          </ul>
+          </ul> */}
           <a href="mailto:ram.codes@gmail.com">ram.codes@gmail.com</a>
         </nav>
       </div>

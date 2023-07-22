@@ -1,7 +1,8 @@
 "use client";
+
 // CREDITS: Surjith https://play.tailwindcss.com/CSWFJMcztk
 
-export function SelectedWork() {
+export function LightShade() {
   return (
     <div>
       <div className="flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black">
@@ -17,13 +18,7 @@ export function SelectedWork() {
         </div>
 
         <div className="flex -translate-y-60 flex-col items-center px-5">
-          <p className="z-50 rounded-full border border-white/50 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white opacity-50">
-            CSS Tip
-          </p>
-
-          <h1 className="z-50 mt-8 bg-gradient-to-br from-white via-[#e9f5f2] to-[#354d4b] bg-clip-text text-center text-5xl font-medium tracking-tight text-transparent md:text-7xl">
-            Some of my work
-          </h1>
+          {/* ADD STUFF HERE */}
         </div>
       </div>
     </div>

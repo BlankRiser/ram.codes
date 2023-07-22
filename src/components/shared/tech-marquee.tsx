@@ -1,6 +1,5 @@
 import { Marquee } from "./marquee";
 import { Divider } from "../ui";
-import { motion } from "framer-motion";
 
 const tech = [
   "React",
@@ -8,30 +7,43 @@ const tech = [
   "AstroJs",
   "Remix",
 
-  "PostgreSQL",
-  "MongoDB",
-  "MySQL",
-  "Redis",
+  "|",
 
   "AWS",
   "Docker",
-  "Kubernetes",
   "Github Actions",
+
+  "|",
 
   "TypeScript",
   "JavaScript",
   "Python",
 
+  "|",
+
   "HTML",
   "CSS",
   "SCSS",
   "Tailwind CSS",
+  "Chakra UI",
+  "Panda CSS",
+  "Mantine UI",
   "Material UI",
+
+  "|",
+
+  "Apache Echarts",
+  "Highcharts",
+  "ChartJs",
+
+  "|",
+
+  "Express",
 ];
 
 export function TechMarquee() {
   return (
-    <motion.div className={`absolute bottom-0 `}>
+    <div className={`absolute bottom-0 `}>
       <Marquee>
         {tech.map((t, i) => (
           <span key={i} className="inline-block px-4 py-4 text-gray-400">
@@ -40,6 +52,6 @@ export function TechMarquee() {
         ))}
       </Marquee>
       <Divider className="my-0" />
-    </motion.div>
+    </div>
   );
 }

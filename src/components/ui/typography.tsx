@@ -2,23 +2,21 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ElementType, ReactNode, ComponentProps } from "react";
 import { Balancer } from "react-wrap-balancer";
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from "~/utils/fonts";
+import { cn } from "~/utils/text-transforms";
 
-const typography = cva("", {
+const typographyStyles = cva("", {
   variants: {
     intent: {
-      h1: ["text-8xl ", "font-bold "],
-      h2: ["text-7xl", "font-bold "],
-      h3: ["text-6xl", "font-bold "],
-      h4: ["text-5xl", "font-bold "],
-      h5: ["text-4xl", "font-bold "],
-      h6: ["text-3xl", "font-bold "],
-      subtitle1: ["text-2xl", "font-bold "],
-      subtitle2: ["text-xl", "font-bold "],
-      body1: ["text-lg", "font-normal "],
-      body2: ["text-base", "font-normal "],
-      button: ["text-base", "font-bold "],
-      caption: ["text-sm", "font-normal "],
-      overline: ["text-xs", "font-normal "],
+      h1: "text-4xl md:text-8xl font-semibold",
+      h2: "text-3xl md:text-6xl font-semibold",
+      h3: "text-2xl md:text-5xl font-semibold",
+      h4: "text-xl md:text-4xl font-semibold",
+      h5: "text-lg md:text-3xl font-semibold",
+      h6: "text-base md:text-2xl font-semibold",
+      base: "text-base md:text-lg font-normal",
+      title: "text-xl md:text-5xl font-semibold md:leading-[1.125em] md:-tracking-tight ",
+      subtitle: "text-lg md:text-4xl font-normal",
+      caption: "text-xs md:text-sm font-normal",
     },
     font: {
       inter: ["font-sans", inter.className],
@@ -28,6 +26,7 @@ const typography = cva("", {
     },
     gradient: {
       none: "",
+      gray: "bg-gradient-to-br from-white via-[#e9f5f2] to-[#354d4b] text-transparent bg-clip-text",
       "blue-green":
         "bg-gradient-to-r from-blue-400 to-green-500 text-transparent bg-clip-text",
       "indigo-sky-emerald":
@@ -37,8 +36,10 @@ const typography = cva("", {
     },
   },
   defaultVariants: {
-    intent: "body1",
+    intent: "base",
     font: "inter",
+    gradient: "none",
+
   },
 });
 
@@ -50,7 +51,7 @@ type TypographyProps<T extends ElementType = "p"> = {
   as?: T | keyof JSX.IntrinsicElements;
   children: ReactNode;
 } & Omit<ComponentProps<T>, "as"> &
-  VariantProps<typeof typography> &
+  VariantProps<typeof typographyStyles> &
   props;
 
 export function Typography<T extends ElementType = "p">({
@@ -65,20 +66,20 @@ export function Typography<T extends ElementType = "p">({
   return (
     <Component
       {...rest}
-      className={typography({
+      className={cn(typographyStyles({
         intent,
         font,
         gradient,
         className: rest.className,
-      })}
+      }))}
       style={
         isGradient
           ? {
-              backgroundImage:
-                "radial-gradient(circle at 0 0,#f79393,#fee4a5 38%,#9ae8b0 75%,#5ba5d0)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }
+            backgroundImage:
+              "radial-gradient(circle at 0 0,#f79393,#fee4a5 38%,#9ae8b0 75%,#5ba5d0)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }
           : {}
       }
     >
