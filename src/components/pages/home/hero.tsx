@@ -1,6 +1,6 @@
 'use client';
 
-import { FadeInText, RevealText } from "~/components/shared";
+import { FadeInText, RevealCharacter } from "~/components/shared";
 import { Particles } from "~/components/ui";
 import { generalSans, spaceGrotesk } from "~/utils/fonts";
 
@@ -10,7 +10,7 @@ export default function Hero({ }: Props) {
   return (
     <section className="h-[calc(100vh-56px)] relative flex justify-center items-center flex-col">
       <Particles className="absolute inset-0 -z-10 " quantity={100} />
-      <RevealText
+      <RevealCharacter
         className="text-5xl  md:text-7xl lg:text-8xl font-medium py-4 leading-[0.5]"
         color={"#000"}
         style={{

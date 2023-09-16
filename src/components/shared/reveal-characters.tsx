@@ -8,7 +8,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
 
 const tagMap = ["p", "h1", "h2", "h3", "h4", "h5", "span"] as const;
 
-const item = {
+const variants = {
   hidden: {
     y: "200%",
     // transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
@@ -20,7 +20,7 @@ const item = {
   },
 };
 
-export function RevealText(props: {
+export function RevealCharacter(props: {
   text: string;
   type: (typeof tagMap)[number];
   style?: React.CSSProperties;
@@ -81,7 +81,7 @@ export function RevealText(props: {
                       <motion.span
                         className={className}
                         style={{ ...style, display: "inline-block" }}
-                        variants={item}
+                        variants={variants}
                       >
                         {element}
                       </motion.span>
