@@ -12,18 +12,17 @@ export function Projects() {
         <Chip>
           💡 Projects
         </Chip>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-5">
           <Typography intent="title" className="text-neutral-300">
             Working on different projects is my recipe for constant growth
           </Typography>
-          <Typography as='span' intent="subtitle" className="text-neutral-300">
+          <Typography as='span' intent="subtitle" className="text-neutral-500">
             it&apos;s like cooking up a storm in the kitchen of creativity! 👨‍🍳
           </Typography>
         </div>
-        <Typography className="text-neutral-400">
-          Have any ideas? Let&apos;s talk!
-        </Typography>
-        <button className="w-fit bg-neutral-200 hover:bg-neutral-300 px-8 py-4 rounded-full text-neutral-950 font-semibold">Contact me!</button>
+        
+        <button className="w-fit bg-neutral-200 hover:bg-neutral-300 px-8 py-4 rounded-full text-neutral-950 font-semibold">
+          Have any ideas? Let&apos;s talk!</button>
       </div>
       <div className="grid grid-cols-1 gap-4 group md:gap-8">
         {WORK.map((work, index) => {

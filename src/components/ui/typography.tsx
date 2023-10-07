@@ -14,8 +14,8 @@ const typographyStyles = cva("", {
       h5: "text-lg md:text-3xl font-semibold",
       h6: "text-base md:text-2xl font-semibold",
       base: "text-base md:text-lg font-normal",
-      title: "text-xl md:text-5xl font-semibold md:leading-[1.125em] md:-tracking-tight ",
-      subtitle: "text-lg md:text-4xl font-normal",
+      title: "text-xl md:text-4xl font-semibold md:leading-[1.125em] md:-tracking-tight ",
+      subtitle: "text-lg md:text-xl font-normal",
       caption: "text-xs md:text-sm font-normal",
     },
     font: {
