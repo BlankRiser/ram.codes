@@ -13,9 +13,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        mono: ['var(--font-jetbrains-mono)', ...defaultTheme.fontFamily.mono],
-        spaceGrotesk: ['var(--font-space-grotesk)', ...defaultTheme.fontFamily.sans],
-        generalSans: ['var(--font-general-sans)', ...defaultTheme.fontFamily.sans],
+        mono: 'var(--font-jetbrains-mono)',
+        spaceGrotesk: 'var(--font-space-grotesk)',
+        generalSans: 'var(--font-general-sans)',
       },
       boxShadow: {
         midas: '0px 0px 250px 15px rgba(15, 98, 254, 0.25)',
@@ -106,5 +106,7 @@ module.exports = {
     },
   },
 
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

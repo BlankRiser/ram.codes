@@ -1,0 +1,255 @@
+---
+title: React Hooks
+publishedAt: 2022-02-20
+summary: Syntax of native hooks and useful custom hooks
+image: '/images/workstation.jpeg'
+# tags: ['React Hooks', 'ReactJs', 'Custom Hooks']
+---
+
+## useState
+
+```jsx showLineNumbers
+function Counter({ initialCount }) {
+	const [count, setCount] = useState(initialCount);
+	return (
+		<>
+			Count: {count}
+			<button onClick={() => setCount(initialCount)}>Reset</button>
+			<button onClick={() => setCount((prevCount) => prevCount - 1)}>-</button>
+			<button onClick={() => setCount((prevCount) => prevCount + 1)}>+</button>
+		</>
+	);
+}
+```
+
+References:
+
+- [useState](https://reactjs.org/docs/hooks-reference.html#:~:text=Basic%20Hooks-,useState,-const%20%5Bstate%2C%20setState)
+- [Why you should use the URL to store state in your application](https://juhanajauhiainen.com/posts/why-you-should-use-url-to-store-state-in-your-application)
+
+## useEffect
+
+```jsx showLineNumbers
+import { useEffect, useState } from 'react';
+function CountSecrets() {
+	const [secret, setSecret] = useState({ value: '', countSecrets: 0 });
+	useEffect(() => {
+		if (secret.value === 'secret') {
+			setSecret((s) => ({ ...s, countSecrets: s.countSecrets + 1 }));
+		}
+	}, [secret.value]);
+	const onChange = ({ target }) => {
+		setSecret((s) => ({ ...s, value: target.value }));
+	};
+	return (
+		<div>
+			<input type='text' value={secret.value} onChange={onChange} />
+			<div>Number of secrets: {secret.countSecrets}</div>
+		</div>
+	);
+}
+```
+
+References:
+
+- [How to Solve the Infinite Loop of React.useEffect()](https://dmitripavlutin.com/react-useeffect-infinite-loop/)
+- [A Simple Explanation of React.useEffect()](https://dmitripavlutin.com/react-useeffect-explanation/)
+- [useEffect()](https://reactjs.org/docs/hooks-reference.html#useeffect)
+
+## useContext()
+
+The React context provides data to components no matter how deep they are in the components tree. The context is used to manage global data, e.g. global state, theme, services, user settings, and more.
+
+```js
+import { useContext, createContext } from 'react';
+const UserContext = createContext('Unknown');
+function Application() {
+	const userName = 'John Smith';
+	return (
+		<UserContext.Provider value={userName}>
+			<Layout>Main content</Layout>
+		</UserContext.Provider>
+	);
+}
+function Layout({ children }) {
+	return (
+		<div>
+			<Header />
+			<main>{children}</main>
+		</div>
+	);
+}
+function Header() {
+	return (
+		<header>
+			<UserInfo />
+		</header>
+	);
+}
+function UserInfo() {
+	const userName = useContext(UserContext);
+	return <span>{userName}</span>;
+}
+```
+
+Refrences:
+
+- [A Guide to React Context and useContext() Hook](https://dmitripavlutin.com/react-context-and-usecontext/)
+- [useContext()](https://reactjs.org/docs/hooks-reference.html#usecontext)
+
+## useMemo()
+
+By using `useMemo(() => factorialOf(number), [number])` instead of simple `factorialOf(number)`, React memoizes the factorial calculation.
+
+```js
+import { useState, useMemo } from 'react';
+
+export function CalculateFactorial() {
+	const [number, setNumber] = useState(1);
+	const [inc, setInc] = useState(0);
+
+	//   const factorial = factorialOf(number)
+	const factorial = useMemo(() => factorialOf(number), [number]);
+
+	const onChange = (event) => {
+		setNumber(Number(event.target.value));
+	};
+	const onClick = () => setInc((i) => i + 1);
+
+	return (
+		<div>
+			Factorial of
+			<input type='number' value={number} onChange={onChange} />
+			is {factorial}
+			<button onClick={onClick}>Re-render</button>
+		</div>
+	);
+}
+function factorialOf(n) {
+	console.log('factorialOf(n) called!');
+	return n <= 0 ? 1 : n * factorialOf(n - 1);
+}
+```
+
+Refrences: [How to Memoize with React.useMemo()](https://dmitripavlutin.com/react-usememo-hook/)
+
+## useCallback()
+
+One reason to use `useCallback` is to prevent a component from re-rendering unless its props have changed.
+
+```jsx
+import useSearch from './fetch-items';
+
+function MyBigList({ term, onItemClick }) {
+	const items = useSearch(term);
+	const map = (item) => <div onClick={onItemClick}>{item}</div>;
+	return <div>{items.map(map)}</div>;
+}
+export default React.memo(MyBigList);
+```
+
+```jsx
+import { useCallback } from 'react';
+
+export function MyParent({ term }) {
+	const onItemClick = useCallback(
+		(event) => {
+			console.log('You clicked ', event.currentTarget);
+		},
+		[term],
+	);
+	return <MyBigList term={term} onItemClick={onItemClick} />;
+}
+```
+
+Refrences:
+
+- [Your Guide to React.useCallback()](https://dmitripavlutin.com/dont-overuse-react-usecallback/)
+- [useCallback()](https://reactjs.org/docs/hooks-reference.html#usecallback)
+
+## useReducer()
+
+An alternative to `useState`. Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a dispatch method. `useReducer` is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
+
+`useReducer` also lets you optimize performance for components that trigger deep updates because you can pass dispatch down instead of callbacks. The `useReducer(reducer, initialState)` hook accept 2 arguments: the `reducer` function and the `initial state`. The hook then returns an array of 2 items: the `current state` and the`dispatch` function.
+
+```js
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+	switch (action.type) {
+		case 'increment':
+			return { count: state.count + 1 };
+		case 'decrement':
+			return { count: state.count - 1 };
+		default:
+			throw new Error();
+	}
+}
+
+function Counter() {
+	const [state, dispatch] = useReducer(reducer, initialState);
+	return (
+		<>
+			Count: {state.count}
+			<button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+			<button onClick={() => dispatch({ type: 'increment' })}>+</button>
+		</>
+	);
+}
+```
+
+Refrences:
+
+- [An Easy Guide to React `useReducer()` Hook](https://dmitripavlutin.com/react-usereducer/)
+- [useReducer()](https://reactjs.org/docs/hooks-reference.html#usereducer)
+
+## useRef()
+
+```js
+import { useRef, useState, useEffect } from 'react';
+
+function Stopwatch() {
+	const timerIdRef = useRef(0);
+	const [count, setCount] = useState(0);
+	const startHandler = () => {
+		if (timerIdRef.current) {
+			return;
+		}
+		timerIdRef.current = setInterval(() => setCount((c) => c + 1), 1000);
+	};
+
+	const stopHandler = () => {
+		clearInterval(timerIdRef.current);
+		timerIdRef.current = 0;
+	};
+
+	useEffect(() => {
+		return () => clearInterval(timerIdRef.current);
+	}, []);
+
+	return (
+		<div>
+			<div>Timer: {count}s</div>
+			<div>
+				<button onClick={startHandler}>Start</button>
+				<button onClick={stopHandler}>Stop</button>
+			</div>
+		</div>
+	);
+}
+```
+
+The 2 main differences between references and state:
+
+- Updating a reference doesn't trigger re-rendering, while updating the state makes the component re-render.
+- The reference update is synchronous (the updated reference value is available right away), while the state update is asynchronous (the state variable is updated after re-rendering).
+
+References:
+
+- [The Complete Guide to useRef() and Refs in React](https://dmitripavlutin.com/react-useref-guide/)
+- [useRef()](https://reactjs.org/docs/hooks-reference.html#useref)
+
+## Useful Custom Hooks
+
+- [useHooks](https://usehooks.com/)

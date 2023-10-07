@@ -1,4 +1,4 @@
-import './globals.css';
+import '../styles/global.css';
 
 import { Global, Navbar } from '~/components/layouts';
 import { Analytics } from '~/components/layouts/analytics';

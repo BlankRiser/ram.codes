@@ -7,7 +7,7 @@ export const Markdown:React.FC<MarkdownProps> = ({ code }) => {
   const Component = useMDXComponent(code);
 
   return (
-    <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+    <article className="prose prose-quoteless prose-neutral prose-pre:font-mono prose-a:underline-offset-4 dark:prose-invert pro">
       <Component />
     </article>
   );

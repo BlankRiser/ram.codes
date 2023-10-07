@@ -58,7 +58,7 @@ export default async function Blog({ params }: any) {
   }
 
   return (
-    <section>
+    <section className="max-w-4xl mx-auto">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -73,7 +73,6 @@ export default async function Blog({ params }: any) {
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.publishedAt)}
         </p>
-       
       </div>
       <Markdown code={post.body.code} />
     </section>
