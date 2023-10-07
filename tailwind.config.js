@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        mono: 'var(--font-jetbrains-mono)',
+        'jet-mono': 'var(--font-jetbrains-mono)',
         spaceGrotesk: 'var(--font-space-grotesk)',
         generalSans: 'var(--font-general-sans)',
       },

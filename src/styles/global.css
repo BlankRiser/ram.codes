@@ -1,5 +1,5 @@
 @tailwind base;
-/* @import './syntax-highlight.css'; */
+@import './syntax-highlight.css';
 @tailwind components;
 @tailwind utilities;
 
@@ -22,4 +22,8 @@
 		--background-start-rgb: 0, 0, 0;
 		--background-end-rgb: 0, 0, 0;
 	}
+}
+
+body {
+	@apply bg-black text-neutral-200;
 }

@@ -1,14 +1,14 @@
 ---
 title: React Hooks
-publishedAt: 2022-02-20
+publishedAt: 2022-10-21
 summary: Syntax of native hooks and useful custom hooks
 image: '/images/workstation.jpeg'
-# tags: ['React Hooks', 'ReactJs', 'Custom Hooks']
 ---
 
 ## useState
 
-```jsx showLineNumbers
+```jsx title="nmec" showLineNumbers
+import { useState } from 'react';
 function Counter({ initialCount }) {
 	const [count, setCount] = useState(initialCount);
 	return (

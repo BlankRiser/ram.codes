@@ -1,6 +1,6 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { rehypePrettyCodeOptions } from '~/lib/rehype-pretty-code';
+
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -61,7 +61,7 @@ export default makeSource({
 			[
 				rehypePrettyCode,
 				{
-					theme: 'light-plus',
+					theme: 'poimandres',
 					onVisitLine(node) {
 						// Prevent lines from collapsing in `display: grid` mode, and allow empty
 						// lines to be copy/pasted
