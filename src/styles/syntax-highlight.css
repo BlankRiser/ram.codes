@@ -31,7 +31,18 @@ div[data-rehype-pretty-code-fragment] .line--highlighted {
 }
 
 /* Code Block Line numbers */
-code[data-line-numbers] {
+
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+	counter-increment: line;
+	content: counter(line);
+	display: inline-block;
+	width: 1rem;
+	margin-right: 1rem;
+	text-align: right;
+	color: gray;
+}
+
+/* code[data-line-numbers] {
 	counter-reset: lineNumber;
 }
 
@@ -40,9 +51,7 @@ code[data-line-numbers] .line::before {
 	content: counter(lineNumber);
 	display: inline-block;
 	text-align: right;
-
-	/* stylistic preferences */
 	margin-right: 0.75rem;
 	width: 1rem;
 	color: rgb(255 255 255 / 0.2);
-}
+} */

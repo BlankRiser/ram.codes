@@ -18,11 +18,11 @@ export const Chip: React.FC<Props> = ({ as = 'span', children, color, rounded, c
   )
 }
 
-const ChipStyles = cva("z-50 w-fit px-4 py-2 select-none font-bold border transition-all ease-in-out duration-300 uppercase tracking-widest text-xs opacity-50 hover:opacity-80", {
+const ChipStyles = cva("z-50 w-fit select-none border px-4 py-2 text-xs font-bold uppercase tracking-widest opacity-50 transition-all duration-300 ease-in-out hover:opacity-80", {
   variants: {
     color: {
       DEFAULT: "border-white/50 text-white hover:bg-stone-950",
-      green: "border-green-500 text-green-500 hover:bg-green/950",
+      green: "border-green-500 text-green-500 hover:bg-green-950",
     },
     rounded: {
       true: "rounded-full",
