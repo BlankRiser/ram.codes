@@ -11,7 +11,7 @@
 		]
 	],
 	//Visuals
-	"workbench.colorTheme": "Catppuccin Mocha",
+	"workbench.colorTheme": "Aura Dark (Soft Text)",
 	// Git
 	"git.confirmSync": false,
 	"git.autofetch": true,
