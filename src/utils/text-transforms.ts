@@ -21,3 +21,4 @@ export function shuffle(array: Array<any>) {
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
+

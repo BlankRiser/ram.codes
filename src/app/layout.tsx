@@ -1,9 +1,9 @@
-import './globals.css';
+import '../styles/global.css';
 
 import { Global, Navbar } from '~/components/layouts';
 import { Analytics } from '~/components/layouts/analytics';
 import { ScrollToTop } from '~/components/shared';
-import { generalSans, inter } from '~/utils/fonts';
+import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
 
 export const metadata = {
 	title: 'ram.codes',
@@ -43,13 +43,17 @@ export const metadata = {
 	},
 };
 
+const extraFonts = [
+	generalSans.variable, jetBrainsMono.variable, spaceGrotesk.variable
+]
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang='en' className={`${generalSans.className} font-sans`}>
+		<html lang='en' className={`${inter.className} ${extraFonts.join(' ')}`}>
 			<head>
 				<Analytics />
 			</head>
-			<body className={`relative bg-stone-950 ${inter.className}`}>
+			<body className={`relative bg-stone-950 `}>
 				<Navbar />
 				{/* mt-14 is used to offset the height of navbar */}
 				<Global>{children}</Global>

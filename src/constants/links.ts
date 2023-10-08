@@ -1,8 +1,9 @@
 export const LINKS = {
-	HOME: '/',
-	ABOUT: '/about',
-	CONTACT: '/contact',
-	WORK: '/work',
-	RESUME: '/resume',
-	USES: '/uses',
+	home: '/',
+	blog: '/blog',
+	work: '/work',
+	// ABOUT: '/about',
+	// CONTACT: '/contact',
+	// RESUME: '/resume',
+	// USES: '/uses',
 };
