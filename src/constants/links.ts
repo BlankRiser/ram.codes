@@ -1,7 +1,7 @@
 export const LINKS = {
-	home: '/',
-	blog: '/blog',
-	work: '/work',
+	// home: '/',
+	'Blog': '/blog',
+	'Work': '/work',
 	// ABOUT: '/about',
 	// CONTACT: '/contact',
 	// RESUME: '/resume',

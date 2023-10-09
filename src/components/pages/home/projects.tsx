@@ -7,8 +7,8 @@ import { WORK, type Work } from "~/constants/me";
 
 export function Projects() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-48">
-      <div className="md:sticky flex flex-col gap-8 md:top-24 md:h-[calc(100vh-56px)]">
+    <div className="my-48 grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="flex flex-col gap-8 md:sticky md:top-24 md:h-[calc(100vh-56px)]">
         <Chip>
           💡 Projects
         </Chip>
@@ -21,10 +21,10 @@ export function Projects() {
           </Typography>
         </div>
         
-        <button className="w-fit bg-neutral-200 hover:bg-neutral-300 px-8 py-4 rounded-full text-neutral-950 font-semibold">
+        <button className="w-fit rounded-full bg-neutral-200 px-8 py-4 font-semibold text-neutral-950 hover:bg-neutral-300">
           Have any ideas? Let&apos;s talk!</button>
       </div>
-      <div className="grid grid-cols-1 gap-4 group md:gap-8">
+      <div className="group grid grid-cols-1 gap-4 md:gap-8">
         {WORK.map((work, index) => {
           return <ProjectCard key={index} details={work} image={work.ogImage} />
         })}
@@ -45,21 +45,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { tech } = details;
   return (
-    <div className="rounded-[3rem] group/card flex flex-col gap-4 p-8 bg-neutral-900 peer hover:!bg-neutral-900/70 hover:!blur-0 group-hover:blur-sm transition-all ease-in-out">
+    <div className="group/card peer flex flex-col gap-4 rounded-[3rem] bg-neutral-900 p-8 transition-all ease-in-out hover:!bg-neutral-900/70 hover:!blur-0 group-hover:blur-sm">
       <div className="relative">
-        <Image src={image} alt='pj' width={1200} height={700} className="rounded-[1.5rem] object-cover h-full " />
-        <button className="absolute top-4 right-4 hidden group-hover/card:block w-fit bg-neutral-200 hover:bg-neutral-300 p-4 rounded-full text-neutral-950 font-semibold">
-          <ArrowTr className="w-6 h-6" />
+        <Image src={image} alt='pj' width={1200} height={700} className="h-full rounded-[1.5rem] object-cover " />
+        <button className="absolute right-4 top-4 hidden w-fit rounded-full bg-neutral-200 p-4 font-semibold text-neutral-950 hover:bg-neutral-300 group-hover/card:block">
+          <ArrowTr className="h-6 w-6" />
         </button>
       </div>
 
 
       <div className="flex items-center gap-4">
-        <div className="flex gap-4 items-center">
-          <div className="w-[200px] aspect-square bg-slate-800 rounded-[1.5rem]" />
-          <div className="w-[200px] aspect-square bg-neutral-800 rounded-[1.5rem]" />
+        <div className="flex items-center gap-4">
+          <div className="aspect-square w-[200px] rounded-[1.5rem] bg-slate-800" />
+          <div className="aspect-square w-[200px] rounded-[1.5rem] bg-neutral-800" />
         </div>
-        <div className=" w-full h-full bg-zinc-950 rounded-[1.5rem] flex flex-wrap gap-4 p-4" >
+        <div className=" flex h-full w-full flex-wrap gap-4 rounded-[1.5rem] bg-zinc-950 p-4" >
           {
             tech.map((t, index) => {
               return <div key={index} className="my-4">

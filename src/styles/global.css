@@ -25,7 +25,7 @@
 }
 
 body {
-	@apply bg-black text-neutral-200;
+	@apply bg-black text-neutral-200 accent-primary focus:outline-transparent focus-visible:outline-primary;
 }
 /* 
 [data-rehype-pretty-code-fragment] code {
