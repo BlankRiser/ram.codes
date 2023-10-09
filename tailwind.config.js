@@ -18,7 +18,7 @@ module.exports = {
         generalSans: 'var(--font-general-sans)',
       },
       boxShadow: {
-        midas: '0px 0px 250px 15px rgba(15, 98, 254, 0.25)',
+        midas: '0px 0px 50px 5px rgba(15, 98, 254, 0.2)',
       },
       colors: {
         primary: '#34d572',

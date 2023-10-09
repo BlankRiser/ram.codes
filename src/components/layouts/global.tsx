@@ -14,7 +14,7 @@ export function Global({ children }: { children: React.ReactNode }) {
         stiffness: 100,
         damping: 20,
       }}
-      className='z-10 mt-14'
+      className='z-10'
     >
       {children}
     </motion.main>

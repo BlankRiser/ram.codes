@@ -119,7 +119,7 @@ export type Work = {
 	images: string[];
 	description: string;
 	tech: Tech[];
-	live: {
+	live?: {
 		emoji: '🟢' | '🚧' | '👨🏻‍💻' | (string & {});
 		status:
 			| 'WIP'

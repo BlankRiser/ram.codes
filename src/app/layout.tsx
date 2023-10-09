@@ -1,6 +1,6 @@
 import '../styles/global.css';
 
-import { Global, Navbar } from '~/components/layouts';
+import { Global, Navbar, NavbarOffset } from '~/components/layouts';
 import { Analytics } from '~/components/layouts/analytics';
 import { ScrollToTop } from '~/components/shared';
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			</head>
 			<body className={`relative bg-stone-950 `}>
 				<Navbar />
-				{/* mt-14 is used to offset the height of navbar */}
+				<NavbarOffset />
 				<Global>{children}</Global>
 				<ScrollToTop />
 				{/* <Footer /> */}

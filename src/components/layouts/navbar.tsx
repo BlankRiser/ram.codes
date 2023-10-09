@@ -2,9 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { LINKS } from '~/constants/links';
+import { cn } from '~/utils/text-transforms';
 
-export function Navbar() {
+export const Navbar = () => {
+	const pathname = usePathname();
+
 	return (
 		<motion.header
 			initial={{ y: -100 }}
@@ -15,24 +19,43 @@ export function Navbar() {
 				stiffness: 100,
 				damping: 20,
 			}}
-			className={' w-full z-50  px-4 fixed top-0 backdrop-blur-md'} 
+			className={' fixed top-0 z-50 w-full px-4 backdrop-blur-md'}
 		>
-			<div className={'max-w-7xl mx-auto py-4'}>
-				<nav className={`flex justify-between items-center h-full `}>
+			<div className={'mx-auto max-w-7xl py-4'}>
+				<nav className={`flex h-full items-center justify-between `}>
 					<a
-						href={LINKS.home}
-						className={'font-semibold w-8 h-8 rounded-full'}
+						href={'/'}
+						className={'h-8 w-8 rounded-full font-semibold'}
 						style={{
 							background: `linear-gradient(to right, #0f2027, #203a43, #2c5364)`,
 						}}
 					/>
-					<ul className='flex items-center gap-4 justify-between'>
-						<Link href={LINKS.blog}>Blog</Link>
-						<Link href={LINKS.work}>Work</Link>
+					<ul className='flex items-center justify-between gap-4'>
+						{Object.entries(LINKS).map(([key, value], index) => {
+							return (
+								<li key={index}>
+									<Link
+										className={cn(
+											'block hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400',
+											pathname.startsWith(value) &&
+												'outline-dashed outline-neutral-700 text-neutral-200',
+											'transition-colors duration-150 ease-in-out',
+										)}
+										href={value}
+									>
+										{key}
+									</Link>
+								</li>
+							);
+						})}
 					</ul>
-					<a href='mailto:ram.codes@gmail.com'>ram.codes@gmail.com</a>
 				</nav>
 			</div>
 		</motion.header>
 	);
-}
+};
+
+// mt-14 is used to offset the height of navbar
+export const NavbarOffset = ({ className }: { className?: string }) => (
+	<div className={cn(className ? className : 'mt-14')} />
+);
