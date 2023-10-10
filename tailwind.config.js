@@ -19,6 +19,7 @@ module.exports = {
       },
       boxShadow: {
         midas: '0px 0px 50px 5px rgba(15, 98, 254, 0.2)',
+        attri: '0px 0px 50px 5px rgba(0, 0, 0, 0.2)',
       },
       colors: {
         primary: '#34d572',

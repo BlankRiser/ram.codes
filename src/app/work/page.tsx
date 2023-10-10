@@ -1,20 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
 import { Midas } from '~/components/icons';
 import { NavbarOffset } from '~/components/layouts';
+import { ICONMAP } from '~/constants/icon-map';
 import { WORK } from '~/constants/work';
+import { cn } from '~/utils/text-transforms';
 
 export default function Page() {
 	return (
 		<div className='mx-auto max-w-7xl '>
 			<NavbarOffset className='h-28 ' />
-			<div>
+			<div className='flex flex-col gap-32'>
 				{WORK.map((item, index) => {
 					return (
 						<WorkCard
-							brandColor={item.brancdColor}
+							brandClasses={item.brandClasses}
 							key={index}
 							year={item.year}
 							role={item.role}
@@ -30,15 +31,6 @@ export default function Page() {
 	);
 }
 
-function Card() {
-	return (
-		<motion.div
-			className={`grid h-[300px] w-[300px] place-items-center rounded-2xl bg-neutral-900/50 transition-shadow duration-200 ease-in-out hover:border hover:border-midas-primary/25 hover:shadow-midas`}
-		>
-			<Midas className='h-1/2 w-1/2' />
-		</motion.div>
-	);
-}
 
 type Work = {
 	year: number;
@@ -46,7 +38,7 @@ type Work = {
 	description: string;
 	logo: any;
 	url: string;
-	brandColor: string;
+	brandClasses: string;
 	technologies: Array<string>;
 };
 
@@ -57,7 +49,7 @@ const WorkCard: React.FC<Work> = ({
 	technologies,
 	url,
 	year,
-	brandColor,
+	brandClasses,
 }) => {
 	const Svg = logo as any;
 
@@ -66,21 +58,36 @@ const WorkCard: React.FC<Work> = ({
 			<div className='grid w-full grid-cols-3 justify-between py-8'>
 				<div className='flex items-start gap-4'>
 					<span className='text-sm text-neutral-500'>{year}</span>
-					<span className='font-spaceGrotesk text-3xl font-semibold'>{role}</span>
+					<span className='font-spaceGrotesk text-3xl font-semibold text-neutral-300'>{role}</span>
 				</div>
-				<p className='max-w-[40ch] font-spaceGrotesk text-lg'>{description}</p>
-				<p className='ml-auto font-spaceGrotesk text-lg'>{technologies.join(', ')}</p>
+				<p className='max-w-[40ch] font-spaceGrotesk text-lg text-neutral-300'>{description}</p>
+				{/* <p className='ml-auto text-base text-neutral-300'>{technologies.join(', ')}</p> */}
+				<div className='flex flex-wrap items-start justify-end gap-4'>
+					{technologies.map((item) => {
+						return <>{ICONMAP[item as keyof typeof ICONMAP]}</>;
+					})}
+				</div>
 			</div>
 			<a href={url} target='_blank' rel='noreferrer noopener'>
-				<div className='grid min-h-[600px] w-full place-items-center rounded-3xl border border-neutral-700 hover:border-midas-primary/50 hover:shadow-midas'>
+				<div className={cn('grid min-h-[600px] w-full place-items-center rounded-[6rem]',brandClasses)}>
 					<Svg
-						className='h-1/2 w-1/2'
-						style={{
-							color: brandColor,
-						}}
+						className={cn('h-1/2 w-1/2')}
 					/>
 				</div>
 			</a>
 		</div>
 	);
 };
+
+
+
+
+function Card() {
+	return (
+		<motion.div
+			className={`grid h-[300px] w-[300px] place-items-center rounded-2xl bg-neutral-900/50 transition-shadow duration-200 ease-in-out hover:border hover:border-midas-primary/25 hover:shadow-midas`}
+		>
+			<Midas className='h-1/2 w-1/2' />
+		</motion.div>
+	);
+}
