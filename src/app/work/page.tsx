@@ -62,7 +62,7 @@ const WorkCard: React.FC<Work> = ({
 				</div>
 				<p className='max-w-[40ch] font-spaceGrotesk text-lg text-neutral-300'>{description}</p>
 				{/* <p className='ml-auto text-base text-neutral-300'>{technologies.join(', ')}</p> */}
-				<div className='flex flex-wrap items-start justify-end gap-4'>
+				<div className='ml-auto flex max-w-[14rem] flex-wrap items-start justify-end gap-4'>
 					{technologies.map((item) => {
 						return <>{ICONMAP[item as keyof typeof ICONMAP]}</>;
 					})}

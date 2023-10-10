@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.9.0",
-    "@icons-pack/react-simple-icons": "^8.0.1",
+    "@icons-pack/react-simple-icons": "^9.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",

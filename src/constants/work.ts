@@ -11,7 +11,7 @@ export const WORK= [
 		role: 'Frontend Developer',
 		description: `Developing performant and Secure NextJs apps for fintech needs.`,
 		url: 'https://midasfintechsolutions.com?=ram.codes',
-		technologies: ['next', 'tailwind', 'typescript', 'material-ui', 'echarts'] as Technologies[],
+		technologies: ['vite', 'mapbox', 'tailwind', 'typescript', 'material-ui','radix-ui', 'echarts', 'react-query', 'javascript'] as Technologies[],
 		'logo': Attri,
 		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow hover:border-black/50 hover:shadow-attri')
 	},
@@ -20,7 +20,7 @@ export const WORK= [
 		role: 'Frontend Developer',
 		description: `Developing performant and Secure NextJs apps for fintech needs.`,
 		url: 'https://midasfintechsolutions.com?=ram.codes',
-		technologies: ['vite', 'react', 'tailwind', 'typescript', 'react-hook-form'] as Technologies[],
+		technologies: [ 'vite','framer-motion', 'react', 'tailwind', 'typescript', 'react-hook-form', 'swr','react-query','zod','nginx'] as Technologies[],
 		'logo': Midas,
 		brandClasses: cn('bg-[#0F62FE] border border-neutral-700 transition-shadow hover:border-midas-primary/50 hover:shadow-midas')
 	},
