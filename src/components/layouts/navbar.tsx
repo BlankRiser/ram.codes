@@ -35,15 +35,27 @@ export const Navbar = () => {
 							return (
 								<li key={index}>
 									<Link
+										href={value}
 										className={cn(
-											'block hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400',
+											'relative block z-10 hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400',
 											pathname.startsWith(value) &&
 												'outline-dashed outline-1 outline-neutral-700 text-neutral-200',
 											'transition-colors duration-150 ease-in-out',
 										)}
-										href={value}
 									>
-										{key}
+										{pathname.startsWith(value) && (
+											<motion.div
+												layoutId='underline'
+												transition={{
+													layout: {
+														duration: 0.2,
+														ease: 'easeOut',
+													},
+												}}
+												className='absolute inset-0 z-0 rounded-full bg-neutral-900 px-4 py-1 text-neutral-400'
+											/>
+										)}
+										<span className='relative'>{key}</span>
 									</Link>
 								</li>
 							);
