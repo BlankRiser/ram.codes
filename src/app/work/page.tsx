@@ -1,8 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Midas } from '~/components/icons';
+import Image from 'next/image';
+import { CosmicZoom, Midas } from '~/components/icons';
 import { NavbarOffset } from '~/components/layouts';
+import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip';
 import { ICONMAP } from '~/constants/icon-map';
 import { WORK } from '~/constants/work';
 import { cn } from '~/utils/text-transforms';
@@ -15,14 +17,17 @@ export default function Page() {
 				{WORK.map((item, index) => {
 					return (
 						<WorkCard
-							brandClasses={item.brandClasses}
 							key={index}
+							brandClasses={item.brandClasses}
 							year={item.year}
 							role={item.role}
 							description={item.description}
 							logo={item.logo}
 							url={item.url}
 							technologies={item.technologies}
+							company={item.company}
+							image={item.image}
+							position={item.position}
 						/>
 					);
 				})}
@@ -31,16 +36,7 @@ export default function Page() {
 	);
 }
 
-
-type Work = {
-	year: number;
-	role: string;
-	description: string;
-	logo: any;
-	url: string;
-	brandClasses: string;
-	technologies: Array<string>;
-};
+type Work = (typeof WORK)[number];
 
 const WorkCard: React.FC<Work> = ({
 	description,
@@ -50,6 +46,9 @@ const WorkCard: React.FC<Work> = ({
 	url,
 	year,
 	brandClasses,
+	company,
+	image,
+	position,
 }) => {
 	const Svg = logo as any;
 
@@ -61,26 +60,44 @@ const WorkCard: React.FC<Work> = ({
 					<span className='font-spaceGrotesk text-3xl font-semibold text-neutral-300'>{role}</span>
 				</div>
 				<p className='max-w-[40ch] font-spaceGrotesk text-lg text-neutral-300'>{description}</p>
-				{/* <p className='ml-auto text-base text-neutral-300'>{technologies.join(', ')}</p> */}
 				<div className='ml-auto flex max-w-[14rem] flex-wrap items-start justify-end gap-4'>
 					{technologies.map((item) => {
-						return <>{ICONMAP[item as keyof typeof ICONMAP]}</>;
+						return (
+							<>
+								<Tooltip>
+									<TooltipTrigger asChild>{ICONMAP[item as keyof typeof ICONMAP]}</TooltipTrigger>
+									<TooltipContent>
+										<p className='capitalize'>{item}</p>
+									</TooltipContent>
+								</Tooltip>
+							</>
+						);
 					})}
 				</div>
 			</div>
 			<a href={url} target='_blank' rel='noreferrer noopener'>
-				<div className={cn('grid min-h-[600px] w-full place-items-center rounded-[6rem]',brandClasses)}>
-					<Svg
-						className={cn('h-1/2 w-1/2')}
-					/>
+				<div
+					className={cn(
+						'grid min-h-[600px] w-full place-items-center rounded-[6rem]',
+						brandClasses,
+					)}
+				>
+					{/* <Svg className={cn('h-1/2 w-1/2 border border-red-600')} /> */}
+					{/* // eslint-disable-next-line @next/next/no-img-element */}
+					<div className='relative h-full w-[600px]'>
+						<Image
+							fill={true}
+							fetchPriority='high'
+							src={image}
+							alt={company}
+							className='left-1/2 top-1/2 w-full object-contain'
+						/>
+					</div>
 				</div>
 			</a>
 		</div>
 	);
 };
-
-
-
 
 function Card() {
 	return (

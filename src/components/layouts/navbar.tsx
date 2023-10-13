@@ -38,7 +38,7 @@ export const Navbar = () => {
 										className={cn(
 											'block hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400',
 											pathname.startsWith(value) &&
-												'outline-dashed outline-neutral-700 text-neutral-200',
+												'outline-dashed outline-1 outline-neutral-700 text-neutral-200',
 											'transition-colors duration-150 ease-in-out',
 										)}
 										href={value}

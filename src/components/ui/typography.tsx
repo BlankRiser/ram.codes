@@ -7,16 +7,16 @@ import { cn } from "~/utils/text-transforms";
 const typographyStyles = cva("", {
   variants: {
     intent: {
-      h1: "text-4xl md:text-8xl font-semibold",
-      h2: "text-3xl md:text-6xl font-semibold",
-      h3: "text-2xl md:text-5xl font-semibold",
-      h4: "text-xl md:text-4xl font-semibold",
-      h5: "text-lg md:text-3xl font-semibold",
-      h6: "text-base md:text-2xl font-semibold",
-      base: "text-base md:text-lg font-normal",
-      title: "text-xl md:text-4xl font-semibold md:leading-[1.125em] md:-tracking-tight ",
-      subtitle: "text-lg md:text-xl font-normal",
-      caption: "text-xs md:text-sm font-normal",
+      h1: "text-4xl font-semibold md:text-8xl",
+      h2: "text-3xl font-semibold md:text-6xl",
+      h3: "text-2xl font-semibold md:text-5xl",
+      h4: "text-xl font-semibold md:text-4xl",
+      h5: "text-lg font-semibold md:text-3xl",
+      h6: "text-base font-semibold md:text-2xl",
+      base: "text-base font-normal md:text-lg",
+      title: "text-xl font-semibold md:text-4xl md:leading-[1.125em] md:-tracking-tight ",
+      subtitle: "text-lg font-normal md:text-xl",
+      caption: "text-xs font-normal md:text-sm",
     },
     font: {
       inter: ["font-sans", inter.className],
@@ -26,13 +26,13 @@ const typographyStyles = cva("", {
     },
     gradient: {
       none: "",
-      gray: "bg-gradient-to-br from-white via-[#e9f5f2] to-[#354d4b] text-transparent bg-clip-text",
+      gray: "bg-gradient-to-br from-white via-[#e9f5f2] to-[#354d4b] bg-clip-text text-transparent",
       "blue-green":
-        "bg-gradient-to-r from-blue-400 to-green-500 text-transparent bg-clip-text",
+        "bg-gradient-to-r from-blue-400 to-green-500 bg-clip-text text-transparent",
       "indigo-sky-emerald":
-        "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-transparent bg-clip-text",
+        "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-transparent",
       green:
-        "bg-gradient-to-br from-green-500 from-10% via-emerald-500 via-30% to-teal-500 to-70% text-transparent bg-clip-text",
+        "bg-gradient-to-br from-green-500 from-10% via-emerald-500 via-30% to-teal-500 to-70% bg-clip-text text-transparent",
     },
   },
   defaultVariants: {

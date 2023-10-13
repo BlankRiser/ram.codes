@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  
   return (
     <section className='mx-auto max-w-7xl py-8'>
       <h1 className="mb-8 font-jet-mono text-5xl font-bold tracking-tighter text-neutral-300">Articles</h1>
@@ -35,7 +34,6 @@ export default async function BlogPage() {
               <p className="text-lg tracking-tight text-neutral-100">
                 {post.summary} 
               </p>
-             
             </div>
           </Link>
         ))}

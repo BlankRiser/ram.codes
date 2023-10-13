@@ -15,12 +15,10 @@
 	"git.autofetch": true,
 	"git.enableSmartCommit": true,
 	"git.untrackedChanges": "separate",
-	// Editor
-	"window.nativeTabs": true, // mac only
 	"workbench.editor.highlightModifiedTabs": true,
 	"editor.stickyScroll.enabled": true,
-	"editor.fontFamily": "'Fira Code'",
-	// "editor.fontFamily": "DankMono-Regular",
+	// "editor.fontFamily": "'Fira Code'",
+	"editor.fontFamily": "DankMono-Regular",
 	"editor.fontLigatures": true,
 	"editor.tabSize": 4,
 	"editor.minimap.enabled": false,
@@ -73,12 +71,6 @@
 	"workbench.iconTheme": "file-icons",
 	"git.openRepositoryInParentFolders": "never",
 	"liveServer.settings.donotShowInfoMsg": true,
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"console-ninja.featureSet": "Community",
 	"window.zoomLevel": 1,
-	"[jsonc]": {
-		"editor.defaultFormatter": "vscode.json-language-features"
-	},
 }
