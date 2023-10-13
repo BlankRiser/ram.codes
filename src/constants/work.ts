@@ -1,4 +1,4 @@
-import { Attri, CosmicZoom, Midas, Opspod, Potion } from '~/components/icons';
+import { Attri, Midas, Opspod, Potion } from '~/components/icons';
 import { ICONMAP } from './icon-map';
 import { cn } from '~/utils/text-transforms';
 
@@ -12,7 +12,6 @@ export const WORK = [
 		company: 'Attri.AI',
 		description: `Developing performant and Secure NextJs apps for fintech needs.`,
 		url: 'https://attri.ai/?ref=ram.codes',
-		logo: Attri,
 		image: '/images/work/attri.png',
 		technologies: [
 			'vite',
@@ -35,7 +34,6 @@ export const WORK = [
 		company: 'Midas Fintech Solutions Pvt Ltd',
 		description: `Developing performant and Secure NextJs apps for fintech needs.`,
 		url: 'https://midasfintechsolutions.com?=ram.codes',
-		logo: Midas,
 		image: '/images/work/midas.png',
 		technologies: [
 			'vite',
@@ -49,7 +47,7 @@ export const WORK = [
 			'zod',
 			'nginx',
 		] as Technologies[],
-		brandClasses: cn('bg-[#fff] border border-neutral-700 transition-shadow hover:shadow-midas'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow hover:shadow-midas'),
 	},
 	{
 		year: 2022,
@@ -58,7 +56,6 @@ export const WORK = [
 		company: 'Potion Inc',
 		description: `Developed an e-commerce platform to international customers.`,
 		url: 'https://potion-inc.io/?ref=ram.codes',
-		logo: Potion,
 		image: '/images/work/potion.png',
 		technologies: [
 			'framer-motion',
@@ -68,7 +65,7 @@ export const WORK = [
 			'zod',
 			'stripe',
 		] as Technologies[],
-		brandClasses: cn('bg-[#000000] border border-neutral-700 transition-shadow hover:shadow-midas'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
 	},
 	{
 		year: 2021,
@@ -77,8 +74,7 @@ export const WORK = [
 		company: 'CosmicZoom.in',
 		description: `Developed an e-commerce platform to international customers.`,
 		url: 'https://potion-inc.io/?ref=ram.codes',
-		logo: Opspod,
-				image: '/images/work/cosmic-zoom.png',
+		image: '/images/work/cosmic-zoom.png',
 		technologies: [
 			'framer-motion',
 			'next',
@@ -87,6 +83,6 @@ export const WORK = [
 			'zod',
 			'stripe',
 		] as Technologies[],
-		brandClasses: cn('bg-[#fff] border border-neutral-700 transition-shadow hover:shadow-midas'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
 	},
 ];
