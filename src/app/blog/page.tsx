@@ -18,6 +18,7 @@ export default async function BlogPage() {
           }
           return 1;
         })
+        .filter(item => !item.draft)
         .map((post) => (
           <Link
             key={post.slug}
