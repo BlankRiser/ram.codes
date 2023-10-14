@@ -35,18 +35,18 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
 					.map((post) => (
 						<Link
 							key={post.slug}
-							className='group mb-4 flex flex-col space-y-1'
+							className='group flex flex-col space-y-1 border-b-neutral-800'
 							href={`/blog/${post.slug}`}
 						>
 							<li className='flex w-full items-start justify-start gap-8 rounded-md p-4 group-hover:bg-neutral-900'>
-								<span className='py-1 font-jet-mono text-sm text-neutral-500'>
+								<span className='py-1 font-jet-mono text-sm text-neutral-500 group-hover:text-neutral-200'>
 									{post.publishedAt}
 								</span>
 								<div className='flex flex-col items-start gap-2'>
-									<p className='text-2xl font-semibold tracking-tight text-neutral-100'>
+									<p className='text-lg font-semibold tracking-tight text-neutral-300 group-hover:text-neutral-100 md:text-xl'>
 										<Balancer>{post.title}</Balancer>
 									</p>
-									<span className='font-generalSans text-neutral-400'>
+									<span className='font-generalSans text-sm text-neutral-400 md:text-base'>
 										<Balancer>{post.summary}</Balancer>
 									</span>
 								</div>
