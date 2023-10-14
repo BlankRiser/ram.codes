@@ -1,6 +1,7 @@
-import { Variants, motion, useAnimation, useInView, useScroll } from 'framer-motion';
+import { Variants, motion, useAnimation, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { ElementRef, useEffect, useRef } from 'react';
+import Balancer from 'react-wrap-balancer';
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip';
 import { ICONMAP } from '~/constants/icon-map';
 import { WORK } from '~/constants/work';
@@ -45,6 +46,8 @@ export const WorkCard: React.FC<Work> = ({
 			ref={ref}
 			variants={variants}
 			initial='hidden'
+			whileInView='visible'
+			viewport={{ once: true, amount: 0.8 }}
 			animate={controls}
 			className='border-t border-neutral-700'
 		>
@@ -80,11 +83,34 @@ export const WorkCard: React.FC<Work> = ({
 							fetchPriority='high'
 							src={image}
 							alt={company}
-							className='left-1/2 top-1/2 w-full object-contain'
+							className='pointer-events-none left-1/2 top-1/2 w-full select-none object-contain'
 						/>
 					</div>
 				</div>
 			</a>
 		</motion.div>
+	);
+};
+
+export const WorkHeader = () => {
+	return (
+		<motion.section
+			variants={variants}
+			initial='hidden'
+			whileInView='visible'
+			className='mx-auto my-24 flex w-full max-w-4xl flex-col items-center justify-center text-center'
+		>
+			<h1 className='bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-spaceGrotesk text-4xl font-bold leading-10 tracking-tight text-transparent md:text-7xl'>
+				Professional Experience
+			</h1>
+			<Balancer>
+				<p className='font-generalSans text-lg text-neutral-300'>
+					Welcome to my professional journey. Here, I&apos;ve curated a collection of the companies
+					I&apos;ve had the privilege to work with. Each experience has contributed to my growth,
+					expertise, and passion in Software Engineering. Take a glimpse into my career and the
+					valuable contributions I&apos;ve made to these organizations.
+				</p>
+			</Balancer>
+		</motion.section>
 	);
 };

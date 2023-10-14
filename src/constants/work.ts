@@ -4,7 +4,19 @@ import { cn } from '~/utils/text-transforms';
 
 type Technologies = keyof typeof ICONMAP;
 
-export const WORK = [
+type Work =  {
+    year: number;
+    role: string;
+    position: string;
+    company: string;
+    description: string;
+    url: string;
+    image: string;
+    technologies: Technologies[];
+    brandClasses: string;
+}
+
+export const WORK:Array<Work> = [
 	{
 		year: 2023,
 		role: 'Frontend Developer',
@@ -76,12 +88,27 @@ export const WORK = [
 		url: 'https://potion-inc.io/?ref=ram.codes',
 		image: '/images/work/cosmic-zoom.png',
 		technologies: [
-			'framer-motion',
-			'next',
+			'create-react-app',
 			'tailwind',
-			'typescript',
-			'zod',
-			'stripe',
+			'framer-motion',
+		] as Technologies[],
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
+	},
+	{
+		year: 2021,
+		role: 'Date Engineer',
+		position: 'FTE',
+		company: 'Nabler Web Solutions Pvt Ltd',
+		description: `Built ETL pipelines and dashboards using Amazon Quicksight`,
+		url: 'https://potion-inc.io/?ref=ram.codes',
+		image: '/images/work/nabler.png',
+		technologies: [
+			'python',
+			'aws',
+			'postgres-sql',
+			'simple storage service (s3)',
+			'elastic cloud compute (ec2)',
+			'nginx'
 		] as Technologies[],
 		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
 	},
