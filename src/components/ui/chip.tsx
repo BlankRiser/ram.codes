@@ -2,19 +2,16 @@ import { VariantProps, cva } from 'class-variance-authority'
 import { cn } from '~/utils/text-transforms'
 
 type Props = {
-  as?: React.ElementType
   children: React.ReactNode
   className?: string
 } & VariantProps<typeof ChipStyles>
 
-export const Chip: React.FC<Props> = ({ as = 'span', children, color, rounded, className = '' }) => {
-
-  const Component = as
+export const Chip: React.FC<Props> = ({  children, color, rounded, className = '' }) => {
 
   return (
-    <Component className={
+    <span className={
       cn(ChipStyles({ color, rounded, className }))
-    } >{children}</Component>
+    } >{children}</span>
   )
 }
 

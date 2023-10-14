@@ -100,7 +100,7 @@ export const WorkHeader = () => {
 			whileInView='visible'
 			className='mx-auto my-24 flex w-full max-w-4xl flex-col items-center justify-center text-center'
 		>
-			<h1 className='bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-spaceGrotesk text-4xl font-bold leading-10 tracking-tight text-transparent md:text-7xl'>
+			<h1 className='bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-jet-mono text-4xl font-bold leading-10 tracking-tight text-transparent md:text-5xl'>
 				Professional Experience
 			</h1>
 			<Balancer>
