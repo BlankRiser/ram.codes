@@ -57,7 +57,7 @@ export default async function Blog({ params }: any) {
 			/>
 
 			<div className='relative mb-8 mt-2 flex min-h-[400px] flex-col items-center justify-center gap-4 bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 text-sm'>
-				<h1 className='text-4xl font-bold tracking-tighter md:text-7xl'>
+				<h1 className='max-w-7xl bg-gradient-to-br from-neutral-400 via-neutral-800 via-30% to-neutral-900 bg-clip-text text-center font-spaceGrotesk text-4xl font-semibold tracking-wide md:text-4xl'>
 					<Balancer>{post.title}</Balancer>
 				</h1>
 				<p className='text-lg text-neutral-300'>
