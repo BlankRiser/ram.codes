@@ -49,15 +49,17 @@ export const WorkCard: React.FC<Work> = ({
 			whileInView='visible'
 			viewport={{ once: true, amount: 0.8 }}
 			animate={controls}
-			className='border-t border-neutral-700'
+			className='border-t border-neutral-700 px-2 md:px-4'
 		>
-			<div className='grid w-full grid-cols-3 justify-between py-8'>
-				<div className='flex items-start gap-4'>
+			<div className='grid w-full grid-cols-1 justify-between gap-y-8 py-8 md:grid-cols-3'>
+				<div className='flex flex-col items-center gap-2 md:flex-row md:items-start md:gap-4'>
 					<span className='text-sm text-neutral-500'>{year}</span>
 					<span className='font-spaceGrotesk text-3xl font-semibold text-neutral-300'>{role}</span>
 				</div>
-				<p className='max-w-[40ch] font-spaceGrotesk text-lg text-neutral-300'>{description}</p>
-				<div className='ml-auto flex max-w-[14rem] flex-wrap items-start justify-end gap-4'>
+				<p className='max-w-[40ch] text-center font-spaceGrotesk text-lg text-neutral-300 md:text-left'>
+					{description}
+				</p>
+				<div className='mx-auto flex max-w-[14rem] flex-wrap items-center justify-center gap-4 md:ml-auto md:items-start md:justify-end'>
 					{technologies.map((item) => {
 						return (
 							<Tooltip key={item}>
@@ -73,11 +75,11 @@ export const WorkCard: React.FC<Work> = ({
 			<a href={url} target='_blank' rel='noreferrer noopener'>
 				<div
 					className={cn(
-						'grid min-h-[600px] w-full place-items-center rounded-[6rem]',
+						'grid  min-h-[200px] md:min-h-[600px] w-full place-items-center rounded-[2rem] md:rounded-[6rem]',
 						brandClasses,
 					)}
 				>
-					<div className='relative h-full w-[600px]'>
+					<div className='relative h-full w-[200px] md:w-[500px]'>
 						<Image
 							fill={true}
 							fetchPriority='high'

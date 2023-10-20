@@ -91,6 +91,10 @@ export const WORK:Array<Work> = [
 			'create-react-app',
 			'tailwind',
 			'framer-motion',
+			'nginx',
+			"google-drive-api"
+
+
 		] as Technologies[],
 		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
 	},
@@ -108,7 +112,7 @@ export const WORK:Array<Work> = [
 			'postgres-sql',
 			'simple storage service (s3)',
 			'elastic cloud compute (ec2)',
-			'nginx'
+			'nginx',
 		] as Technologies[],
 		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
 	},
