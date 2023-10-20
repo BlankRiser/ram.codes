@@ -1,0 +1,41 @@
+{
+	"React FC (TS)": {
+		"prefix": "fcp",
+		"body": [
+			"type ${TM_FILENAME_BASE}Props = {",
+			"  $1",
+			"}",
+			"",
+			"export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+			"  return <div>$TM_FILENAME_BASE</div>",
+			"}",
+			""
+		],
+		"description": "Typescript React Function Component for a page with props"
+	},
+	"React FC": {
+		"prefix": "fc",
+		"body": ["const $1 = ({$2}) => {", "  return <div>$3</div>", "}", ""],
+		"description": "Typescript React Function Component for a page with props"
+	},
+	"React useState": {
+		"prefix": "us",
+		"body": ["const [$1, set$2] = useState($3);"],
+		"description": "React useState Hook"
+	},
+	"React useEffect": {
+		"prefix": "ue",
+		"body": ["useEffect(()=>{", "$1", "},[$2])"],
+		"description": "React UseEffect Hook"
+	},
+	"React useCallback": {
+		"prefix": "ucb",
+		"body": ["useCallback(()=>{", "$1", "},[$2])"],
+		"description": "React UseCallback Hook"
+	},
+	"React useMemo": {
+		"prefix": "um",
+		"body": ["useMemo(()=>{", "$1", "},[$2])"],
+		"description": "React UseMemo Hook"
+	}
+}
