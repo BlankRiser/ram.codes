@@ -1,24 +1,36 @@
-'use client';
+import { Metadata } from 'next';
+import { NavbarOffset } from '~/components/layouts';
+import { WorkCard, WorkHeader } from '~/components/pages/work';
+import { WORK } from '~/constants/work';
 
-import { motion } from 'framer-motion'
-import { Midas } from '~/components/icons';
-
-
+export const metadata: Metadata = {
+	title: 'work',
+	description: 'Read my thoughts on software development, design, and more.',
+};
 
 export default function Page() {
-  return (
-    <div className='max-w-7xl h-screen mx-auto'>
-      <motion.div className={`h-1/2 w-full my-8`}>
-        <Card />
-      </motion.div>
-    </div>
-  );
-}
-
-
-
-function Card() {
-  return <motion.div className={`rounded-2xl hover:border grid place-items-center hover:border-midas-primary/25 w-[300px] h-[300px] hover:shadow-midas bg-neutral-900/50 transition-shadow ease-in-out duration-200`}>
-    <Midas className='w-1/2 h-1/2' />
-  </motion.div >
+	return (
+		<div className='mx-auto max-w-7xl '>
+			<NavbarOffset className='h-28 ' />
+			<WorkHeader />
+			<section className='flex flex-col gap-16 md:gap-32'>
+				{WORK.map((item, index) => {
+					return (
+						<WorkCard
+							key={index}
+							brandClasses={item.brandClasses}
+							year={item.year}
+							role={item.role}
+							description={item.description}
+							url={item.url}
+							technologies={item.technologies}
+							company={item.company}
+							image={item.image}
+							position={item.position}
+						/>
+					);
+				})}
+			</section>
+		</div>
+	);
 }

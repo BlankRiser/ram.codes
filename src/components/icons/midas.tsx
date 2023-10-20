@@ -1,17 +1,17 @@
 import * as React from "react"
-import { SVGProps, memo } from "react"
+import { SVGProps } from "react"
 
 
-const MidasIcon = (props: SVGProps<SVGSVGElement>) => (
+export const Midas = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 300 96"
     width={300}
     height={96}
-    fill="none"
+    fill="#fff"
     {...props}
   >
-    <g fill="#fff" clipPath="url(#a)">
+    <g fill="currentColor">
       <path
         fillRule="evenodd"
         d="M71.287 0H48.041v44.548h23.246V0Zm0 50.488H48.041v44.547h23.246V50.489Zm-30.994-5.94V15.839H21.696v28.709h18.597Zm-18.597 5.94h18.597v28.708H21.696V50.488Zm-7.749-5.94v-12.87H0v12.87h13.947ZM0 50.488v12.869h13.947v-12.87H0Z"
@@ -21,9 +21,9 @@ const MidasIcon = (props: SVGProps<SVGSVGElement>) => (
     </g>
     <defs>
       <clipPath id="a">
-        <path fill="#fff" d="M0 0h300v95.035H0z" />
+        <path fill="currentColor" d="M0 0h300v95.035H0z" />
       </clipPath>
     </defs>
   </svg>
 )
-export const Midas = memo(MidasIcon)
+

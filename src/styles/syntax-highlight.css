@@ -1,0 +1,57 @@
+/* Code Block Container */
+
+div[data-rehype-pretty-code-fragment] {
+	@apply overflow-hidden bg-neutral-950 rounded-md;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+	@apply !bg-neutral-900 rounded-t-none;
+	overflow-x: auto;
+	font-size: 0.875rem;
+	line-height: 1.5rem;
+}
+
+/* Code Block Title */
+div[data-rehype-pretty-code-title] {
+	@apply bg-neutral-900 px-3 py-1 text-neutral-400 outline outline-1 outline-neutral-700;
+}
+
+/* Code Block Lines and highlighted background of lines */
+
+div[data-rehype-pretty-code-fragment] .line {
+	padding-left: 0.5rem;
+	padding-right: 0.75rem;
+	border-left-width: 4px;
+	border-left-color: transparent;
+}
+
+div[data-rehype-pretty-code-fragment] .line--highlighted {
+	border-left-color: rgb(253 164 175 / 0.7);
+	background-color: rgb(254 205 211 / 0.4);
+}
+
+/* Code Block Line numbers */
+
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+	counter-increment: line;
+	content: counter(line);
+	display: inline-block;
+	width: 1rem;
+	margin-right: 1rem;
+	text-align: right;
+	color: gray;
+}
+
+/* code[data-line-numbers] {
+	counter-reset: lineNumber;
+}
+
+code[data-line-numbers] .line::before {
+	counter-increment: lineNumber;
+	content: counter(lineNumber);
+	display: inline-block;
+	text-align: right;
+	margin-right: 0.75rem;
+	width: 1rem;
+	color: rgb(255 255 255 / 0.2);
+} */

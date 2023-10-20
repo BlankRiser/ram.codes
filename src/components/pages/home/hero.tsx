@@ -8,20 +8,17 @@ type Props = {};
 
 export default function Hero({ }: Props) {
   return (
-    <section className="h-[calc(100vh-56px)] relative flex justify-center items-center flex-col">
+    <section className="relative flex h-[calc(100vh-56px)] flex-col items-center justify-center">
       <Particles className="absolute inset-0 -z-10 " quantity={100} />
       <RevealCharacter
-        className="text-5xl  md:text-7xl lg:text-8xl font-medium py-4 leading-[0.5]"
+        className="pointer-events-none select-none py-4 font-spaceGrotesk text-5xl font-medium leading-[0.5] md:text-7xl lg:text-8xl"
         color={"#000"}
-        style={{
-          fontFamily: spaceGrotesk.style.fontFamily,
-        }}
         text={"Ram Shankar Choudhary"}
         type="h1"
       />
       <FadeInText
-        text={"A CREATIVE DEVELOPER"}
-        className={`${generalSans.className} font-light text-2xl `}
+        text={"SOFTWAR ENGINEER"}
+        className={`pointer-events-none select-none font-generalSans text-2xl font-light tracking-widest `}
       />
     </section>
   );
