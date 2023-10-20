@@ -5,6 +5,25 @@ const nextConfig = {
   images:{
     domains: ['images.unsplash.com', 'unsplash.it']
   },
+   async redirects() {
+    return [
+      {
+        source: "/twitter",
+        destination: "https://twitter.com/rschoudhary1999",
+        permanent: true,
+      },
+      {
+        source: "/github",
+        destination: "https://github.com/BlankRiser/",
+        permanent: true,
+      },
+      {
+        source: "/linkedin",
+        destination: "https://linkedin.com/in/ram-shankar-choudhary",
+        permanent: true,
+      },
+    ];
+  },
   headers() {
     return [
       {

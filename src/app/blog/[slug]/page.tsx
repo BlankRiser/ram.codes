@@ -63,12 +63,31 @@ export default async function Blog({ params }: any) {
 				<p className='text-lg text-neutral-300'>
 					<Balancer>{post.summary}</Balancer>
 				</p>
-				<p className='text-sm text-neutral-400'>
-					{formatDate(post.publishedAt)}
-				</p>
+				<p className='text-sm text-neutral-400'>{formatDate(post.publishedAt)}</p>
 			</div>
-			<div className='mx-auto w-full max-w-4xl'>
-				<Markdown code={post.body.code} />
+			<div className='relative w-full'>
+				<div className='mx-auto w-full max-w-3xl'>
+					<Markdown code={post.body.code} />
+				</div>
+				<aside className='fixed right-24 top-[25vh] hidden text-neutral-500 opacity-40 hover:opacity-100 md:block'>
+					{post.toc &&
+						post.headings.map((heading: (typeof post.headings)[number]) => {
+							return (
+								<div
+									key={`#${heading.slug}`}
+									className='mb-1 max-w-[25ch] overflow-hidden truncate'
+								>
+									<a
+										data-level={heading.level}
+										href={`#${heading.slug}`}
+										className=' hover:text-primary data-[level=three]:pl-4 data-[level=two]:pl-2'
+									>
+										{heading.text}
+									</a>
+								</div>
+							);
+						})}
+				</aside>
 			</div>
 		</section>
 	);

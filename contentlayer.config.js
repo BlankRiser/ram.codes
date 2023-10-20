@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import GithubSlugger from 'github-slugger';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -26,6 +28,23 @@ const computedFields = {
 			},
 		}),
 	},
+	headings: {
+		type: 'json',
+		resolve: async (doc) => {
+			const regXHeader = /\n(?<flag>#{1,6})\s+(?<content>.+)/g;
+			const slugger = new GithubSlugger();
+			const headings = Array.from(doc.body.raw.matchAll(regXHeader)).map(({ groups }) => {
+				const flag = groups?.flag;
+				const content = groups?.content;
+				return {
+					level: flag?.length == 1 ? 'one' : flag?.length == 2 ? 'two' : 'three',
+					text: content,
+					slug: content ? slugger.slug(content) : undefined,
+				};
+			});
+			return headings;
+		},
+	},
 };
 
 export const Blog = defineDocumentType(() => ({
@@ -51,6 +70,12 @@ export const Blog = defineDocumentType(() => ({
 		draft: {
 			type: 'boolean',
 			required: true,
+			default: true
+		},
+		toc: {
+			type: 'boolean',
+			required: false,
+			default: false,
 		},
 	},
 	computedFields,
@@ -80,7 +105,7 @@ export default makeSource({
 	contentDirPath: 'blog',
 	documentTypes: [Blog],
 	mdx: {
-		rehypePlugins: [rehypeSyntaxHighlight],
+		rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
 	},
 });
 
