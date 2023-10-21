@@ -1,12 +1,8 @@
-import { Metadata } from 'next';
+'use client';
+
 import { NavbarOffset } from '~/components/layouts';
 import { WorkCard, WorkHeader } from '~/components/pages/work';
 import { WORK } from '~/constants/work';
-
-export const metadata: Metadata = {
-	title: 'work',
-	description: 'Read my thoughts on software development, design, and more.',
-};
 
 export default function Page() {
 	return (

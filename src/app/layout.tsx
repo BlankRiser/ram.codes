@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { Global, Navbar, NavbarOffset } from '~/components/layouts';
 import { Analytics } from '~/components/layouts/analytics';
 import { ScrollToTop } from '~/components/shared';
+import { CommandBar } from '~/components/shared/command-bar';
 import { TooltipProvider } from '~/components/ui/tooltip';
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
 
@@ -44,25 +45,24 @@ export const metadata = {
 	},
 };
 
-const extraFonts = [
-	generalSans.variable, jetBrainsMono.variable, spaceGrotesk.variable
-]
+const extraFonts = [generalSans.variable, jetBrainsMono.variable, spaceGrotesk.variable];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<TooltipProvider>
-		<html lang='en' className={`${inter.className} ${extraFonts.join(' ')}`}>
-			<head>
-				<Analytics />
-			</head>
-			<body className={`relative bg-stone-950 `}>
-				<Navbar />
-				<NavbarOffset />
-				<Global>{children}</Global>
-				<ScrollToTop />
-				{/* <Footer /> */}
-			</body>
-		</html>
+			<html lang='en' className={`${inter.className} ${extraFonts.join(' ')}`}>
+				<head>
+					<Analytics />
+				</head>
+				<body className={`relative bg-stone-950 `}>
+					<Navbar />
+					<NavbarOffset />
+					<Global>{children}</Global>
+					<ScrollToTop />
+					<CommandBar />
+					{/* <Footer /> */}
+				</body>
+			</html>
 		</TooltipProvider>
 	);
 }
