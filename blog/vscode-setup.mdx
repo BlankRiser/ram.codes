@@ -6,3 +6,101 @@ image: '/images/blog/workstation.jpeg'
 draft: true
 toc: false
 ---
+
+My VSCode settings have changed over the years. After using multiple extensions and copying various config from other developers, I am currently comfortable with how VSCode is now.
+
+## Extensions
+
+### Visuals
+
+| Name                 | Description                                                 | Link                                                                                         |
+| -------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Catppuccin           | 🦌 Soothing pastel theme for VSCode                         | [Get it here](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc) |
+| Carbon Product Icons | It lets you configure the icons of VS Code                  | [Get it here](https://marketplace.visualstudio.com/items?itemName=antfu.icons-carbon)        |
+| file-icons           | File-specific icons in VSCode for improved visual grepping. | [Get it here](https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons)     |
+
+### Quality of Life
+
+| Name                          | Description                                                                            | Link                                                                                                     |
+| ----------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Color Highlight               | Highlight web colors in your editor                                                    | [Get it here](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)               |
+| Better Comments               | Improve your code commenting by annotating with alert, informational, TODOs, and more! | [Get it here](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)            |
+| GitLens                       | Supercharge Git within VS Code                                                         | [Get it here](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)                       |
+| Multiple cursor case preserve | Preserves case when editing with multiple cursors                                      | [Get it here](https://marketplace.visualstudio.com/items?itemName=Cardinal90.multi-cursor-case-preserve) |
+| Better Comments               | Improve your code commenting by annotating with alert, informational, TODOs, and more! | [Get it here](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)            |
+| Thunder Client                | Lightweight Rest API Client for VS Code                                                | [Get it here](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)          |
+
+```jsonc
+// extensions.json
+{
+	"recommendations": [
+		"formulahendry.auto-rename-tag",
+		"antfu.icons-carbon",
+		"catppuccin.catppuccin-vsc",
+		"naumovs.color-highlight",
+		"dsznajder.es7-react-js-snippets",
+		"dbaeumer.vscode-eslint",
+		"file-icons.file-icons",
+		"eamodio.gitlens",
+		"esbenp.prettier-vscode",
+		"bradlc.vscode-tailwindcss"
+	]
+}
+```
+
+## Code Snippets
+
+Code snippet I primarily use in `react` projects:
+
+```jsonc
+// react.code-snippets
+{
+	"React FC (TS)": {
+		"prefix": "fcp",
+		"body": [
+			"type ${TM_FILENAME_BASE}Props = {",
+			"  $1",
+			"}",
+			"",
+			"export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+			"  return <div>$TM_FILENAME_BASE</div>",
+			"}",
+			""
+		],
+		"description": "Typescript React Function Component for a page with props"
+	},
+	"React FC": {
+		"prefix": "fc",
+		"body": ["const $1 = ({$2}) => {", "  return <div>$3</div>", "}", ""],
+		"description": "Typescript React Function Component for a page with props"
+	},
+	"React useState": {
+		"prefix": "us",
+		"body": ["const [$1, set$2] = useState($3);"],
+		"description": "React useState Hook"
+	},
+	"React useEffect": {
+		"prefix": "ue",
+		"body": ["useEffect(()=>{", "$1", "},[$2])"],
+		"description": "React UseEffect Hook"
+	},
+	"React useCallback": {
+		"prefix": "ucb",
+		"body": ["useCallback(()=>{", "$1", "},[$2])"],
+		"description": "React UseCallback Hook"
+	},
+	"React useMemo": {
+		"prefix": "um",
+		"body": ["useMemo(()=>{", "$1", "},[$2])"],
+		"description": "React UseMemo Hook"
+	}
+}
+```
+
+## Extras
+
+You can never select a work `that_has_a_underscore` as a seperator, but after adding the below config, you can:
+
+```json
+"editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_"
+```

@@ -38,8 +38,7 @@ export const Navbar = () => {
 										href={value}
 										className={cn(
 											'relative block z-10 hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400',
-											pathname.startsWith(value) &&
-												'outline-dashed outline-1 outline-neutral-700 text-neutral-200',
+											pathname.startsWith(value) && 'outline-dashed outline-1 outline-neutral-700 text-neutral-200',
 											'transition-colors duration-150 ease-in-out',
 										)}
 									>
@@ -69,5 +68,5 @@ export const Navbar = () => {
 
 // mt-14 is used to offset the height of navbar
 export const NavbarOffset = ({ className }: { className?: string }) => (
-	<div className={cn(className ? className : 'mt-14')} />
+	<div className={cn(className ? className : 'mt-16')} />
 );

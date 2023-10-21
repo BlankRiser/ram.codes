@@ -1,16 +1,21 @@
 import { allBlogs } from 'contentlayer/generated';
+import { Metadata, ResolvingMetadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-
-import { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
 import { Markdown } from '~/components/mdx/markdown';
 import { formatDate } from '~/utils/date-utils';
-import Image from 'next/image';
 
-export async function generateMetadata({ params }: any): Promise<Metadata | undefined> {
+type Props = {
+	params: { slug: string };
+	searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
+export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
 	const post = allBlogs.find((post) => post.slug === params.slug);
 	if (!post) {
-		return;
+		return {};
 	}
 
 	const { title, publishedAt: publishedTime, summary: description, image, slug } = post;
@@ -40,7 +45,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata | unde
 	};
 }
 
-export default async function Blog({ params }: any) {
+export default async function Blog({ params }: Props) {
 	const post = allBlogs.find((post) => post.slug === params.slug);
 
 	if (!post) {
@@ -65,7 +70,7 @@ export default async function Blog({ params }: any) {
 					<Balancer>{post.summary}</Balancer>
 				</p>
 				<p className='z-10 text-sm text-neutral-400'>{formatDate(post.publishedAt)}</p>
-				{post.image && <Image src={post.image} alt={post.title} layout='fill' className='object-cover' />}
+				{/* {post.image && <Image src={post.image} alt={post.title} layout='fill' className='object-cover' />} */}
 			</div>
 			<div className='relative w-full'>
 				<div className='mx-auto w-full max-w-3xl'>

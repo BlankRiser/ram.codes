@@ -4,7 +4,7 @@ import { NavbarOffset } from '~/components/layouts';
 import { WorkCard, WorkHeader } from '~/components/pages/work';
 import { WORK } from '~/constants/work';
 
-export default function Page() {
+export default function WorkPage() {
 	return (
 		<div className='mx-auto max-w-7xl '>
 			<NavbarOffset className='h-28 ' />
