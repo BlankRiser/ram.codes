@@ -37,7 +37,7 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
 						}
 						return 1;
 					})
-					.filter((item) => !item.draft)
+					.filter((item) => (process.env.NODE_ENV === 'production' ? !item.draft : true))
 					.map((post) => (
 						<Link
 							key={post.slug}
