@@ -1,9 +1,9 @@
 import { allBlogs } from 'contentlayer/generated';
 import { Metadata, ResolvingMetadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 import { Markdown } from '~/components/mdx/markdown';
+import { BASE_URL } from '~/constants/links';
 import { formatDate } from '~/utils/date-utils';
 
 type Props = {
@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 	}
 
 	const { title, publishedAt: publishedTime, summary: description, image, slug } = post;
-	const ogImage = image ? `https://v2.ram.codes${image}` : `https://v2.ram.codes/og?title=${title}`;
+	const ogImage = image ? `${BASE_URL}${image}` : `${BASE_URL}/og?title=${title}`;
 
 	return {
 		title,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 			description,
 			type: 'article',
 			publishedTime,
-			url: `https://v2.ram.codes/blog/${slug}`,
+			url: `${BASE_URL}/blog/${slug}`,
 			images: [
 				{
 					url: ogImage,
@@ -70,6 +70,7 @@ export default async function Blog({ params }: Props) {
 					<Balancer>{post.summary}</Balancer>
 				</p>
 				<p className='z-10 text-sm text-neutral-400'>{formatDate(post.publishedAt)}</p>
+				<p className='z-10 text-sm text-neutral-400'>{post.readingTime.text}</p>
 				{/* {post.image && <Image src={post.image} alt={post.title} layout='fill' className='object-cover' />} */}
 			</div>
 			<div className='relative w-full'>

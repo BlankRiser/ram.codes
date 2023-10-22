@@ -2,6 +2,8 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import GithubSlugger from 'github-slugger';
+import readingTime from 'reading-time';
+import { BASE_URL } from '~/constants/links';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -19,9 +21,9 @@ const computedFields = {
 			dateModified: doc.publishedAt,
 			description: doc.summary,
 			image: doc.image
-				? `https://v2.ram.codes${doc.image}`
-				: `https://v2.ram.codes/og?title=${doc.title}`,
-			url: `https://v2.ram.codes/blog/${doc._raw.flattenedPath}`,
+				? `${BASE_URL}${doc.image}`
+				: `${BASE_URL}/og?title=${doc.title}`,
+			url: `${BASE_URL}/blog/${doc._raw.flattenedPath}`,
 			author: {
 				'@type': 'Person',
 				name: 'Ram Shankar Choudhary',
@@ -45,6 +47,11 @@ const computedFields = {
 			return headings;
 		},
 	},
+	readingTime: {
+      type: 'json',
+      resolve: (doc) => readingTime(doc.body.raw)
+    },
+
 };
 
 export const Blog = defineDocumentType(() => ({

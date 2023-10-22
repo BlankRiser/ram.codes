@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import '../styles/global.css';
 
 import { Global, Navbar, NavbarOffset } from '~/components/layouts';
@@ -6,18 +7,19 @@ import { ScrollToTop } from '~/components/shared';
 import { CommandBar } from '~/components/shared/command-bar';
 import { TooltipProvider } from '~/components/ui/tooltip';
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
+import { BASE_URL } from '~/constants/links';
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: 'ram.codes',
 	description: 'Portfolio of Ram Shankar',
 	openGraph: {
 		title: 'ram.codes',
 		description: 'Portfolio of Ram Shankar',
-		url: 'https://ram.codes',
+		url: BASE_URL,
 		siteName: 'ram.codes',
 		images: [
 			{
-				url: 'https://ram.codes/og.png',
+				url: `${BASE_URL}/og.png`,
 				width: 1920,
 				height: 1080,
 			},
