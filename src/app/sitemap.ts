@@ -9,6 +9,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		changeFrequency: 'yearly',
 		priority: 1,
 	}));
-    
-	return [...blogPosts];
+
+	const staticPages: MetadataRoute.Sitemap = [
+		{
+			url: BASE_URL,
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+		{
+			url: BASE_URL + '/blog',
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+		{
+			url: BASE_URL + '/work',
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+		{
+			url: BASE_URL + '/uses',
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+		{
+			url: BASE_URL + '/projects',
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+		{
+			url: BASE_URL + '/snippets',
+			lastModified: new Date(),
+			changeFrequency: 'yearly',
+			priority: 1,
+		},
+	];
+
+	return [...staticPages,...blogPosts];
 }
