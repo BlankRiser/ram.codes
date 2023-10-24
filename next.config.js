@@ -22,6 +22,16 @@ const nextConfig = {
         destination: "https://linkedin.com/in/ram-shankar-choudhary",
         permanent: true,
       },
+      {
+				source: '/svgr',
+				destination: 'https://react-svgr.com/playground/?memo=true&typescript=true',
+				permanent: true,
+			},
+			{
+				source: '/peerlist',
+				destination: 'https://peerlist.io/ramshankar',
+				permanent: true,
+			},
     ];
   },
   headers() {

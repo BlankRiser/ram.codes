@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>ram.codes</title>
+        <link>https://ram.codes</link>
+        <description>Personal website of Ram Shankar</description>
+        <lastBuildDate>Tue, 24 Oct 2023 06:42:53 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <copyright>All rights reserved 2023, Ram Shankar Choudhary</copyright>
+        <item>
+            <title><![CDATA[React Hooks]]></title>
+            <link>https://ram.codes/blog/react-hooks</link>
+            <guid>https://ram.codes/blog/react-hooks</guid>
+            <description><![CDATA[Syntax of native hooks and useful custom hooks]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Uses]]></title>
+            <link>https://ram.codes/blog/uses</link>
+            <guid>https://ram.codes/blog/uses</guid>
+            <description><![CDATA[All the stuff i use in a daily basis]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+    </channel>
+</rss>

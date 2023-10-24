@@ -7,3 +7,5 @@ export const LINKS = {
 	// RESUME: '/resume',
 	// USES: '/uses',
 };
+
+export const BASE_URL = 'https://ram.codes'

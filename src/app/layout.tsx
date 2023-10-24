@@ -44,25 +44,24 @@ export const metadata = {
 	},
 };
 
-const extraFonts = [
-	generalSans.variable, jetBrainsMono.variable, spaceGrotesk.variable
-]
+const extraFonts = [generalSans.variable, jetBrainsMono.variable, spaceGrotesk.variable];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<TooltipProvider>
-		<html lang='en' className={`${inter.className} ${extraFonts.join(' ')}`}>
-			<head>
-				<Analytics />
-			</head>
-			<body className={`relative bg-stone-950 `}>
-				<Navbar />
-				<NavbarOffset />
-				<Global>{children}</Global>
-				<ScrollToTop />
-				{/* <Footer /> */}
-			</body>
-		</html>
+			<html lang='en' className={`${inter.className} ${extraFonts.join(' ')}`}>
+				<head>
+					<Analytics />
+					<link rel='alternate' type='application/rss+xml' title='ram.codes rss feed' href='/rss.xml' />
+				</head>
+				<body className={`relative bg-stone-950 `}>
+					<Navbar />
+					<NavbarOffset />
+					<Global>{children}</Global>
+					<ScrollToTop />
+					{/* <Footer /> */}
+				</body>
+			</html>
 		</TooltipProvider>
 	);
 }
