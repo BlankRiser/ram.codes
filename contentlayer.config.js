@@ -49,7 +49,8 @@ const computedFields = {
 
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
-	filePathPattern: `**/*.mdx`,
+	 filePathPattern: 'blog/**/*.mdx',
+	// filePathPattern: `**/*.mdx`,
 	contentType: 'mdx',
 	fields: {
 		title: {
@@ -102,9 +103,10 @@ const rehypeSyntaxHighlight = [
 ];
 
 export default makeSource({
-	contentDirPath: 'blog',
+	contentDirPath: 'content',
 	documentTypes: [Blog],
 	mdx: {
+		cwd: process.cwd(),
 		rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
 	},
 });

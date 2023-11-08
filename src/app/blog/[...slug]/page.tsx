@@ -39,8 +39,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata | unde
 	};
 }
 
-export default async function Blog({ params }: any) {
-	const post = allBlogs.find((post) => post.slug === params.slug);
+export default async function Blog({ params }: { params: { slug: string[] } }) {
+	const slug = decodeURI(params.slug.join('/'));
+	const post = allBlogs.find((post) => post.slug === slug);
 
 	if (!post) {
 		notFound();
@@ -73,10 +74,7 @@ export default async function Blog({ params }: any) {
 					{post.toc &&
 						post.headings.map((heading: (typeof post.headings)[number]) => {
 							return (
-								<div
-									key={`#${heading.slug}`}
-									className='mb-1 max-w-[25ch] overflow-hidden truncate'
-								>
+								<div key={`#${heading.slug}`} className='mb-1 max-w-[25ch] overflow-hidden truncate'>
 									<a
 										data-level={heading.level}
 										href={`#${heading.slug}`}
