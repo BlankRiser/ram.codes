@@ -7,7 +7,15 @@ import GithubSlugger from 'github-slugger';
 const computedFields = {
 	slug: {
 		type: 'string',
+		resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+	},
+	path: {
+		type: 'string',
 		resolve: (doc) => doc._raw.flattenedPath,
+	},
+	filePath: {
+		type: 'string',
+		resolve: (doc) => doc._raw.sourceFilePath,
 	},
 	structuredData: {
 		type: 'object',
@@ -18,9 +26,7 @@ const computedFields = {
 			datePublished: doc.publishedAt,
 			dateModified: doc.publishedAt,
 			description: doc.summary,
-			image: doc.image
-				? `https://v2.ram.codes${doc.image}`
-				: `https://v2.ram.codes/og?title=${doc.title}`,
+			image: doc.image ? `https://v2.ram.codes${doc.image}` : `https://v2.ram.codes/og?title=${doc.title}`,
 			url: `https://v2.ram.codes/blog/${doc._raw.flattenedPath}`,
 			author: {
 				'@type': 'Person',
@@ -49,7 +55,7 @@ const computedFields = {
 
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
-	filePathPattern: `**/*.mdx`,
+	filePathPattern: 'blog/**/*.mdx',
 	contentType: 'mdx',
 	fields: {
 		title: {
@@ -70,7 +76,40 @@ export const Blog = defineDocumentType(() => ({
 		draft: {
 			type: 'boolean',
 			required: true,
-			default: true
+			default: true,
+		},
+		toc: {
+			type: 'boolean',
+			required: false,
+			default: false,
+		},
+	},
+	computedFields,
+}));
+export const Snippets = defineDocumentType(() => ({
+	name: 'Snippets',
+	filePathPattern: 'snippets/**/*.mdx',
+	contentType: 'mdx',
+	fields: {
+		title: {
+			type: 'string',
+			required: true,
+		},
+		publishedAt: {
+			type: 'string',
+			required: true,
+		},
+		summary: {
+			type: 'string',
+			required: true,
+		},
+		image: {
+			type: 'string',
+		},
+		draft: {
+			type: 'boolean',
+			required: true,
+			default: true,
 		},
 		toc: {
 			type: 'boolean',
@@ -102,9 +141,10 @@ const rehypeSyntaxHighlight = [
 ];
 
 export default makeSource({
-	contentDirPath: 'blog',
-	documentTypes: [Blog],
+	contentDirPath: 'content',
+	documentTypes: [Blog, Snippets],
 	mdx: {
+		cwd: process.cwd(),
 		rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
 	},
 });
