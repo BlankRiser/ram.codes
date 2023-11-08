@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Balancer from "react-wrap-balancer";
 import { Markdown } from "~/components/mdx/markdown";
 import { formatDate } from "~/utils/date-utils";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -67,16 +68,15 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
         }}
       />
 
-      <div className="relative mb-8 mt-2 flex min-h-[400px] flex-col items-center justify-center gap-4 bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 text-sm">
-        <h1 className="max-w-7xl bg-gradient-to-br from-neutral-400 via-neutral-800 via-30% to-neutral-900 bg-clip-text text-center font-space-grotesk text-4xl font-semibold tracking-wide md:text-4xl">
+      <div className="relative mx-auto max-w-3xl flex-col items-center justify-center gap-4 bg-gradient-to-b py-8 text-sm">
+        <Link href={"/snippets"}>
+          <span className="block max-w-fit font-generalSans text-sm italic text-neutral-400 hover:bg-devhaven-500 hover:text-black">
+            Snippet
+          </span>
+        </Link>
+        <h1 className="max-w-7xl bg-gradient-to-br from-neutral-400 via-neutral-800 via-30% to-neutral-900 bg-clip-text text-left font-space-grotesk text-4xl font-semibold tracking-wide md:text-4xl">
           <Balancer>{snippet.title}</Balancer>
         </h1>
-        <p className="text-lg text-neutral-300">
-          <Balancer>{snippet.summary}</Balancer>
-        </p>
-        <p className="text-sm text-neutral-400">
-          {formatDate(snippet.publishedAt)}
-        </p>
       </div>
       <div className="relative w-full">
         <div className="mx-auto w-full max-w-3xl">
