@@ -23,7 +23,11 @@ module.exports = {
       },
       boxShadow: {
         midas: '0px 0px 50px 5px rgba(15, 98, 254, 0.2)',
-        attri: '0px 0px 50px 5px rgba(0, 0, 0, 0.2)',
+        attri: '0px 0px 50px 5px rgba(255, 255, 255, 0.2)',
+        potion: '0px 0px 50px 5px rgba(192, 236, 246, 0.2)',
+        "cosmic-zoom": '0px 0px 50px 5px rgba(255, 255, 255, 0.2)',
+        nabler: '0px 0px 50px 5px rgba(229, 53, 46, 0.2)',
+
       },
       colors: {
         primary: '#34d572',

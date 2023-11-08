@@ -77,7 +77,7 @@ export const WORK:Array<Work> = [
 			'zod',
 			'stripe',
 		] as Technologies[],
-		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow hover:shadow-potion'),
 	},
 	{
 		year: 2021,
@@ -96,7 +96,7 @@ export const WORK:Array<Work> = [
 
 
 		] as Technologies[],
-		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow hover:shadow-cosmic-zoom'),
 	},
 	{
 		year: 2021,
@@ -114,6 +114,6 @@ export const WORK:Array<Work> = [
 			'elastic cloud compute (ec2)',
 			'nginx',
 		] as Technologies[],
-		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow'),
+		brandClasses: cn('bg-[#000] border border-neutral-700 transition-shadow hover:shadow-nabler'),
 	},
 ];

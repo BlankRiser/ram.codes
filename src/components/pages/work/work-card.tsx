@@ -68,7 +68,7 @@ export const WorkCard: React.FC<Work> = ({
         <div className="mx-auto flex max-w-[14rem] flex-wrap items-center justify-center gap-4 md:ml-auto md:items-start md:justify-end">
           {technologies.map((item) => {
             return (
-              <Tooltip key={item}>
+              <Tooltip key={item} delayDuration={0}>
                 <TooltipTrigger asChild>
                   {ICONMAP[item as keyof typeof ICONMAP]}
                 </TooltipTrigger>

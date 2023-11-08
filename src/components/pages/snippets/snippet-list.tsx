@@ -24,7 +24,7 @@ export const SnippetsList: React.FC<Props> = ({ allSnippets }) => {
     <div className="flex max-w-2xl flex-col gap-4 ">
       <Input
         type="text"
-        placeholder="Search all the articles..."
+        placeholder="Search all the snippets..."
         name=""
         id=""
         onChange={(e) => setSearch(e.target.value)}
