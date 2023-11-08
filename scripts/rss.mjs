@@ -1,7 +1,7 @@
 import { compareDesc, parseISO } from "date-fns";
 import { Feed } from "feed";
 import { writeFileSync } from "fs";
-import { allBlogs } from "../.contentlayer/generated/index.mjs";
+import { allBlogs, allSnippets } from "../.contentlayer/generated/index.mjs";
 
 const feed = new Feed({
   title: "ram.codes",
@@ -19,6 +19,27 @@ const feed = new Feed({
 });
 
 allBlogs
+  .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  .forEach((post) => {
+    const url = `https://ram.codes/blog/${post._raw.flattenedPath}`;
+    feed.addItem({
+      id: url,
+      link: url,
+      title: post.title,
+      description: post.summary,
+      date: new Date(post.date).toISOString[0],
+      // category: post.tags.map((name) => ({ name })),
+      // image: post.image,
+      author: [{
+        name: "Ram Shankar Choudhary",
+        email: "hi@ram.codes",
+        link: "https://ram.codes",
+      }],
+    });
+  });
+
+  
+allSnippets
   .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
   .forEach((post) => {
     const url = `https://ram.codes/blog/${post._raw.flattenedPath}`;
