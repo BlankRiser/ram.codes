@@ -7,7 +7,15 @@ import GithubSlugger from 'github-slugger';
 const computedFields = {
 	slug: {
 		type: 'string',
+		resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+	},
+	path: {
+		type: 'string',
 		resolve: (doc) => doc._raw.flattenedPath,
+	},
+	filePath: {
+		type: 'string',
+		resolve: (doc) => doc._raw.sourceFilePath,
 	},
 	structuredData: {
 		type: 'object',
@@ -18,9 +26,7 @@ const computedFields = {
 			datePublished: doc.publishedAt,
 			dateModified: doc.publishedAt,
 			description: doc.summary,
-			image: doc.image
-				? `https://v2.ram.codes${doc.image}`
-				: `https://v2.ram.codes/og?title=${doc.title}`,
+			image: doc.image ? `https://v2.ram.codes${doc.image}` : `https://v2.ram.codes/og?title=${doc.title}`,
 			url: `https://v2.ram.codes/blog/${doc._raw.flattenedPath}`,
 			author: {
 				'@type': 'Person',
@@ -49,7 +55,7 @@ const computedFields = {
 
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
-	 filePathPattern: 'blog/**/*.mdx',
+	filePathPattern: 'blog/**/*.mdx',
 	// filePathPattern: `**/*.mdx`,
 	contentType: 'mdx',
 	fields: {
@@ -71,7 +77,7 @@ export const Blog = defineDocumentType(() => ({
 		draft: {
 			type: 'boolean',
 			required: true,
-			default: true
+			default: true,
 		},
 		toc: {
 			type: 'boolean',

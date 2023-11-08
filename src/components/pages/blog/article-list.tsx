@@ -17,12 +17,18 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
 
 	const filteredArticles = matchSorter(allArticles, debouncedSearch, {
 		keys: ['title', 'summary'],
-        threshold: 2    
-    });
+		threshold: 2,
+	});
 
 	return (
 		<div className='flex max-w-2xl flex-col gap-4 '>
-            <Input type="text" placeholder='Search all the articles...' name="" id="" onChange={e => setSearch(e.target.value)}/>
+			<Input
+				type='text'
+				placeholder='Search all the articles...'
+				name=''
+				id=''
+				onChange={(e) => setSearch(e.target.value)}
+			/>
 			<ul>
 				{filteredArticles
 					.sort((a, b) => {
@@ -33,11 +39,7 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
 					})
 					.filter((item) => !item.draft)
 					.map((post) => (
-						<Link
-							key={post.slug}
-							className='group flex flex-col space-y-1 border-b-neutral-800'
-							href={`/blog/${post.slug}`}
-						>
+						<Link key={post.slug} className='group flex flex-col space-y-1 border-b-neutral-800' href={`${post.path}`}>
 							<li className='flex w-full items-start justify-start gap-8 rounded-md p-4 group-hover:bg-neutral-900'>
 								<span className='py-1 font-jet-mono text-sm text-neutral-500 group-hover:text-neutral-200'>
 									{post.publishedAt}
