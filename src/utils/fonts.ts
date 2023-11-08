@@ -1,9 +1,9 @@
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const inter = Inter({
 	subsets: ['latin', 'greek'],
-	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900',],
 	variable: '--font-inter',
 });
 export const spaceGrotesk = Space_Grotesk({
@@ -11,6 +11,7 @@ export const spaceGrotesk = Space_Grotesk({
 	weight: ['300', '400', '500', '600', '700'],
 	variable: '--font-space-grotesk',
 });
+
 
 export const jetBrainsMono = JetBrains_Mono({
 	subsets: ['latin'],

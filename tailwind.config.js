@@ -12,10 +12,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        'jet-mono': 'var(--font-jetbrains-mono)',
-        spaceGrotesk: 'var(--font-space-grotesk)',
-        generalSans: 'var(--font-general-sans)',
+        sans: [['var(--font-inter)', ...defaultTheme.fontFamily.sans],  { fontFeatureSettings: '"ss01", "cv01", "cv02", "cv03", "cv04", "cv09"' },],
+        mono: ['var(--font-geist-mono)'],
+        inter: ['var(--font-inter)'],
+        'geist-sans': ['var(--font-geist-sans)'],
+        'geist-mono': ['var(--font-geist-mono)'],
+        'jet-mono': ['var(--font-jetbrains-mono)'],
+        'space-grotesk': ['var(--font-space-grotesk)'],
+        generalSans: ['var(--font-general-sans)'],
       },
       boxShadow: {
         midas: '0px 0px 50px 5px rgba(15, 98, 254, 0.2)',
