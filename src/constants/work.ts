@@ -100,7 +100,7 @@ export const WORK:Array<Work> = [
 	},
 	{
 		year: 2021,
-		role: 'Date Engineer',
+		role: 'Data Engineer',
 		position: 'FTE',
 		company: 'Nabler Web Solutions Pvt Ltd',
 		description: `Built ETL pipelines and dashboards using Amazon Quicksight`,
