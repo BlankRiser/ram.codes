@@ -56,7 +56,39 @@ const computedFields = {
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
 	filePathPattern: 'blog/**/*.mdx',
-	// filePathPattern: `**/*.mdx`,
+	contentType: 'mdx',
+	fields: {
+		title: {
+			type: 'string',
+			required: true,
+		},
+		publishedAt: {
+			type: 'string',
+			required: true,
+		},
+		summary: {
+			type: 'string',
+			required: true,
+		},
+		image: {
+			type: 'string',
+		},
+		draft: {
+			type: 'boolean',
+			required: true,
+			default: true,
+		},
+		toc: {
+			type: 'boolean',
+			required: false,
+			default: false,
+		},
+	},
+	computedFields,
+}));
+export const Snippets = defineDocumentType(() => ({
+	name: 'Snippets',
+	filePathPattern: 'snippets/**/*.mdx',
 	contentType: 'mdx',
 	fields: {
 		title: {
@@ -110,7 +142,7 @@ const rehypeSyntaxHighlight = [
 
 export default makeSource({
 	contentDirPath: 'content',
-	documentTypes: [Blog],
+	documentTypes: [Blog, Snippets],
 	mdx: {
 		cwd: process.cwd(),
 		rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
