@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { NavbarOffset } from "~/components/layouts";
 import { WorkCard, WorkHeader } from "~/components/pages/work";
+import { Button } from "~/components/ui/button";
 import { WORK } from "~/constants/work";
 
 export const metadata: Metadata = {
