@@ -5,8 +5,8 @@ import { ContentHeader } from "~/components/shared/header";
 
 export default async function BlogPage() {
   return (
-    <section className="mx-auto max-w-4xl px-2 py-8">
-      <NavbarOffset className="h-28 " />
+    <section className="mx-auto w-full max-w-7xl px-2 py-8">
+      <NavbarOffset className="h-6 md:h-28" />
       <ContentHeader
         title={"Articles"}
         description={`Explore a variety of articles where I dive into topics like code
@@ -16,7 +16,10 @@ export default async function BlogPage() {
             newbie taking your first steps in the field, you'll find
             something valuable here.`}
       />
-      <ArticleList allArticles={allBlogs} />
+
+      <div className="mx-auto grid w-full max-w-4xl place-items-center">
+        <ArticleList allArticles={allBlogs} />
+      </div>
     </section>
   );
 }

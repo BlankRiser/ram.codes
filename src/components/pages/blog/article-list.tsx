@@ -3,6 +3,7 @@
 import { Blog, Snippets } from "contentlayer/generated";
 import { matchSorter } from "match-sorter";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useDeferredValue, useState } from "react";
 import Balancer from "react-wrap-balancer";
 import { Input } from "~/components/ui/input";
@@ -12,7 +13,11 @@ type Props = {
 };
 
 const ArticleList: React.FC<Props> = ({ allArticles }) => {
-  const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+  const pathname = usePathname();
+
+  const [search, setSearch] = useState(searchParams.get("q")?.toString() ?? "");
   const debouncedSearch = useDeferredValue(search);
 
   const filteredArticles = matchSorter(allArticles, debouncedSearch, {
@@ -20,14 +25,27 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
     threshold: 2,
   });
 
+  const handleSearch = (term: string) => {
+    const params = new URLSearchParams(searchParams);
+    setSearch(term);
+
+    if (term) {
+      params.set("q", term);
+    } else {
+      params.delete("q");
+    }
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className="flex max-w-2xl flex-col gap-4 ">
       <Input
         type="text"
         placeholder="Search all the articles..."
-        name=""
-        id=""
-        onChange={(e) => setSearch(e.target.value)}
+        name="search-blog"
+        id="search-blog"
+        defaultValue={searchParams.get("q")?.toString()}
+        onChange={(e) => handleSearch(e.target.value)}
       />
       <ul>
         {filteredArticles
