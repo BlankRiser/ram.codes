@@ -55,14 +55,14 @@ export const WorkCard: React.FC<Work> = ({
       animate={controls}
       className="border-t border-neutral-700 px-2 md:px-4"
     >
-      <div className="grid w-full grid-cols-1 justify-between gap-y-8 py-8 md:grid-cols-3">
+      <div className="grid w-full grid-cols-1 justify-between gap-y-5 py-8 md:grid-cols-3 md:gap-y-8">
         <div className="flex flex-col items-center gap-2 md:flex-row md:items-start md:gap-4">
           <span className="text-sm text-neutral-500">{year}</span>
           <span className="font-space-grotesk text-3xl font-semibold text-neutral-300">
             {role}
           </span>
         </div>
-        <p className="max-w-[40ch] text-center font-space-grotesk text-lg text-neutral-300 md:text-left">
+        <p className="max-w-[40ch] text-center font-geist-sans text-lg text-neutral-300 md:text-left">
           {description}
         </p>
         <div className="mx-auto flex max-w-[14rem] flex-wrap items-center justify-center gap-4 md:ml-auto md:items-start md:justify-end">
@@ -110,11 +110,11 @@ export const WorkHeader = () => {
       whileInView="visible"
       className="mx-auto my-24 flex w-full max-w-4xl flex-col items-center justify-center text-center"
     >
-      <h1 className="bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-jet-mono text-4xl font-bold leading-10 tracking-tight text-transparent md:text-5xl">
+      <h1 className="bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-mono text-4xl font-bold leading-10 tracking-tight text-transparent md:text-5xl">
         Professional Experience
       </h1>
       <Balancer>
-        <p className="font-generalSans text-lg text-neutral-300">
+        <p className="font-geist-sans text-lg text-neutral-300">
           Welcome to my professional journey. Here, I&apos;ve curated a
           collection of the companies I&apos;ve had the privilege to work with.
           Each experience has contributed to my growth, expertise, and passion
