@@ -8,22 +8,23 @@ export async function POST(req: Request) {
   //   const { budget, inquiry, name, email, inquiryType, workType, availability } =
   //     await req.json();
 
-  try {
-    const { data, error } = await resend.emails.send({
-      from: "Hello <contact@contact.ram.codes>",
-      to: ["hi@ram.codes", "ramshankarcodes@gmail.com"],
-      subject: "Hello world",
-      react: FreelanceInquiry({
-        name: "example name",
-        email: "acme@example.com",
-      }) as React.ReactElement,
-    });
+  // try {
+  //   const { data, error } = await resend.emails.send({
+  //     from: "Hello <contact@contact.ram.codes>",
+  //     to: ["hi@ram.codes", "ramshankarcodes@gmail.com"],
+  //     subject: "Hello world",
+  //     react: FreelanceInquiry({
+  //       name: "example name",
+  //       email: "acme@example.com",
+  //     }) as React.ReactElement,
+  //   });
 
-    if (error) {
-      return NextResponse.json({ error });
-    }
-    return NextResponse.json({ data });
-  } catch (error) {
-    return NextResponse.json({ error });
-  }
+  //   if (error) {
+  //     return NextResponse.json({ error });
+  //   }
+  //   return NextResponse.json({ data });
+  // } catch (error) {
+  //   return NextResponse.json({ error });
+  // }
+  return NextResponse.json({ data: "hello" });
 }
