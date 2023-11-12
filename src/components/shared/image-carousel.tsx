@@ -16,8 +16,8 @@ type ImageCarouselProps = {
 };
 
 export const ImageCarousel: React.FC<ImageCarouselProps> = ({
-  images,
-  autoPlay,
+  images = [],
+  autoPlay = true,
   autoPlayInterval = 5000,
 }) => {
   const [current, setCurrent] = useState(0);
