@@ -4,11 +4,13 @@ import * as React from "react";
 import { cn } from "~/utils/text-transforms";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-devhaven-500 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex select-none items-center justify-center rounded-md text-sm font-medium transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-devhaven-500 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
+          "bg-neutral-200 text-neutral-900 shadow hover:bg-neutral-200/90 active:bg-neutral-200/70",
+        primary:
           "bg-neutral-200 text-neutral-900 shadow hover:bg-neutral-200/90 active:bg-neutral-200/70",
         link: "text-primary underline-offset-4 hover:underline",
       },

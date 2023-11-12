@@ -1,7 +1,11 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+"use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import React from "react";
+import { cn } from "~/utils/text-transforms";
 import {
   Input,
   Slider,
@@ -14,15 +18,15 @@ import {
   SliderTrigger,
 } from "../ui";
 import { Button } from "../ui/button";
-import { cn } from "~/utils/text-transforms";
-import React from "react";
 
 export const ContactMe = () => {
   return (
     <div className="grid grid-cols-2 gap-2">
       <Slider>
         <SliderTrigger asChild>
-          <Button variant={"default"}>Contact Me</Button>
+          <Button variant={"default"} className="max-w-fit">
+            Contact Me
+          </Button>
         </SliderTrigger>
         <SliderContent side={"right"} className="sm:max-w-3xl">
           <SliderHeader>
@@ -115,10 +119,11 @@ const ContactInput = React.forwardRef<HTMLInputElement, ContactInputProps>(
             : "focus-within:border-devhaven-500",
         ])}
       >
-        <label htmlFor="name" className="p-1 text-left">
+        <label htmlFor="name" className="p-1 text-left font-geist-sans text-sm">
           {label}
         </label>
         <Input
+          ref={ref}
           border={false}
           focus={false}
           id="name"

@@ -1,7 +1,8 @@
 import "../styles/global.css";
 
-import { GeistMono, GeistSans } from "geist/font";
-import { Global, Navbar, NavbarOffset } from "~/components/layouts";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Footer, Global, Navbar, NavbarOffset } from "~/components/layouts";
 import { Analytics } from "~/components/layouts/analytics";
 import { ScrollToTop } from "~/components/shared";
 import { TooltipProvider } from "~/components/ui/tooltip";
@@ -75,7 +76,7 @@ export default function RootLayout({
           <NavbarOffset />
           <Global>{children}</Global>
           <ScrollToTop />
-          {/* <Footer /> */}
+          <Footer />
         </body>
       </html>
     </TooltipProvider>

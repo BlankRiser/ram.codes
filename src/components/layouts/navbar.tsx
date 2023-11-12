@@ -23,13 +23,17 @@ export const Navbar = () => {
     >
       <div className={"mx-auto max-w-7xl py-4"}>
         <nav className={`flex h-full items-center justify-between `}>
-          <a
+          <Link
             href={"/"}
-            className={"h-8 w-8 rounded-full font-semibold blur-sm"}
+            className={
+              "flex h-8 w-8 flex-col items-center justify-center rounded-full text-center font-semibold"
+            }
             style={{
               background: `linear-gradient(to right, #0f2027, #203a43, #2c5364)`,
             }}
-          />
+          >
+            <span className="block shadow-lg">R</span>
+          </Link>
           <ul className="flex items-center justify-between gap-4">
             {Object.entries(LINKS).map(([key, value], index) => {
               return (
@@ -67,7 +71,9 @@ export const Navbar = () => {
   );
 };
 
-// mt-14 is used to offset the height of navbar
+/**
+ * mt-14 is used to offset the height of navbar
+ **/
 export const NavbarOffset = ({ className }: { className?: string }) => (
   <div className={cn(className ? className : "mt-14")} />
 );
