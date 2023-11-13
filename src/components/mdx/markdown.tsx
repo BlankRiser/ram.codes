@@ -32,13 +32,14 @@ const commonStyles = cn([
  **/
 const textStyles = cn([
   "font-geist-sans",
-  "prose-h1:text-3xl prose-h1:font-bold prose-h1:leading-10 prose-h1:tracking-tight prose-h1:text-neutral-200",
-  "prose-h2:text-2xl prose-h2:font-semibold prose-h2:leading-6 prose-h2:tracking-tight prose-h2:text-neutral-200 ",
-  "prose-h3:text-xl prose-h3:font-medium prose-h3:text-neutral-200",
-  "prose-h4:text-lg prose-h4:font-medium prose-h4:text-neutral-200",
-  "prose-h5:text-base prose-h5:font-medium prose-h5:tracking-wide prose-h5:text-neutral-200",
-  "prose-h6:text-base prose-h6:font-medium prose-h6:text-neutral-200",
+  "prose-h1:scroll-mt-24 prose-h1:text-3xl prose-h1:font-bold prose-h1:leading-10 prose-h1:tracking-tight prose-h1:text-neutral-200",
+  "prose-h2:scroll-mt-24 prose-h2:text-2xl prose-h2:font-semibold prose-h2:leading-6 prose-h2:tracking-tight prose-h2:text-neutral-200 ",
+  "prose-h3:scroll-mt-24 prose-h3:text-xl prose-h3:font-medium prose-h3:text-neutral-200",
+  "prose-h4:scroll-mt-24 prose-h4:text-lg prose-h4:font-medium prose-h4:text-neutral-200",
+  "prose-h5:scroll-mt-24 prose-h5:text-base prose-h5:font-medium prose-h5:tracking-wide prose-h5:text-neutral-200",
+  "prose-h6:scroll-mt-24 prose-h6:text-base prose-h6:font-medium prose-h6:text-neutral-200",
   "prose-p:font-normal prose-p:text-neutral-200",
+  "prose-strong:font-semibold prose-strong:text-neutral-200",
 ]);
 
 const listStyles = cn([

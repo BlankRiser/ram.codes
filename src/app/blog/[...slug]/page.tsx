@@ -5,6 +5,8 @@ import { Metadata } from "next";
 import Balancer from "react-wrap-balancer";
 import { Markdown } from "~/components/mdx/markdown";
 import { formatDate } from "~/utils/date-utils";
+import { cn } from "~/utils/text-transforms";
+import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
 
 export async function generateMetadata({
   params,
@@ -83,7 +85,7 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
         <div className="mx-auto w-full max-w-3xl">
           <Markdown code={post.body.code} />
         </div>
-        <aside className="fixed right-24 top-[25vh] hidden text-neutral-500 opacity-40 hover:opacity-100 md:block">
+        <aside className="fixed right-24 top-1/2 hidden max-h-[75vh] translate-y-[-50%] overflow-y-auto rounded-md bg-neutral-900 p-3 text-neutral-500 opacity-40 hover:opacity-100 md:block">
           {post.toc &&
             post.headings.map((heading: (typeof post.headings)[number]) => {
               return (
@@ -91,13 +93,24 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
                   key={`#${heading.slug}`}
                   className="mb-1 max-w-[25ch] overflow-hidden truncate"
                 >
-                  <a
-                    data-level={heading.level}
-                    href={`#${heading.slug}`}
-                    className=" hover:text-primary data-[level=three]:pl-4 data-[level=two]:pl-2"
-                  >
-                    {heading.text}
-                  </a>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        data-level={heading.level}
+                        href={`#${heading.slug}`}
+                        className={cn([
+                          " hover:text-primary",
+                          "data-[level=two]:pl-2",
+                          "data-[level=three]:pl-4 ",
+                        ])}
+                      >
+                        {heading.text}
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="capitalize">{heading.text}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </div>
               );
             })}
