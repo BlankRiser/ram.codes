@@ -1,0 +1,100 @@
+---
+title: Please learn git
+publishedAt: 2020-11-13
+summary: A guide to git for beginners
+image: '/images/blog/workstation.jpeg'
+draft: false
+toc: true
+---
+
+### Installing Git
+
+- Install git from [git-scm](https://git-scm.com/downloads).
+- Run [`git --version`](https://git-scm.com/docs/git-version) to verify that it is installed.
+
+### Creating a new repository with github
+
+```shell:Initializing
+git init
+git add . # tracks all the files
+git status
+git commit -m "commit message here"
+git status
+git branch -M main
+git remote add origin git@github.com:my_username/my_repo_name.git
+git push -u origin main
+```
+
+- Initialize a git repository, run [`git init`](https://git-scm.com/docs/git-init).
+
+- Track all the files in the repository by running [`git add .`](https://git-scm.com/docs/git-add).
+
+- Commit the changes by running [`git commit -am "commit message here"`](https://git-scm.com/docs/git-commit). This captures a snapshot of the repository at it's current stage.
+
+- Push the changes to the remote repository by running [`git push origin main`](https://git-scm.com/docs/git-push).
+
+- Check the status of the repository by running [`git status`](https://git-scm.com/docs/git-status). If you run this command before committing, you will see a list of files that have been added, modified, or deleted.
+
+- We now have to connect to a **remote** repository, which is basically a URL to a repository that can be accessed by other people. There are many cloud-based hosting services that let you manage Git repositories, [Github](http://github.com/) being a popular choice. To do this create a new repository in your Github account and create a new repository.
+
+- Run [`git branch -M main`](https://git-scm.com/docs/git-checkout) to create a default branch called `main`.
+
+- Add a remote repository to your local repository. To do this run [`git remote add origin <remote url>`](https://git-scm.com/docs/git-remote).
+
+```shell
+git remote add origin git@github.com:<GITHUB_USERNAME>/<GITHUB_REPOSITORY_NAME>.git
+```
+
+- Push the changes to the remote repository by running [`git push -u origin main`](https://git-scm.com/docs/git-push).
+- Check the history of the repository by running [`git log --oneline`](https://git-scm.com/docs/git-log).
+
+### Pushing changes to remote repository
+
+```shell
+git add . # git add file
+git commit -m "made a change"
+git push origin main
+```
+
+- After making changes to the files you can either [commit](https://git-scm.com/docs/git-commit) them or [stash](https://git-scm.com/docs/git-stash) them.
+- Run [`git add .`](https://git-scm.com/docs/git-add) to track all the files in the repository.
+- Commit the changes by running [`git commit -am "made a change"`](https://git-scm.com/docs/git-commit). This captures a snapshot of the repository at it's current stage.
+- Push the changes to the remote repository by running [`git push origin main`](https://git-scm.com/docs/git-push).
+
+### Commit without message
+
+Git by default does not allow us to commit without a message. To do this we can use the `--allow-empty` option.
+
+```shell
+git commit --allow-empty -m ''
+```
+
+### Removing a file from the repository
+
+```shell
+#add .env to .gitignore
+git rm -r --cached .env
+git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch .env" HEAD
+git push --force
+```
+
+- Add the file(`.env` in this case) that is to be removed to .gitignore and remove it from git using [git rm](https://git-scm.com/docs/git-rm).
+- The file(`.env`) still exists in our history and the contents are still visible. We'll have to filter it out of all the branches using [git filter-branch](https://git-scm.com/docs/git-filter-branch).
+
+```
+git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch .env" HEAD
+```
+
+- Since we are changing the history of both local and remote repository, we have force push the changes to the remote repository using [`git push --force`](https://git-scm.com/docs/git-push).
+
+You can also have a look at the example show in [git docs](https://git-scm.com/docs/git-filter-branch#_examples)
+
+### Glossary
+
+[git stash](https://git-scm.com/docs/git-stash): It temporarily shelves (or stashes) changes you've made to your working copy so you can work on something else, and then come back and re-apply them. It enables you to switch branches without committing the current branch.
+
+### Further reading
+
+- [git commands](https://git-scm.com/docs/git) : git documentation
+- [Pro Git ebook](https://git-scm.com/book/en/v2/Getting-Started-Remotely) : A book on git
+- [gitignore.io](https://www.toptal.com/developers/gitignore) : generate gitignore files

@@ -1,0 +1,186 @@
+---
+title: From Novice to SQL Pro:A Comprehensive Learning Journey
+publishedAt: 2021-12-24
+summary: All the stuff i use in a daily basis
+image: '/images/blog/workstation.jpeg'
+draft: false
+toc: false
+---
+
+
+## What is SQL?
+
+SQL(Structured Query Language) is a language to operate databases. Most Relational Database Management Systems use SQL or its versions as their language. SQL commands are used to operate the data stored within these systems. These commands are categorized into various categories:
+
+### What is a database?
+
+A database is a systematic collection of data. A SQL database contains multiple objects such as tables, views, stored procedures, functions, indexes, triggers.
+
+### What is a schema?
+
+In SQL, schema is a logical collection of database objects. Usually all the tables we create is created under `public` schema. Ex: table ‘customer’ is created as `public.customer` in the database.
+
+### Data Definition Language (DDL)
+
+It consists of SQL commands that can be used to define a database schema. Some of the most used commands are:
+
+- `Create`: It is used to create databases, and tables within a database.
+- `Alter`: It is used to alter the structure of a database.
+- `Describe`: It is used to describe an object i.e. a table.
+- `Drop`: It is used to delete database and its objects within the database.
+- `Truncate`: It is used to remove all the records/rows from a database table. It deletes all the rows permanently so a `rollback` operation cannot be performed to undo this command.
+- `Comment`: Comments to better organize/document your queries. It can start with `#` ,`//`,.. varying between flavours of SQL.
+
+### Data Manipulation Language (DML)
+
+It consists of SQL commands that deal with manipulation of data present in the database. Some of the most used commands are:
+
+- `Insert`: It is used to insert new records into the table.
+- `Update`: It is used to modify/update records in the table.
+- `Delete`: It is used to delete records in the table.
+
+```sql
+# Create a database
+CREATE DATABASE devhaven;
+
+# Use the database created
+USE devhaven;
+
+# Create a table within devhaven database
+# table `customers` is created in a public schema of the database if the engine supports it
+CREATE TABLE customers(
+	id INT NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	email VARCHAR(50),
+	mobile VARCHAR(15),
+	PRIMARY KEY (id),
+	UNIQUE(email, mobile)
+);
+
+INSERT INTO customers(id, name, email, mobile)
+VALUES
+(1, 'john', 'j@j.com', '9876543215'),
+(2, 'jane', 'n@n.com', '9876541215');
+
+# Adding a column `address` to the table
+ALTER TABLE customer
+ADD address VARCHAR(255) NOT NULL;
+
+# Updating values of address from empty field to 'bangalore'
+UPDATE customer SET address='bangalore' where id=1;
+UPDATE customer SET address='bangalore' where id=2;
+
+# Delete record where id=2
+DELETE FROM customer WHERE id=2;
+
+# Lets have a look at all the column fields that are present in customer table
+DESCRIBE customer;
+
+# Delete all the records in customer table
+TRUNCATE TABLE customer;
+
+# Delete customer table
+DROP TABLE customer;
+```
+
+        <details>
+                    <summary> Run the code inside in [SQL Fiddle](http://www.sqlfiddle.com/)</summary>
+```sql
+# Schema
+CREATE TABLE customers(
+id INT NOT NULL,
+name VARCHAR(50) NOT NULL,
+email VARCHAR(50),
+mobile VARCHAR(15),
+PRIMARY KEY (id),
+UNIQUE(email, mobile)
+);
+
+INSERT INTO customers(id, name, email, mobile)
+VALUES
+(1, 'john', 'j@j.com', '9876543215'),
+(2, 'jane', 'j@j.com', '9876541215');
+
+ALTER TABLE customer
+ADD address VARCHAR(255) NOT NULL;
+
+UPDATE customer SET address='bangalore' where id=1;
+UPDATE customer SET address='bangalore' where id=2;
+
+DELETE FROM customer WHERE id=2;
+
+TRUNCATE TABLE customer;
+
+DROP TABLE customer;
+
+# Query
+
+SELECT \*
+FROM customer
+ORDER BY 1;
+
+````
+        </details>
+
+
+### Data Control Lanuguage
+
+It consists of SQL commands that are used manage permissions of database and user. It allows . Some of the most used commands are:
+
+- `Grant`: It igives user access privileges to a database.
+- `Revoke`: It revokes permissions from the user.
+
+```sql
+GRANT SELECT, UPDATE ON customer TO one_user, another_user;
+REVOKE SELECT, UPDATE ON customer FROM one_user, another_user;
+````
+
+### Data Query Language
+
+It is used to fetch data from the database.
+
+- `Select`: It is used to fetch data from the database.
+
+```sql
+SELECT * FROM customer;
+```
+
+### Transaction Control Language
+
+These SQL commands only be used after DML commands like `insert`, `update`, `delete`... TCL commands are automatically committed to the database
+
+- `Commit`:It saves all transactions to the database
+- `Rollback`: It is used to undo a transaction that have not already been saved to the database.
+- `Savepoint`: It is used to roll the transaction back to a certain point without rolling back the entire transaction
+
+```sql
+DELETE FROM customer
+WHERE id = 1;
+COMMIT;
+
+DELETE FROM customer
+WHERE id = 2;
+ROLLBACK;
+
+DELETE FROM customer
+WHERE id = 3;
+SAVEPOINT deleting_customer_id;
+```
+### Resources to practice SQL
+
+- [leetcode.com](https://leetcode.com/study-plan/sql/)
+- [sqlbolt.com](https://sqlbolt.com/)
+- [selectstarsql.com](https://selectstarsql.com/) - Interactive book
+- [platform.stratascratch.com](https://platform.stratascratch.com/coding)
+- [www.sql-practice.com/](https://www.sql-practice.com/)
+- [pgexercises.com](https://pgexercises.com/)
+- [sqlzoo.net](https://sqlzoo.net/wiki/SQL_Tutorial)
+- [advancedsqlpuzzles.com](https://advancedsqlpuzzles.com/)
+- [mode.com](https://mode.com/sql-tutorial/introduction-to-sql/) - SQL for data analysis
+- [datalemur](https://datalemur.com/)
+- [MySQL 8.0 Docs](https://dev.mysql.com/doc/refman/8.0/en/sql-statements.html)
+
+### Interview Questions
+
+- [https://quip.com/2gwZArKuWk7W](https://quip.com/2gwZArKuWk7W) - Zachary Thomas' SQL Questions: The best medium to Hard Data Analyst interview questions
+- [https://sqlpad.io/questions/](https://sqlpad.io/questions/)

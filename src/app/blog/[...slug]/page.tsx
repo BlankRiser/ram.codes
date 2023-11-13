@@ -7,6 +7,9 @@ import { Markdown } from "~/components/mdx/markdown";
 import { formatDate } from "~/utils/date-utils";
 import { cn } from "~/utils/text-transforms";
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
+import * as RadixTooltip from "@radix-ui/react-tooltip";
+
+import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
 
 export async function generateMetadata({
   params,
@@ -85,13 +88,13 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
         <div className="mx-auto w-full max-w-3xl">
           <Markdown code={post.body.code} />
         </div>
-        <aside className="fixed right-24 top-1/2 hidden max-h-[75vh] translate-y-[-50%] overflow-y-auto rounded-md bg-neutral-900 p-3 text-neutral-500 opacity-40 hover:opacity-100 md:block">
+        <aside className="fixed right-8 top-1/2 hidden max-h-[75vh] translate-y-[-50%] overflow-y-auto rounded-md bg-neutral-900 py-2 text-neutral-500 opacity-40 hover:opacity-100 md:block">
           {post.toc &&
             post.headings.map((heading: (typeof post.headings)[number]) => {
               return (
                 <div
                   key={`#${heading.slug}`}
-                  className="mb-1 max-w-[25ch] overflow-hidden truncate"
+                  className="mb-1 max-w-[40ch] overflow-hidden truncate"
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -99,12 +102,16 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
                         data-level={heading.level}
                         href={`#${heading.slug}`}
                         className={cn([
-                          " hover:text-primary",
-                          "data-[level=two]:pl-2",
-                          "data-[level=three]:pl-4 ",
+                          "hover:text-primary",
+                          "flex items-center gap-1",
+                          "data-[level=two]:pl-4",
+                          "data-[level=three]:pl-8",
                         ])}
                       >
-                        {heading.text}
+                        {["two", "three"].includes(heading.level) && (
+                          <IconoirLongArrowDownRight />
+                        )}
+                        <span className="truncate">{heading.text}</span>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent>

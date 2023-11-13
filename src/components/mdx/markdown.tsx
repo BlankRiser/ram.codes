@@ -40,6 +40,7 @@ const textStyles = cn([
   "prose-h6:scroll-mt-24 prose-h6:text-base prose-h6:font-medium prose-h6:text-neutral-200",
   "prose-p:font-normal prose-p:text-neutral-200",
   "prose-strong:font-semibold prose-strong:text-neutral-200",
+  "[summary]:text-neutral-200",
 ]);
 
 const listStyles = cn([
