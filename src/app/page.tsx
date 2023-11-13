@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Footer } from "~/components/layouts";
 import Hero from "~/components/pages/home/hero";
-import { ImageCarousel } from "~/components/shared/image-carousel";
+import { Projects } from "~/components/pages/home/projects";
 import { TechMarquee } from "~/components/shared/tech-marquee";
 
 export default function Home() {
@@ -11,12 +10,10 @@ export default function Home() {
     <React.Fragment>
       <Hero />
       <TechMarquee />
-      <ImageCarousel
-        images={["/ktrlawfirm/og.png", "/opspod/og.png", "/potion/og.png"]}
-      />
-      {/* <div className='mt-8 px-2 md:px-8'>
-				<Projects />
-			</div> */}
+
+      {/* <div className="mt-8 px-2 md:px-8">
+        <Projects />
+      </div> */}
     </React.Fragment>
   );
 }

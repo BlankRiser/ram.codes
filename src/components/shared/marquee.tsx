@@ -8,10 +8,14 @@ const marqueeStyles = {
 
 type MarqueeProps = { children: React.ReactNode; speed?: number };
 
-export const Marquee: React.FC<MarqueeProps> = ({ children, speed = 25 }) => {
+export const Marquee: React.FC<MarqueeProps> = ({ children, speed = 40 }) => {
+  const marqueeSpeedClass = `--hover:[--marquee-speed:${speed}s]`;
   return (
     <div
-      className="--hover:[--marquee-speed:40s] relative flex w-[calc(100vw-4px)] overflow-x-hidden"
+      className={cn([
+        " relative flex w-[calc(100vw-4px)] overflow-x-hidden",
+        marqueeSpeedClass,
+      ])}
       style={
         {
           WebkitMask:

@@ -3,16 +3,24 @@
 import {
   SiGithub,
   SiLinkedin,
+  SiMedium,
   SiTwitter,
-  SiX,
 } from "@icons-pack/react-simple-icons";
-import { ContactMe } from "../shared/contact-me";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
+import { SOCIALS } from "~/constants/me";
+import { ContactMe } from "../shared/contact-me";
+import { Divider } from "../ui";
+
+export const SOCIALS_MAP = SOCIALS.reduce((acc, curr) => {
+  acc[curr.name] = curr.link;
+  return acc;
+}, {} as Record<(typeof SOCIALS)[number]["name"], string>);
 
 export function Footer() {
   return (
-    <footer className="z-0 mt-4 w-full border-t border-t-neutral-900 bg-neutral-950 shadow-2xl shadow-neutral-900 md:mt-16">
+    <footer className="z-0 mt-4 w-full bg-neutral-950 shadow-2xl shadow-neutral-900 md:mt-16">
+      <Divider className="my-0" />
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-2 py-16 md:flex-row md:items-center md:justify-between md:px-8">
         <div className="space-y-6 ">
           <div className="flex max-w-3xl flex-col gap-4">
@@ -33,34 +41,47 @@ export function Footer() {
         </div>
 
         <div className="hidden text-neutral-300 md:flex md:flex-col md:items-end md:gap-6 [&>a]:font-geist-mono [&>a]:uppercase [&>a]:tracking-widest">
-          <a href="" target="_blank" rel="noopener noreferrer">
-            Github
-          </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a
+            href={SOCIALS_MAP.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a
+            href={SOCIALS_MAP.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Twitter
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
-            Medium
+          <a
+            href={SOCIALS_MAP.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
-            Dev.to
+          <a
+            href={SOCIALS_MAP.medium}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Medium
           </a>
         </div>
         <div className="flex items-center gap-4 md:hidden">
-          <Link href="">
+          <Link href={SOCIALS_MAP.linkedin}>
             <SiLinkedin className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
           </Link>
-          <Link href="">
+          <Link href={SOCIALS_MAP.github}>
             <SiGithub className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
           </Link>
-          <Link href="">
+          <Link href={SOCIALS_MAP.twitter}>
             <SiTwitter className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
           </Link>
-          <Link href="">
-            <SiX className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
+          <Link href={SOCIALS_MAP.medium}>
+            <SiMedium className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
           </Link>
         </div>
       </div>

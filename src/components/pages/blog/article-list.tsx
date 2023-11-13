@@ -38,7 +38,7 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
   };
 
   return (
-    <div className="flex max-w-2xl flex-col gap-4 ">
+    <div className="flex w-full max-w-3xl flex-col gap-4 ">
       <Input
         type="text"
         placeholder="Search all the articles..."

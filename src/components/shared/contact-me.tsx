@@ -19,15 +19,21 @@ import {
 } from "../ui";
 import { Button } from "../ui/button";
 
-export const ContactMe = () => {
+type ContactMeProps = {
+  children?: React.ReactNode;
+};
+
+export const ContactMe: React.FC<ContactMeProps> = ({
+  children = (
+    <Button variant={"default"} className="max-w-fit">
+      Contact Me
+    </Button>
+  ),
+}) => {
   return (
     <div className="grid grid-cols-2 gap-2">
       <Slider>
-        <SliderTrigger asChild>
-          <Button variant={"default"} className="max-w-fit">
-            Contact Me
-          </Button>
-        </SliderTrigger>
+        <SliderTrigger asChild>{children}</SliderTrigger>
         <SliderContent side={"right"} className="sm:max-w-3xl">
           <SliderHeader>
             <SliderTitle className="font-space-grotesk text-lg font-semibold">

@@ -61,7 +61,10 @@ export default function RootLayout({
 }) {
   return (
     <TooltipProvider>
-      <html lang="en" className={`${inter.className} ${extraFonts.join(" ")}`}>
+      <html
+        lang="en"
+        className={`${inter.className} ${extraFonts.join(" ")} bg-neutral-950`}
+      >
         <head>
           <Analytics />
           <link
@@ -76,7 +79,7 @@ export default function RootLayout({
           <NavbarOffset />
           <Global>{children}</Global>
           <ScrollToTop />
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </html>
     </TooltipProvider>
