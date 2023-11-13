@@ -32,7 +32,7 @@ export function Footer() {
           <ContactMe />
         </div>
 
-        <div className="flex flex-col gap-2 text-neutral-300 md:items-end md:gap-6 [&>a]:font-geist-mono [&>a]:uppercase [&>a]:tracking-widest">
+        <div className="hidden text-neutral-300 md:flex md:flex-col md:items-end md:gap-6 [&>a]:font-geist-mono [&>a]:uppercase [&>a]:tracking-widest">
           <a href="" target="_blank" rel="noopener noreferrer">
             Github
           </a>
@@ -48,6 +48,20 @@ export function Footer() {
           <a href="" target="_blank" rel="noopener noreferrer">
             Dev.to
           </a>
+        </div>
+        <div className="flex items-center gap-4 md:hidden">
+          <Link href="">
+            <SiLinkedin className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
+          </Link>
+          <Link href="">
+            <SiGithub className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
+          </Link>
+          <Link href="">
+            <SiTwitter className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
+          </Link>
+          <Link href="">
+            <SiX className="h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600" />
+          </Link>
         </div>
       </div>
     </footer>
