@@ -50,18 +50,30 @@ export const ContactMe = () => {
 };
 
 const contactFormFieldSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
+  name: z
+    .string({
+      required_error: "Name is required",
+    })
+    .min(1, { message: "Name is required" }),
   email: z.string().min(1, { message: "Email is required" }).email({
     message: "Must be a valid email",
   }),
   company: z
     .string()
     .min(1, { message: "Please enter the name of your company" }),
-  // budget: z.number().int().min(0).max(1000000),
-  // service: z
-  //   .enum(["design", "development", "consulting"])
-  //   .default("development"),
-  // projectDetails: z.string(),
+  budget: z.number().int().min(0).max(1000000).optional(),
+  service: z
+    .enum(["design", "development", "consulting"], {
+      invalid_type_error: "Please select a service",
+    })
+    .default("development")
+    .optional(),
+  projectDetails: z
+    .string({
+      required_error: "Please enter some details about your project",
+    })
+    .min(1, { message: "Please enter some details about your project" })
+    .optional(),
 });
 
 type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
