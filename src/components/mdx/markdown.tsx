@@ -5,11 +5,13 @@ import type { MDXComponents } from "mdx/types";
 import Image from "./mdx-components/image";
 import CustomLink from "./mdx-components/link";
 import Pre from "./mdx-components/pre";
+import Bleed from "./mdx-components/bleed";
 
 type MarkdownProps = { code: string };
 
 const components: MDXComponents = {
   Image: Image as any,
+  Bleed: Bleed as any,
   a: CustomLink as any,
   pre: Pre as any,
 };
