@@ -1,7 +1,18 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { cn } from "~/utils/text-transforms";
 
+import type { MDXComponents } from "mdx/types";
+import Image from "./mdx-components/image";
+import CustomLink from "./mdx-components/link";
+import Pre from "./mdx-components/pre";
+
 type MarkdownProps = { code: string };
+
+const components: MDXComponents = {
+  Image: Image as any,
+  a: CustomLink as any,
+  pre: Pre as any,
+};
 
 export const Markdown: React.FC<MarkdownProps> = ({ code }) => {
   const Component = useMDXComponent(code);
@@ -16,7 +27,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ code }) => {
         codeStyles,
       ])}
     >
-      <Component />
+      <Component components={components} />
     </article>
   );
 };

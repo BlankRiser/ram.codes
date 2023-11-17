@@ -25,6 +25,7 @@ export async function generateMetadata({
     image,
     slug,
   } = post;
+
   const ogImage = image
     ? `https://v2.ram.codes${image}`
     : `https://v2.ram.codes/og?title=${title}`;

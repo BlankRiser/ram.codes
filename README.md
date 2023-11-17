@@ -16,3 +16,16 @@ Personal portfolio of Ram Shankar
 - icons from [simpleicons.org](https://simpleicons.org/) and [iconoir](https://iconoir.com/)
 - analytics from [beam analytics](https://beamanalytics.io/)
 - [Tailwind Color Palette Generator](https://www.tints.dev/brand/1FFF5E)
+
+### How to use MDX Components
+
+#### Images
+
+```mdx
+<Image
+  alt={`React has evolved from a library to also provide an architecture for frameworks.`}
+  src={`/images/react-frameworks/evolving.jpg`}
+  width={1456 / 2}
+  height={819 / 2}
+/>
+```
