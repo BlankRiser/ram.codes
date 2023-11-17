@@ -75,5 +75,5 @@ export const Navbar = () => {
  * mt-14 is used to offset the height of navbar
  **/
 export const NavbarOffset = ({ className }: { className?: string }) => (
-  <div className={cn(className ? className : "mt-14")} />
+  <div className={cn(className ? className : "mt-[3.75rem]")} />
 );

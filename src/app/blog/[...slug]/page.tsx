@@ -4,10 +4,9 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Balancer from "react-wrap-balancer";
 import { Markdown } from "~/components/mdx/markdown";
+import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
 import { formatDate } from "~/utils/date-utils";
 import { cn } from "~/utils/text-transforms";
-import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
-import * as RadixTooltip from "@radix-ui/react-tooltip";
 
 import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
 

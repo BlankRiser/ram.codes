@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 const sentence = {
   hidden: { opacity: 1 },
@@ -24,19 +24,25 @@ export function FadeInText(props: {
   text: string;
   style?: React.CSSProperties;
   className?: string;
+  characterClassName?: string;
   color?: string;
 }) {
-  const { text, style, className, ...rest } = props;
+  const { text, style, className, characterClassName } = props;
 
   return (
-    <motion.div variants={sentence} initial="hidden" animate="visible">
+    <motion.div
+      variants={sentence}
+      initial="hidden"
+      animate="visible"
+      className={className}
+    >
       {text.split("").map((char, index) => {
         return (
           <motion.span
             key={index}
             variants={letter}
             style={style}
-            className={className}
+            className={characterClassName}
           >
             {char}
           </motion.span>
