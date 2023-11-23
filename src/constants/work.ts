@@ -38,7 +38,7 @@ export const WORK: Array<Work> = [
       "zod",
     ] as Technologies[],
     brandClasses: cn(
-      "bg-[#000] border border-neutral-700 transition-shadow  --hover:shadow-attri"
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow  --hover:shadow-attri"
     ),
   },
   {
@@ -62,7 +62,7 @@ export const WORK: Array<Work> = [
       "nginx",
     ] as Technologies[],
     brandClasses: cn(
-      "bg-[#000] border border-neutral-700 transition-shadow --hover:shadow-midas"
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-midas"
     ),
   },
   {
@@ -82,7 +82,7 @@ export const WORK: Array<Work> = [
       "stripe",
     ] as Technologies[],
     brandClasses: cn(
-      "bg-[#000] border border-neutral-700 transition-shadow --hover:shadow-potion"
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-potion"
     ),
   },
   {
@@ -101,7 +101,7 @@ export const WORK: Array<Work> = [
       "google-drive-api",
     ] as Technologies[],
     brandClasses: cn(
-      "bg-[#000] border border-neutral-700 transition-shadow --hover:shadow-cosmic-zoom"
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-cosmic-zoom"
     ),
   },
   {
@@ -121,7 +121,7 @@ export const WORK: Array<Work> = [
       "nginx",
     ] as Technologies[],
     brandClasses: cn(
-      "bg-[#000] border border-neutral-700 transition-shadow --hover:shadow-nabler"
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-nabler"
     ),
   },
 ];

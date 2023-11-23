@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { Footer, NavbarOffset } from "~/components/layouts";
 import { WorkCard } from "~/components/pages/work";
+import { WorkCards } from "~/components/pages/work/work-cards";
+import { WorkSmallCard } from "~/components/pages/work/work-small-card";
 import { ContentHeader } from "~/components/shared";
 import { WORK } from "~/constants/work";
 
@@ -22,6 +24,8 @@ export default function Page() {
           in Software Engineering. Take a glimpse into my career and the
           valuable contributions I've made to these organizations."
       />
+      <WorkCards />
+      {/* 
       <section className="flex flex-col gap-16 md:gap-32">
         {WORK.map((item, index) => {
           return (
@@ -39,7 +43,7 @@ export default function Page() {
             />
           );
         })}
-      </section>
+      </section> */}
       <Footer />
     </div>
   );
