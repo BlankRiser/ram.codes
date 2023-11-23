@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { NavbarOffset } from "~/components/layouts";
+import { Footer, NavbarOffset } from "~/components/layouts";
 import { WorkCard } from "~/components/pages/work";
 import { ContentHeader } from "~/components/shared";
 import { WORK } from "~/constants/work";
@@ -14,6 +14,7 @@ export default function Page() {
     <div className="mx-auto max-w-7xl ">
       <NavbarOffset className="h-6 md:h-28" />
       <ContentHeader
+        animate={false}
         title={"Professional Experience"}
         description="Welcome to my professional journey. Here, I've curated a
           collection of the companies I've had the privilege to work with.
@@ -39,6 +40,7 @@ export default function Page() {
           );
         })}
       </section>
+      <Footer />
     </div>
   );
 }

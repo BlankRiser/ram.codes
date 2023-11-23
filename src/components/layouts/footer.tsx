@@ -19,7 +19,7 @@ export const SOCIALS_MAP = SOCIALS.reduce((acc, curr) => {
 
 export function Footer() {
   return (
-    <footer className="z-0 mt-4 w-full bg-neutral-950 shadow-2xl shadow-neutral-900 md:mt-16">
+    <footer className="z-0 mt-4 w-full shadow-neutral-900 md:mt-16">
       <Divider className="my-0" />
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-2 py-16 md:flex-row md:items-center md:justify-between md:px-8">
         <div className="space-y-6 ">
@@ -28,7 +28,7 @@ export function Footer() {
               Ram Shankar <br />
               Choudhary
             </h3>
-            <p className="font-geist-sans text-lg font-normal leading-snug text-neutral-300 md:text-2xl">
+            <p className="font-geist-sans text-lg font-normal leading-snug text-neutral-300 md:text-xl">
               <Balancer>
                 I&apos;m always open to new opportunities and connections.
                 Whether you have a project you&apos;d like to discuss, want to

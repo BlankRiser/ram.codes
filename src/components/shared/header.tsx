@@ -6,6 +6,7 @@ import Balancer from "react-wrap-balancer";
 type ContentHeader = {
   title: string;
   description: string;
+  animate?: boolean;
 };
 
 const variants: Variants = {
@@ -22,22 +23,21 @@ const variants: Variants = {
 export const ContentHeader: React.FC<ContentHeader> = ({
   title,
   description,
+  animate = true,
 }) => {
   return (
     <motion.section
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
+      variants={animate ? variants : undefined}
+      initial={animate ? "hidden" : undefined}
+      whileInView={animate ? "visible" : undefined}
       className="mx-auto my-10 flex w-full max-w-4xl flex-col items-center justify-center text-center md:my-24"
     >
       <h1 className="bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-70% to-neutral-900 bg-clip-text py-5 font-mono text-4xl font-bold leading-10 tracking-tight text-transparent md:text-5xl">
         {title}
       </h1>
-      <Balancer>
-        <p className="font-geist-sans text-lg font-normal text-neutral-300">
-          {description}
-        </p>
-      </Balancer>
+      <p className="font-geist-sans text-lg font-normal text-neutral-300">
+        <Balancer>{description}</Balancer>
+      </p>
     </motion.section>
   );
 };
