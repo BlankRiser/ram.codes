@@ -12,8 +12,9 @@ type Work = {
   description: string;
   url: string;
   image: string;
-  technologies: Technologies[];
+  technologies: Array<Technologies>;
   brandClasses: string;
+  accomplishments?: Array<string>;
 };
 
 export const WORK: Array<Work> = [
@@ -36,7 +37,7 @@ export const WORK: Array<Work> = [
       "react-query",
       "javascript",
       "zod",
-    ] as Technologies[],
+    ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow  --hover:shadow-attri"
     ),
@@ -60,7 +61,7 @@ export const WORK: Array<Work> = [
       "react-query",
       "zod",
       "nginx",
-    ] as Technologies[],
+    ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-midas"
     ),
@@ -80,7 +81,7 @@ export const WORK: Array<Work> = [
       "typescript",
       "zod",
       "stripe",
-    ] as Technologies[],
+    ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-potion"
     ),
@@ -99,7 +100,7 @@ export const WORK: Array<Work> = [
       "framer-motion",
       "nginx",
       "google-drive-api",
-    ] as Technologies[],
+    ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-cosmic-zoom"
     ),
@@ -119,7 +120,7 @@ export const WORK: Array<Work> = [
       "simple storage service (s3)",
       "elastic cloud compute (ec2)",
       "nginx",
-    ] as Technologies[],
+    ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-nabler"
     ),

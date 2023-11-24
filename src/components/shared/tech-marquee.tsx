@@ -51,8 +51,9 @@ const tech = [
 
 export function TechMarquee() {
   return (
-    <div className="relative">
-      <div className={`absolute bottom-0 `}>
+    <div className="relative z-[100000] bg-neutral-950">
+      <div className={``}>
+        <Divider className="my-0" />
         <Marquee speed={100}>
           {tech.map((t, i) => (
             <span

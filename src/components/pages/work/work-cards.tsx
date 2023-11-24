@@ -2,6 +2,7 @@
 
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import {
   Tooltip,
@@ -67,6 +68,7 @@ export const WorkSmallCard: React.FC<Work> = ({
 
   return (
     <motion.div
+      id={company}
       ref={containerRef}
       style={{
         position: "sticky",
@@ -75,12 +77,9 @@ export const WorkSmallCard: React.FC<Work> = ({
       }}
       className="grid grid-cols-2 border border-neutral-800 bg-neutral-950 p-2 md:rounded-[28px] md:p-4"
     >
-      <a
-        href={`${window.location.href}#${year}`}
-        className="absolute left-[2rem] top-[-14px] max-w-fit rounded-md bg-neutral-800 px-3 py-1 text-sm text-neutral-400 "
-      >
+      <span className="absolute left-[2rem] top-[-14px] max-w-fit rounded-md bg-neutral-800 px-3 py-1 text-sm text-neutral-400 ">
         {year}
-      </a>
+      </span>
       <div className="flex w-full flex-col gap-4 py-8 pl-6">
         <div className="flex flex-col">
           <span className="font-space-grotesk text-3xl font-semibold text-neutral-300">
