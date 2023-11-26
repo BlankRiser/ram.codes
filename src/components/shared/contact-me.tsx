@@ -1,10 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import React from "react";
+import { useForm } from "react-hook-form";
+import { isDirty, z } from "zod";
 import { cn } from "~/utils/text-transforms";
 import {
   Input,
@@ -18,6 +17,7 @@ import {
   SliderTrigger,
 } from "../ui";
 import { Button } from "../ui/button";
+import { watch } from "fs";
 
 type ContactMeProps = {
   children?: React.ReactNode;
@@ -31,71 +31,35 @@ export const ContactMe: React.FC<ContactMeProps> = ({
   ),
 }) => {
   return (
-    <div className="grid grid-cols-2 gap-2">
-      <Slider>
-        <SliderTrigger asChild>{children}</SliderTrigger>
-        <SliderContent side={"right"} className="sm:max-w-3xl">
-          <SliderHeader>
-            <SliderTitle className="font-space-grotesk text-lg font-semibold">
-              Contact Me
-            </SliderTitle>
-            <SliderDescription>
-              Please fill the form below to contact me.
-            </SliderDescription>
-          </SliderHeader>
-          <ContactForm />
-          <SliderFooter>
-            <SliderClose asChild>
-              <Button type="submit">Contact Me</Button>
-            </SliderClose>
-          </SliderFooter>
-        </SliderContent>
-      </Slider>
-    </div>
+    <Slider>
+      <SliderTrigger asChild>{children}</SliderTrigger>
+      <SliderContent side={"right"} className="sm:max-w-3xl">
+        <SliderHeader>
+          <SliderTitle className="font-space-grotesk text-lg font-semibold">
+            Contact Me
+          </SliderTitle>
+          <SliderDescription>
+            Please fill the form below to contact me.
+          </SliderDescription>
+        </SliderHeader>
+        <ContactForm />
+      </SliderContent>
+    </Slider>
   );
 };
-
-const contactFormFieldSchema = z.object({
-  name: z
-    .string({
-      required_error: "Name is required",
-    })
-    .min(1, { message: "Name is required" }),
-  email: z.string().min(1, { message: "Email is required" }).email({
-    message: "Must be a valid email",
-  }),
-  company: z
-    .string()
-    .min(1, { message: "Please enter the name of your company" }),
-  budget: z.number().int().min(0).max(1000000).optional(),
-  service: z
-    .enum(["design", "development", "consulting"], {
-      invalid_type_error: "Please select a service",
-    })
-    .default("development")
-    .optional(),
-  projectDetails: z
-    .string({
-      required_error: "Please enter some details about your project",
-    })
-    .min(1, { message: "Please enter some details about your project" })
-    .optional(),
-});
-
-type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<ContactFormFields>({
     resolver: zodResolver(contactFormFieldSchema),
   });
 
   return (
-    <form onSubmit={handleSubmit((d) => console.log(d))}>
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
       <div className="grid gap-4 py-4">
         <ContactInput
           label={"Name"}
@@ -116,10 +80,43 @@ const ContactForm = () => {
           error={errors.company?.message}
         />
       </div>
-      <button type="submit">save it</button>
+      <SliderClose asChild>
+        <Button disabled={!isValid} type="submit">
+          Send
+        </Button>
+      </SliderClose>
     </form>
   );
 };
+
+const contactFormFieldSchema = z.object({
+  name: z
+    .string({
+      required_error: "Name is required",
+    })
+    .min(1, { message: "Name is required" }),
+  email: z.string().min(1, { message: "Email is required" }).email({
+    message: "Must be a valid email",
+  }),
+  company: z
+    .string()
+    .min(1, { message: "Please enter the name of your company" }),
+  // budget: z.number().int().min(0).max(1000000).optional(),
+  // service: z
+  //   .enum(["design", "development", "consulting"], {
+  //     invalid_type_error: "Please select a service",
+  //   })
+  //   .default("development")
+  //   .optional(),
+  // projectDetails: z
+  //   .string({
+  //     required_error: "Please enter some details about your project",
+  //   })
+  //   .min(1, { message: "Please enter some details about your project" })
+  //   .optional(),
+});
+
+type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
 
 type ContactInputProps = {
   label: string;
