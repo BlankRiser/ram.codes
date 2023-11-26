@@ -1,10 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import React from "react";
 import { cn } from "~/utils/text-transforms";
 import {
   Input,
@@ -18,6 +17,7 @@ import {
   SliderTrigger,
 } from "../ui";
 import { Button } from "../ui/button";
+import { watch } from "fs";
 
 type ContactMeProps = {
   children?: React.ReactNode;
@@ -31,27 +31,60 @@ export const ContactMe: React.FC<ContactMeProps> = ({
   ),
 }) => {
   return (
-    <div className="grid grid-cols-2 gap-2">
-      <Slider>
-        <SliderTrigger asChild>{children}</SliderTrigger>
-        <SliderContent side={"right"} className="sm:max-w-3xl">
-          <SliderHeader>
-            <SliderTitle className="font-space-grotesk text-lg font-semibold">
-              Contact Me
-            </SliderTitle>
-            <SliderDescription>
-              Please fill the form below to contact me.
-            </SliderDescription>
-          </SliderHeader>
-          <ContactForm />
-          <SliderFooter>
-            <SliderClose asChild>
-              <Button type="submit">Contact Me</Button>
-            </SliderClose>
-          </SliderFooter>
-        </SliderContent>
-      </Slider>
-    </div>
+    <Slider>
+      <SliderTrigger asChild>{children}</SliderTrigger>
+      <SliderContent side={"right"} className="sm:max-w-3xl">
+        <SliderHeader>
+          <SliderTitle className="font-space-grotesk text-lg font-semibold">
+            Contact Me
+          </SliderTitle>
+          <SliderDescription>
+            Please fill the form below to contact me.
+          </SliderDescription>
+        </SliderHeader>
+        <ContactForm />
+      </SliderContent>
+    </Slider>
+  );
+};
+
+const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<ContactFormFields>({
+    resolver: zodResolver(contactFormFieldSchema),
+  });
+
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <div className="grid gap-4 py-4">
+        <ContactInput
+          label={"Name"}
+          type="text"
+          {...register("name", { required: true })}
+          error={errors.name?.message}
+        />
+        <ContactInput
+          label={"Email"}
+          placeholder="e.g. example.mail@example.com"
+          {...register("email", { required: true })}
+          error={errors.email?.message}
+        />
+        <ContactInput
+          label={"Company"}
+          placeholder="e.g. acme.inc"
+          {...register("company", { required: true })}
+          error={errors.company?.message}
+        />
+      </div>
+      <SliderClose asChild>
+        <Button type="submit">Contact Me</Button>
+      </SliderClose>
+      {/* <button type="submit">save it</button> */}
+    </form>
   );
 };
 
@@ -83,43 +116,6 @@ const contactFormFieldSchema = z.object({
 });
 
 type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
-
-const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<ContactFormFields>({
-    resolver: zodResolver(contactFormFieldSchema),
-  });
-
-  return (
-    <form onSubmit={handleSubmit((d) => console.log(d))}>
-      <div className="grid gap-4 py-4">
-        <ContactInput
-          label={"Name"}
-          type="text"
-          {...register("name", { required: true })}
-          error={errors.name?.message}
-        />
-        <ContactInput
-          label={"Email"}
-          placeholder="e.g. example.mail@example.com"
-          {...register("email", { required: true })}
-          error={errors.email?.message}
-        />
-        <ContactInput
-          label={"Company"}
-          placeholder="e.g. acme.inc"
-          {...register("company", { required: true })}
-          error={errors.company?.message}
-        />
-      </div>
-      <button type="submit">save it</button>
-    </form>
-  );
-};
 
 type ContactInputProps = {
   label: string;
