@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { isDirty, z } from "zod";
 import { cn } from "~/utils/text-transforms";
 import {
   Input,
@@ -53,7 +53,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<ContactFormFields>({
     resolver: zodResolver(contactFormFieldSchema),
   });
@@ -81,9 +81,10 @@ const ContactForm = () => {
         />
       </div>
       <SliderClose asChild>
-        <Button type="submit">Contact Me</Button>
+        <Button disabled={!isValid} type="submit">
+          Send
+        </Button>
       </SliderClose>
-      {/* <button type="submit">save it</button> */}
     </form>
   );
 };
@@ -100,19 +101,19 @@ const contactFormFieldSchema = z.object({
   company: z
     .string()
     .min(1, { message: "Please enter the name of your company" }),
-  budget: z.number().int().min(0).max(1000000).optional(),
-  service: z
-    .enum(["design", "development", "consulting"], {
-      invalid_type_error: "Please select a service",
-    })
-    .default("development")
-    .optional(),
-  projectDetails: z
-    .string({
-      required_error: "Please enter some details about your project",
-    })
-    .min(1, { message: "Please enter some details about your project" })
-    .optional(),
+  // budget: z.number().int().min(0).max(1000000).optional(),
+  // service: z
+  //   .enum(["design", "development", "consulting"], {
+  //     invalid_type_error: "Please select a service",
+  //   })
+  //   .default("development")
+  //   .optional(),
+  // projectDetails: z
+  //   .string({
+  //     required_error: "Please enter some details about your project",
+  //   })
+  //   .min(1, { message: "Please enter some details about your project" })
+  //   .optional(),
 });
 
 type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
