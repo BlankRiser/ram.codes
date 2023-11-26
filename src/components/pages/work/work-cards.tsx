@@ -81,7 +81,7 @@ export const WorkSmallCard: React.FC<Work> = ({
         top: `calc(5rem + ${index * 32}px)`,
         scale: scaleValue,
       }}
-      className="grid grid-cols-2 border border-neutral-800 bg-neutral-950 p-2 md:rounded-[28px] md:p-4"
+      className="grid border border-neutral-800 bg-neutral-950 p-2 md:grid-cols-2 md:rounded-[28px] md:p-4"
     >
       <span className="absolute left-[2rem] top-[-14px] max-w-fit rounded-md bg-neutral-800 px-3 py-1 text-sm text-neutral-400 ">
         {year}
@@ -91,16 +91,17 @@ export const WorkSmallCard: React.FC<Work> = ({
           {position}
         </span>
       ) : null}
+
       <div className="flex w-full flex-col gap-4 py-8 pl-6">
         <div className="flex flex-col">
-          <span className="font-space-grotesk text-3xl font-semibold text-neutral-300">
+          <span className="text-center font-space-grotesk text-3xl font-semibold text-neutral-300 md:text-left">
             {role}
           </span>
         </div>
         <p className="max-w-[40ch] text-center font-geist-sans text-lg text-neutral-300 md:text-left">
           {description}
         </p>
-        <div className="mt-auto flex max-w-fit flex-wrap items-center justify-center gap-4">
+        <div className="mx-auto flex max-w-fit flex-wrap items-center justify-center gap-4 md:mx-0 md:mt-auto ">
           {technologies.map((item) => {
             return (
               <Tooltip key={item} delayDuration={0}>
