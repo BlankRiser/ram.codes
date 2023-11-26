@@ -1,14 +1,12 @@
 import { allBlogs } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
 import { Markdown } from "~/components/mdx/markdown";
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
 import { formatDate } from "~/utils/date-utils";
 import { cn } from "~/utils/text-transforms";
-
-import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
 
 export async function generateMetadata({
   params,
@@ -27,8 +25,8 @@ export async function generateMetadata({
   } = post;
 
   const ogImage = image
-    ? `https://v2.ram.codes${image}`
-    : `https://v2.ram.codes/og?title=${title}`;
+    ? `https://ram.codes${image}`
+    : `https://ram.codes/og?title=${title}`;
 
   return {
     title,
@@ -38,7 +36,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://v2.ram.codes/blog/${slug}`,
+      url: `https://ram.codes/blog/${slug}`,
       images: [
         {
           url: ogImage,

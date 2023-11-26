@@ -34,16 +34,16 @@ export const Navbar = () => {
           >
             <span className="block shadow-lg">R</span>
           </Link>
-          <ul className="flex items-center justify-between gap-4">
+          <ul className="flex items-center justify-between gap-2 rounded-full border border-neutral-800 p-1">
             {Object.entries(LINKS).map(([key, value], index) => {
               return (
                 <li key={index}>
                   <Link
                     href={value}
                     className={cn(
-                      "relative block z-10 hover:bg-neutral-800 px-4 py-1 rounded-full text-neutral-400",
+                      "relative block z-10 hover:bg-neutral-800 active:bg-neutral-800/50 px-4 py-1 rounded-full text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-devhaven-500",
                       pathname.startsWith(value) &&
-                        "outline-dashed outline-1 outline-neutral-700 text-neutral-200",
+                        "outline outline-1 outline-neutral-900 text-neutral-200",
                       "transition-colors duration-150 ease-in-out"
                     )}
                   >

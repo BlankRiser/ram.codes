@@ -26,13 +26,19 @@ export const WorkCards = () => {
         {WORK.map((item, index) => {
           const targetScale = 1 - (WORK.length - index) * 0.05;
 
+          // Calculate the split value based on the number of items
+          const split = 100 / WORK.length / 100;
+
+          // Define the range for the scale animation
+          const minRange: [number, number] = [index * split, 1];
+
           return (
             <WorkSmallCard
               key={index}
               index={index}
               progress={scrollYProgress}
               scale={targetScale}
-              range={[index * 0.25, 1]}
+              range={minRange}
               {...item}
             />
           );

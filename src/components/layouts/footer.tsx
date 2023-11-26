@@ -11,6 +11,7 @@ import Balancer from "react-wrap-balancer";
 import { SOCIALS } from "~/constants/me";
 import { ContactMe } from "../shared/contact-me";
 import { Divider } from "../ui";
+import { cn } from "~/utils/text-transforms";
 
 export const SOCIALS_MAP = SOCIALS.reduce((acc, curr) => {
   acc[curr.name] = curr.link;
@@ -40,7 +41,12 @@ export function Footer() {
           <ContactMe />
         </div>
 
-        <div className="hidden text-neutral-300 md:flex md:flex-col md:items-end md:gap-6 [&>a]:font-geist-mono [&>a]:uppercase [&>a]:tracking-widest">
+        <div
+          className={cn([
+            "hidden text-neutral-300 md:flex md:flex-col md:items-end md:gap-6 [&>a]:font-geist-mono [&>a]:uppercase [&>a]:tracking-widest",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-devhaven-500",
+          ])}
+        >
           <a
             href={SOCIALS_MAP.linkedin}
             target="_blank"

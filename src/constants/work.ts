@@ -15,6 +15,7 @@ type Work = {
   technologies: Array<Technologies>;
   brandClasses: string;
   accomplishments?: Array<string>;
+  keyDetails?: Array<string>;
 };
 
 export const WORK: Array<Work> = [
@@ -23,7 +24,11 @@ export const WORK: Array<Work> = [
     role: "Frontend Developer",
     position: "FTE",
     company: "Attri.AI",
-    description: `Developing performant and Secure NextJs apps for fintech needs.`,
+    description: `Developing performant and Secure applications.`,
+    keyDetails: [
+      "Developing map based application for meterological data",
+      "Part of hiring frontend team",
+    ],
     url: "https://attri.ai/?ref=ram.codes",
     image: "/images/work/attri.png",
     technologies: [
@@ -48,6 +53,11 @@ export const WORK: Array<Work> = [
     position: "FTE",
     company: "Midas Fintech Solutions Pvt Ltd",
     description: `Developing performant and Secure NextJs apps for fintech needs.`,
+    keyDetails: [
+      "Developed internal tools that helped the company to scale",
+      "Developed customer facing applications that helped company to acquire more customers",
+      "Developed a design system for the company",
+    ],
     url: "https://midasfintechsolutions.com?=ram.codes",
     image: "/images/work/midas.png",
     technologies: [
@@ -84,6 +94,19 @@ export const WORK: Array<Work> = [
     ],
     brandClasses: cn(
       "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-potion"
+    ),
+  },
+  {
+    year: 2021,
+    role: "Frontend Developer",
+    position: "Freelance",
+    company: "Opsopod",
+    description: `Built an IoT platform landing page.`,
+    url: "https://www.opspod.in/?ref=ram.codes",
+    image: "/images/work/opspod.png",
+    technologies: ["next", "tailwind", "framer-motion", "typescript"],
+    brandClasses: cn(
+      "bg-neutral-950 --border --border-neutral-700 transition-shadow --hover:shadow-cosmic-zoom"
     ),
   },
   {

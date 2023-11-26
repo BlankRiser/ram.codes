@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const WORK: Work[] = [
+const WORK: Work[] = [
   // {
   // 	company: 'International Centre for Theoretical Sciences',
   // 	ogImage: '/cosmiczoom/og.png',
@@ -137,7 +137,7 @@ export const WORK: Work[] = [
   },
 ];
 
-export type Work = {
+type Work = {
   company: string;
   role: string;
   start: string;
