@@ -1,38 +1,38 @@
 @tailwind base;
-@import './syntax-highlight.css';
+@import "./syntax-highlight.css";
 @tailwind components;
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 
-	--marquee-speed: 25s;
+  --marquee-speed: 25s;
 }
 
 ::selection {
-	background-color: #a0ff00;
-	color: #000;
+  background-color: #a0ff00;
+  color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-	}
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
-	@apply bg-black text-neutral-200 accent-primary focus:outline-transparent focus-visible:outline-primary;
+  @apply bg-black text-neutral-200 accent-primary focus:outline-transparent focus-visible:outline-primary;
 }
 
 .mask {
-	mask-image: url('../../public/mask.svg');
-	mask-repeat: no-repeat;
-	mask-size: 40px;
-	background: #a0ff00;
-	position: absolute;
-	color: black;
+  mask-image: url("../../public/mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 40px;
+  background: #a0ff00;
+  position: absolute;
+  color: black;
 }

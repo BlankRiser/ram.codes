@@ -1,59 +1,71 @@
-import { Marquee } from './marquee';
-import { Divider } from '../ui';
+import { Marquee } from "./marquee";
+import { Divider } from "../ui";
 
 const tech = [
-	'React',
-	'NextJs',
-	'AstroJs',
-	'Remix',
+  "TypeScript",
+  "JavaScript",
+  "Python",
+  "SQL",
 
-	'|',
+  "|",
 
-	'AWS',
-	'Docker',
-	'Github Actions',
+  "ReactJs",
+  "SolidJs",
 
-	'|',
+  "|",
 
-	'TypeScript',
-	'JavaScript',
-	'Python',
+  "NextJs",
+  "RemixJs",
+  "AstroJs",
 
-	'|',
+  "|",
 
-	'HTML',
-	'CSS',
-	'SCSS',
-	'Tailwind CSS',
-	'Chakra UI',
-	'Panda CSS',
-	'Mantine UI',
-	'Material UI',
+  "AWS",
+  "Digital Ocean",
+  "Github Actions",
 
-	'|',
+  "|",
 
-	'Apache Echarts',
-	'Highcharts',
-	'ChartJs',
+  "HTML",
+  "CSS",
+  "SCSS",
+  "TailwindCSS",
+  "Chakra UI",
+  "Panda CSS",
+  "Mantine UI",
+  "Material UI",
 
-	'|',
+  "|",
 
-	'Express',
+  "Apache Echarts",
+  "Highcharts",
+  "ChartJs",
+
+  "|",
+
+  "Express",
+  "Fastify",
+  "Flask",
+  "Django",
 ];
 
 export function TechMarquee() {
-	return (
-		<div className='relative'>
-			<div className={`absolute bottom-0 `}>
-				<Marquee>
-					{tech.map((t, i) => (
-						<span key={i} className='inline-block p-4 text-gray-400'>
-							{t}
-						</span>
-					))}
-				</Marquee>
-				<Divider className='my-0' />
-			</div>
-		</div>
-	);
+  return (
+    <div className="relative z-[100000] bg-neutral-950">
+      <div className={``}>
+        <Divider className="my-0" />
+        <Marquee speed={100}>
+          {tech.map((t, i) => (
+            <span
+              key={i}
+              className="inline-block p-4 font-geist-sans text-gray-400"
+            >
+              {t}
+            </span>
+          ))}
+        </Marquee>
+        <Divider className="my-0" />
+      </div>
+    </div>
+  );
 }

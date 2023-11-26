@@ -34,26 +34,26 @@ export const WorkCard: React.FC<Work> = ({
   company,
   image,
 }) => {
-  const ref = useRef<ElementRef<"div">>(null);
-  const isInView = useInView(ref, { once: true });
+  // const ref = useRef<ElementRef<"div">>(null);
+  // const isInView = useInView(ref, { once: true });
 
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
+  // useEffect(() => {
+  //   if (isInView) {
+  //     controls.start("visible");
+  //   }
+  // }, [controls, isInView]);
 
   return (
     <motion.div
-      ref={ref}
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.8 }}
-      animate={controls}
-      className="border-t border-neutral-700 px-2 md:px-4"
+      // ref={ref}
+      // variants={variants}
+      // initial="hidden"
+      // whileInView="visible"
+      // viewport={{ once: true, amount: 0.8 }}
+      // animate={controls}
+      className="sticky top-[5rem] border-t border-neutral-700 bg-neutral-950 px-2 md:px-4"
     >
       <div className="grid w-full grid-cols-1 justify-between gap-y-5 py-8 md:grid-cols-3 md:gap-y-8">
         <div className="flex flex-col items-center gap-2 md:flex-row md:items-start md:gap-4">
@@ -99,29 +99,5 @@ export const WorkCard: React.FC<Work> = ({
         </div>
       </a>
     </motion.div>
-  );
-};
-
-export const WorkHeader = () => {
-  return (
-    <motion.section
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      className="mx-auto my-24 flex w-full max-w-4xl flex-col items-center justify-center text-center"
-    >
-      <h1 className="bg-gradient-to-br from-neutral-200 from-10% via-neutral-500 via-60% to-neutral-900 bg-clip-text py-5 font-mono text-4xl font-bold leading-10 tracking-tight text-transparent md:text-5xl">
-        Professional Experience
-      </h1>
-      <Balancer>
-        <p className="font-geist-sans text-lg text-neutral-300">
-          Welcome to my professional journey. Here, I&apos;ve curated a
-          collection of the companies I&apos;ve had the privilege to work with.
-          Each experience has contributed to my growth, expertise, and passion
-          in Software Engineering. Take a glimpse into my career and the
-          valuable contributions I&apos;ve made to these organizations.
-        </p>
-      </Balancer>
-    </motion.section>
   );
 };

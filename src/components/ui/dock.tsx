@@ -14,7 +14,7 @@ export function Dock() {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto max-w-7xl w-max flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
+      className="mx-auto flex h-16 w-max max-w-7xl items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
     >
       {[...Array.from(Array(8).keys())].map((i) => (
         <AppIcon mouseX={mouseX} key={i} />

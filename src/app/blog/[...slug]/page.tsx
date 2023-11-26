@@ -1,10 +1,12 @@
 import { allBlogs } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
+import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
 import { Markdown } from "~/components/mdx/markdown";
+import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
 import { formatDate } from "~/utils/date-utils";
+import { cn } from "~/utils/text-transforms";
 
 export async function generateMetadata({
   params,
@@ -21,9 +23,10 @@ export async function generateMetadata({
     image,
     slug,
   } = post;
+
   const ogImage = image
-    ? `https://v2.ram.codes${image}`
-    : `https://v2.ram.codes/og?title=${title}`;
+    ? `https://ram.codes${image}`
+    : `https://ram.codes/og?title=${title}`;
 
   return {
     title,
@@ -33,7 +36,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://v2.ram.codes/blog/${slug}`,
+      url: `https://ram.codes/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -83,21 +86,36 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
         <div className="mx-auto w-full max-w-3xl">
           <Markdown code={post.body.code} />
         </div>
-        <aside className="fixed right-24 top-[25vh] hidden text-neutral-500 opacity-40 hover:opacity-100 md:block">
+        <aside className="fixed right-8 top-1/2 hidden max-h-[75vh] translate-y-[-50%] overflow-y-auto rounded-md bg-neutral-900 py-2 text-neutral-500 opacity-40 hover:opacity-100 md:block">
           {post.toc &&
             post.headings.map((heading: (typeof post.headings)[number]) => {
               return (
                 <div
                   key={`#${heading.slug}`}
-                  className="mb-1 max-w-[25ch] overflow-hidden truncate"
+                  className="mb-1 max-w-[40ch] overflow-hidden truncate"
                 >
-                  <a
-                    data-level={heading.level}
-                    href={`#${heading.slug}`}
-                    className=" hover:text-primary data-[level=three]:pl-4 data-[level=two]:pl-2"
-                  >
-                    {heading.text}
-                  </a>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        data-level={heading.level}
+                        href={`#${heading.slug}`}
+                        className={cn([
+                          "hover:text-primary",
+                          "flex items-center gap-1",
+                          "data-[level=two]:pl-4",
+                          "data-[level=three]:pl-8",
+                        ])}
+                      >
+                        {["two", "three"].includes(heading.level) && (
+                          <IconoirLongArrowDownRight />
+                        )}
+                        <span className="truncate">{heading.text}</span>
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="capitalize">{heading.text}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </div>
               );
             })}

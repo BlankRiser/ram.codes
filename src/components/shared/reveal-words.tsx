@@ -1,19 +1,23 @@
-import { motion, useInView } from 'framer-motion';
-import React, { useRef } from 'react';
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 type RevealWordsProps = {
   sentence: string;
 };
 
 export const RevealWords: React.FC<RevealWordsProps> = ({ sentence }) => {
-  const senntenceContainer = useRef<React.ElementRef<'div'>>(null);
+  const senntenceContainer = useRef<React.ElementRef<"div">>(null);
   const isInView = useInView(senntenceContainer);
   return (
     <div ref={senntenceContainer}>
-      {sentence.split(' ').map((word, index) => {
+      {sentence.split(" ").map((word, index) => {
         return (
-          <span key={index} className='inline-flex overflow-hidden relaitve'>
-            <motion.span variants={slideUp} custom={index} animate={isInView ? 'open' : 'closed'}>
+          <span key={index} className="relative inline-flex overflow-hidden">
+            <motion.span
+              variants={slideUp}
+              custom={index}
+              animate={isInView ? "open" : "closed"}
+            >
               {word}
             </motion.span>
           </span>
@@ -25,14 +29,14 @@ export const RevealWords: React.FC<RevealWordsProps> = ({ sentence }) => {
 
 export const slideUp = {
   initial: {
-    y: '100%',
+    y: "100%",
   },
   open: (i: number) => ({
-    y: '0%',
+    y: "0%",
     transition: { duration: 0.5, delay: 0.01 * i },
   }),
   closed: {
-    y: '100%',
+    y: "100%",
     transition: { duration: 0.5 },
   },
 };

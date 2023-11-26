@@ -8,9 +8,10 @@ export const ScrollToTop = () => {
   useEffect(() => {
     const handleWindowScroll = () => {
       if (window.scrollY > 200) {
-        setShow(true)
+        setShow(true);
+      } else {
+        setShow(false);
       }
-      else { setShow(false) }
     };
 
     window.addEventListener("scroll", handleWindowScroll);
@@ -26,10 +27,10 @@ export const ScrollToTop = () => {
       aria-label="Scroll To Top"
       onClick={handleClick}
       style={{ opacity: show ? 1 : 0 }}
-      className="fixed hidden rounded-full p-2 text-gray-100 transition-opacity bg-gray-800 md:inline-block right-8 bottom-8 hover:bg-gray-700"
+      className="fixed bottom-8 right-8 hidden rounded-full bg-gray-800 p-2 text-gray-100 transition-opacity hover:bg-gray-700 md:inline-block"
     >
       <svg
-        className="w-4 h-4"
+        className="h-4 w-4"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
