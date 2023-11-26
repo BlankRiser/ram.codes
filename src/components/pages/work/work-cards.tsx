@@ -2,7 +2,6 @@
 
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import {
   Tooltip,
@@ -68,6 +67,7 @@ export const WorkSmallCard: React.FC<Work> = ({
   brandClasses,
   company,
   image,
+  position,
 }) => {
   const containerRef = useRef(null);
   const scaleValue = useTransform(progress, range, [1, scale]);
@@ -86,6 +86,11 @@ export const WorkSmallCard: React.FC<Work> = ({
       <span className="absolute left-[2rem] top-[-14px] max-w-fit rounded-md bg-neutral-800 px-3 py-1 text-sm text-neutral-400 ">
         {year}
       </span>
+      {position === "Freelance" ? (
+        <span className="absolute right-[4rem] top-[-14px] max-w-fit rounded-md bg-neutral-800 px-1.5 py-0.5 text-xs text-neutral-400 ">
+          {position}
+        </span>
+      ) : null}
       <div className="flex w-full flex-col gap-4 py-8 pl-6">
         <div className="flex flex-col">
           <span className="font-space-grotesk text-3xl font-semibold text-neutral-300">
