@@ -78,6 +78,11 @@ export const Blog = defineDocumentType(() => ({
 			required: true,
 			default: true,
 		},
+		series: {
+			type: 'string',
+			required: false,
+			
+		},
 		toc: {
 			type: 'boolean',
 			required: false,

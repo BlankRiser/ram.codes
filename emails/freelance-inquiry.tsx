@@ -1,12 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
   Body,
+  Column,
   Container,
   Head,
   Heading,
   Hr,
   Html,
+  Img,
   Preview,
+  Row,
+  Section,
   Tailwind,
   Text,
 } from "@react-email/components";
@@ -14,11 +18,17 @@ import {
 type FreelanceInquiryProps = {
   name: string;
   email: string;
+  company: string;
 };
 
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
+
 export const FreelanceInquiry: React.FC<FreelanceInquiryProps> = ({
-  email,
-  name,
+  email = "business@somehugebusiness.com",
+  name = "Really Long Long Name To Test",
+  company = "somehugebusiness",
 }) => {
   return (
     <Html>
@@ -26,50 +36,41 @@ export const FreelanceInquiry: React.FC<FreelanceInquiryProps> = ({
       <Preview>{name} has an inquiry from ram.codes</Preview>
       <Tailwind>
         <Body className="m-auto bg-white font-sans">
-          <Container className="mx-auto my-[20px] max-w-4xl p-[20px]">
+          <Container className="mx-auto my-[20px] p-[20px]">
             <Heading className="text-left text-[20px] font-normal text-black">
-              <strong>New Inquiry from {name}!</strong>
+              <strong>New Freelance Enquiry!</strong>
             </Heading>
             <Text className="text-[14px] leading-[24px] text-black">
-              {email}
+              This businees has an inquiry from {name}!
             </Text>
             <Hr className="mx-0 my-[16px] w-full" />
             <Container>
-              <Text className="text-[12px] text-[#666666]">
+              <Text className="text-[#666666]">
                 Name: <strong>{name}</strong>
               </Text>
-              <Text className="text-[12px] text-[#666666]">
-                This email is delivered to you through the Resend SDK
-                integrations.✨
+              <Text className="text-[#666666]">
+                Email: <strong>{email}</strong>
+              </Text>
+              <Text className="text-[#666666]">
+                Company: <strong>{company}</strong>
               </Text>
             </Container>
           </Container>
+          <Section style={footer}>
+            <Text style={{ textAlign: "center", color: "#706a7b" }}>
+              © 2023 ram.codes, All Rights Reserved <br />
+            </Text>
+          </Section>
         </Body>
       </Tailwind>
     </Html>
   );
 };
 
+export default FreelanceInquiry;
+
 // Styles for the email template
-const main = {
-  backgroundColor: "#ffffff",
-};
-
-const container = {
-  margin: "0 auto",
-  padding: "20px 0 48px",
+const footer = {
   width: "580px",
-};
-
-const heading = {
-  fontSize: "32px",
-  lineHeight: "1.3",
-  fontWeight: "700",
-  color: "#484848",
-};
-
-const paragraph = {
-  fontSize: "18px",
-  lineHeight: "1.4",
-  color: "#484848",
+  margin: "0 auto",
 };

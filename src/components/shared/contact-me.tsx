@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { isDirty, z } from "zod";
+import { z } from "zod";
 import { cn } from "~/utils/text-transforms";
 import {
   Input,
@@ -11,13 +11,11 @@ import {
   SliderClose,
   SliderContent,
   SliderDescription,
-  SliderFooter,
   SliderHeader,
   SliderTitle,
   SliderTrigger,
 } from "../ui";
 import { Button } from "../ui/button";
-import { watch } from "fs";
 
 type ContactMeProps = {
   children?: React.ReactNode;
@@ -59,7 +57,17 @@ const ContactForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit((data) => console.log(data))}>
+    <form
+      onSubmit={handleSubmit(async (data) => {
+        const res = await fetch("/api/send", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      })}
+    >
       <div className="grid gap-4 py-4">
         <ContactInput
           label={"Name"}

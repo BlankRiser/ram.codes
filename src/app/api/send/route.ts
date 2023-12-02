@@ -5,20 +5,21 @@ import { FreelanceInquiry } from "emails/freelance-inquiry";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  //   const { budget, inquiry, name, email, inquiryType, workType, availability } =
-  //     await req.json();
+  const { name, email, company } = await req.json();
+
+  console.log({ name, email, company });
 
   try {
     const { data, error } = await resend.emails.send({
       from: "Hello <contact@contact.ram.codes>",
       to: ["hi@ram.codes", "ramshankarcodes@gmail.com"],
-      subject: "Hello world",
+      subject: `Enquiry from ${name}`,
       react: FreelanceInquiry({
-        name: "example name",
-        email: "acme@example.com",
+        name: name,
+        email: email,
+        company: company,
       }) as React.ReactElement,
     });
-
     if (error) {
       return NextResponse.json({ error });
     }

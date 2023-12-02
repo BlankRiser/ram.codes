@@ -15,7 +15,7 @@
     "start": "next start",
     "lint": "next lint && node scripts/rss.mjs",
     "rss": "node scripts/rss.mjs",
-    "preview-email": "email dev"
+    "email": "email dev"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.9.0",
