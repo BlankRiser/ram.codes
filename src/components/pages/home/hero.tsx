@@ -1,13 +1,13 @@
 'use client';
 
-import { LightArrowCircleRight } from '~/components/icons/misc';
+import { motion } from 'framer-motion';
 import { FadeInText, RevealCharacter } from '~/components/shared';
 import { ContactMe } from '~/components/shared/contact-me';
 import { Button, Particles } from '~/components/ui';
 
 export const Hero = () => {
   return (
-    <section className='relative flex h-[calc(100vh-56px)] flex-col items-center justify-center'>
+    <motion.section className='relative flex h-[calc(100vh-56px)] flex-col items-center justify-center'>
       <Particles
         className='absolute inset-0 z-[1] bg-neutral-950'
         quantity={100}
@@ -24,15 +24,15 @@ export const Hero = () => {
           className='z-10'
           characterClassName={`pointer-events-none z-10 select-none font-generalSans text-2xl font-light tracking-widest `}
         />
-        <div className='my-4'>
+        <motion.div className='my-4'>
           <ContactMe>
             <Button variant='outline' rounded='full'>
               Contact Me
             </Button>
           </ContactMe>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

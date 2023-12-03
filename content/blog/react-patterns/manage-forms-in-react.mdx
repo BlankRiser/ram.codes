@@ -1,0 +1,41 @@
+---
+title: Manage forms in react
+publishedAt: 2023-12-03
+summary: Various ways to manage forms in react
+image: '/images/blog/workstation.jpeg'
+draft: true
+toc: false
+---
+
+## Why are forms essential?
+
+Forms are the most common way to collect data from users. They are used for login, registration, checkout, and more. Forms need to be easy to use and accessible to all users.
+
+### Using FormData API
+
+```tsx title="Using form data api" 
+export const ReactFormData = () => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const values = Object.fromEntries(formData.entries());
+    console.log(values);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor='username'>Username</label>
+      <input name='username' id='username' placeholder='username' type='text' />
+      <label htmlFor='password'>Password</label>
+      <input name='password' id='password' placeholder='password' type='text' />
+      <button type='submit'>Submit</button>
+    </form>
+  );
+};
+```
+
+<CodeSandboxIframe
+  title='final-form'
+  src='https://codesandbox.io/embed/x6g5md?view=Editor+%2B+Preview&module=%2Fsrc%2Fcomponents%2Fformdata-impl.tsx'
+/>

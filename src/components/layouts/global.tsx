@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import React from "react";
+import { motion } from 'framer-motion';
+import React from 'react';
 
 export function Global({ children }: { children: React.ReactNode }) {
   return (
@@ -10,11 +10,11 @@ export function Global({ children }: { children: React.ReactNode }) {
       animate={{ y: 0 }}
       transition={{
         duration: 0.25,
-        type: "spring",
+        type: 'spring',
         stiffness: 100,
         damping: 20,
       }}
-      className="z-10"
+      className='z-10'
     >
       {children}
     </motion.main>
