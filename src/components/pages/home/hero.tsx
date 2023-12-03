@@ -24,7 +24,22 @@ export const Hero = () => {
           className='z-10'
           characterClassName={`pointer-events-none z-10 select-none font-generalSans text-2xl font-light tracking-widest `}
         />
-        <motion.div className='my-4'>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.5,
+            duration: 1,
+            ease: 'anticipate',
+          }}
+          className='my-4'
+        >
           <ContactMe>
             <Button variant='outline' rounded='full'>
               Contact Me
