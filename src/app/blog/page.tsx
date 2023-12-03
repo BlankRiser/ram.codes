@@ -22,7 +22,6 @@ export default async function BlogPage() {
       <section className="mx-auto grid w-full max-w-4xl place-items-center">
         <ArticleList allArticles={allBlogs} />
       </section>
-      <Footer />
     </div>
   );
 }

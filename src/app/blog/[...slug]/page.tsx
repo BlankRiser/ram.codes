@@ -2,7 +2,7 @@ import { allBlogs } from "contentlayer/generated";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
-import { IconoirLongArrowDownRight } from "~/components/icons/arrow-down-right";
+import {  LongArrowDownRight } from "~/components/icons/misc";
 import { Markdown } from "~/components/mdx/markdown";
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui";
 import { formatDate } from "~/utils/date-utils";
@@ -82,44 +82,47 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
           {formatDate(post.publishedAt)}
         </p>
       </div>
-      <div className="relative w-full">
-        <div className="mx-auto w-full max-w-3xl">
+      <div className="relative h-full w-full">
+        <div className="relative mx-auto w-full max-w-3xl">
           <Markdown code={post.body.code} />
         </div>
-        <aside className="fixed right-8 top-1/2 hidden max-h-[75vh] translate-y-[-50%] overflow-y-auto rounded-md bg-neutral-900 py-2 text-neutral-500 opacity-40 hover:opacity-100 md:block">
-          {post.toc &&
-            post.headings.map((heading: (typeof post.headings)[number]) => {
-              return (
-                <div
-                  key={`#${heading.slug}`}
-                  className="mb-1 max-w-[40ch] overflow-hidden truncate"
-                >
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <a
-                        data-level={heading.level}
-                        href={`#${heading.slug}`}
-                        className={cn([
-                          "hover:text-primary",
-                          "flex items-center gap-1",
-                          "data-[level=two]:pl-4",
-                          "data-[level=three]:pl-8",
-                        ])}
-                      >
-                        {["two", "three"].includes(heading.level) && (
-                          <IconoirLongArrowDownRight />
-                        )}
-                        <span className="truncate">{heading.text}</span>
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="capitalize">{heading.text}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </div>
-              );
-            })}
-        </aside>
+        <div className="absolute right-0 top-0">
+          <aside className="sticky right-0 top-0 z-50 mx-2 hidden max-h-[75vh] overflow-y-auto rounded-md bg-neutral-900 py-2 text-neutral-500 opacity-40 hover:opacity-100 md:block">
+            {post.toc &&
+              post.headings.map((heading: (typeof post.headings)[number]) => {
+                return (
+                  <div
+                    key={`#${heading.slug}`}
+                    className="mb-1 max-w-[40ch] overflow-hidden truncate"
+                  >
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          data-level={heading.level}
+                          href={`#${heading.slug}`}
+                          className={cn([
+                            "hover:text-primary",
+                            "flex items-center gap-1",
+                            // "data-[level=one]:pl-2",
+                            "data-[level=two]:pl-4",
+                            "data-[level=three]:pl-8",
+                          ])}
+                        >
+                          {["two", "three"].includes(heading.level) && (
+                            <LongArrowDownRight />
+                          )}
+                          <span className="truncate">{heading.text}</span>
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="capitalize">{heading.text}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                );
+              })}
+          </aside>
+        </div>
       </div>
     </section>
   );
