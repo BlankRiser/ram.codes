@@ -51,17 +51,18 @@ const textStyles = cn([
   'prose-h2:scroll-mt-24 prose-h2:text-2xl prose-h2:font-semibold prose-h2:leading-6 prose-h2:tracking-tight prose-h2:text-neutral-200 ',
   'prose-h3:scroll-mt-24 prose-h3:text-xl prose-h3:font-medium prose-h3:text-neutral-200',
   'prose-h4:scroll-mt-24 prose-h4:text-lg prose-h4:font-medium prose-h4:text-neutral-200',
-  'prose-h5:scroll-mt-24 prose-h5:text-base prose-h5:font-medium prose-h5:tracking-wide prose-h5:text-neutral-200',
-  'prose-h6:scroll-mt-24 prose-h6:text-base prose-h6:font-medium prose-h6:text-neutral-200',
-  'prose-p:font-normal prose-p:text-neutral-200',
+  'prose-h5:scroll-mt-24 prose-h5:text-lg prose-h5:font-medium prose-h5:tracking-wide prose-h5:text-neutral-200',
+  'prose-h6:scroll-mt-24 prose-h6:text-lg prose-h6:font-medium prose-h6:text-neutral-200',
+  'prose-p:font-normal prose-p:text-lg prose-p:text-neutral-200',
   'prose-strong:font-semibold prose-strong:text-neutral-200',
-  '[summary]:text-neutral-200',
+  '[summary:text-neutral-200]',
 ]);
 
 const listStyles = cn([
-  'prose-li:text-neutral-200 marker:text-neutral-300',
-  'prose-ul:list-disc prose-ul:space-y-2',
-  'prose-ol:list-num prose-ol:space-y-2 ',
+  'prose-ul:text-lg',
+  'prose-ul:list-disc prose-ul:space-y-2 prose-ul:marker:text-neutral-700',
+  'prose-ol:list-num prose-ol:space-y-2 prose-ol:marker:text-neutral-700',
+  'prose-li:text-neutral-200',
 ]);
 
 const codeStyles = cn([

@@ -31,10 +31,10 @@
 	"editor.lineNumbers": "on",
 	"editor.renderWhitespace": "selection",
 	"editor.codeActionsOnSave": {
-		"source.fixAll": true,
-		"source.addMissingImports": true,
-		"source.fixAll.eslint": true, // this allows ESßLint to auto fix on save
-		"source.organizeImports": false
+		"source.fixAll": "explicit",
+		"source.addMissingImports": "explicit",
+		"source.fixAll.eslint": "explicit",
+		"source.organizeImports": "never"
 	},
 	"terminal.integrated.env.osx": {},
 	"diffEditor.ignoreTrimWhitespace": true,
