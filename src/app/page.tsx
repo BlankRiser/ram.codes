@@ -8,10 +8,6 @@ export default function Home() {
     <>
       <Hero />
       <TechMarquee />
-
-      {/* <div className="mt-8 px-2 md:px-8">
-        <Projects />
-      </div> */}
     </>
   );
 }

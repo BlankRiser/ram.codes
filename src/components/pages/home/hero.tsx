@@ -4,8 +4,11 @@ import { motion } from 'framer-motion';
 import { FadeInText, RevealCharacter } from '~/components/shared';
 import { ContactMe } from '~/components/shared/contact-me';
 import { Button, Particles } from '~/components/ui';
+import { useMediaQuery } from '~/hooks/use-media-query';
 
 export const Hero = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <motion.section className='relative flex h-[calc(100vh-56px)] flex-col items-center justify-center'>
       <Particles
@@ -16,7 +19,7 @@ export const Hero = () => {
         <RevealCharacter
           className='pointer-events-none relative z-10 select-none py-4 font-space-grotesk text-5xl font-medium leading-[0.5] md:text-7xl lg:text-8xl'
           color={'#000'}
-          text={'Ram Shankar Choudhary'}
+          text={isMobile ? 'Ram Shankar' : 'Ram Shankar Choudhary'}
           type='h1'
         />
         <FadeInText
