@@ -1,11 +1,12 @@
-import { allBlogs } from "contentlayer/generated";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { allBlogs } from 'contentlayer/generated';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
   const post = allBlogs.find((post) => post.slug === params.slug);
+
   if (!post) {
     return;
   }
@@ -27,7 +28,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `https://v2.ram.codes/blog/${slug}`,
       images: [
@@ -37,7 +38,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
@@ -47,7 +48,7 @@ export async function generateMetadata({
 
 export default async function Blog({ params }: { params: { slug: string[] } }) {
   // const slug = decodeURI(params.slug.join("/"));
-  console.log("params", params);
+  console.log('params', params);
 
-  return <section className="px-2">work page {JSON.stringify(params)}</section>;
+  return <section className='px-2'>work page {JSON.stringify(params)}</section>;
 }

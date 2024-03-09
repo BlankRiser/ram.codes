@@ -20,7 +20,7 @@ export default async function BlogPage() {
         />
       </section>
 
-      <Suspense fallback={<>loading</>}>
+      <Suspense fallback={<>loading...</>}>
         <section className='mx-auto grid w-full max-w-4xl place-items-center'>
           <ArticleList allArticles={allBlogs} />
         </section>

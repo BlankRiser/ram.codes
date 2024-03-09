@@ -1,0 +1,58 @@
+---
+title: Streamlining Git Workflow with Multiple GitHub Accounts and GitHub CLI
+publishedAt: 2024-03-01
+summary: GitHub CLI, a game-changer in managing multiple Git accounts, simplifies setup and account switching with finesse. 
+image: "/images/blog/workstation.jpeg"
+draft: false
+toc: false
+---
+
+Managing multiple Git accounts is a common scenario for developers engaged in various projects or toggling between personal and professional repositories. The necessity for distinct identities becomes crucial to ensure proper attribution and maintain access control. In this blog post, we explore how GitHub CLI (Command Line Interface) simplifies the process, providing a seamless experience for developers with diverse commitments.
+
+To begin, if you haven't already, [install GitHub CLI](https://cli.github.com/). Following installation, authenticate your primary GitHub account using the gh auth login command. Walk through the prompts to securely provide your credentials.
+
+Checking Authentication Status: <br/>
+Verify the status of your linked accounts with gh auth status. A typical output might resemble the following:
+```
+github.com
+  ✓ Logged in to github.com account BlankRiser (keyring)
+  - Active account: true
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+```
+Adding Multiple Accounts: <br/>
+To add another account, simply run gh auth login again and follow the steps. Upon checking the status (gh auth status), you'll notice the new credentials listed. The account you just logged into will become your primary account. An example output could be:
+
+```
+github.com
+  ✓ Logged in to github.com account BlankRiser (keyring)
+  - Active account: false
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+    
+  ✓ Logged in to github.com account BlankRiser_Official (keyring)
+  - Active account: true
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+```
+
+Switching Between Accounts: <br/>
+Effortlessly switch between accounts using gh auth switch.
+
+Automation with [jq](https://jqlang.github.io/jq/): <br/>
+Integrating [jq](https://jqlang.github.io/jq/) with GitHub CLI can significantly enhance your workflows. In the example below, we retrieve the current active user data using GitHub CLI and extract the URL from the returned JSON:
+
+```
+gh api /user | jq .url 
+```
+
+Obtaining Tokens: 
+To obtain a token for a specific user, the gh auth token command with the `--user` flag can be utilised:
+```
+gh auth token --user BlankRiser
+```
+
+While there are alternative methods, such as utilising multiple SSH keypairs and custom scripts, I find that using GitHub CLI is the most straightforward and user-friendly approach for both setup and getting started.
