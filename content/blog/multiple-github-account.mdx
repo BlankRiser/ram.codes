@@ -1,6 +1,7 @@
 ---
 title: Streamlining Git Workflow with Multiple GitHub Accounts and GitHub CLI
-publishedAt: 2024-03-01
+publishedAt: 2024-03-09
+updatedAt: 2024-03-10
 summary: GitHub CLI, a game-changer in managing multiple Git accounts, simplifies setup and account switching with finesse. 
 image: "/images/blog/workstation.jpeg"
 draft: false
@@ -12,7 +13,7 @@ Managing multiple Git accounts is a common scenario for developers engaged in va
 To begin, if you haven't already, [install GitHub CLI](https://cli.github.com/). Following installation, authenticate your primary GitHub account using the gh auth login command. Walk through the prompts to securely provide your credentials.
 
 Checking Authentication Status: <br/>
-Verify the status of your linked accounts with gh auth status. A typical output might resemble the following:
+Verify the status of your linked accounts with `gh auth status`. A typical output might resemble the following:
 ```
 github.com
   ✓ Logged in to github.com account BlankRiser (keyring)
@@ -22,7 +23,7 @@ github.com
   - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
 ```
 Adding Multiple Accounts: <br/>
-To add another account, simply run gh auth login again and follow the steps. Upon checking the status (gh auth status), you'll notice the new credentials listed. The account you just logged into will become your primary account. An example output could be:
+To add another account, simply run gh auth login again and follow the steps. Upon checking the status (`gh auth status`), you'll notice the new credentials listed. The account you just logged into will become your primary account. An example output could be:
 
 ```
 github.com
@@ -40,7 +41,7 @@ github.com
 ```
 
 Switching Between Accounts: <br/>
-Effortlessly switch between accounts using gh auth switch.
+Effortlessly switch between accounts using `gh auth switch`.
 
 Automation with [jq](https://jqlang.github.io/jq/): <br/>
 Integrating [jq](https://jqlang.github.io/jq/) with GitHub CLI can significantly enhance your workflows. In the example below, we retrieve the current active user data using GitHub CLI and extract the URL from the returned JSON:
