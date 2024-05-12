@@ -16,27 +16,19 @@ export async function generateMetadata({
     return;
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-    slug,
-  } = post;
-
-  const ogImage = image
-    ? `https://ram.codes${image}`
-    : `https://ram.codes/og?title=${title}`;
+  const ogImage = post.image
+    ? `https://ram.codes${post.image}`
+    : `https://ram.codes/blog/default_post_image.jpg`;
 
   return {
-    title,
-    description,
+    title: post.title,
+    description: post.summary,
     openGraph: {
-      title,
-      description,
+      title: post.title,
+      description: post.summary,
       type: 'article',
-      publishedTime,
-      url: `https://ram.codes/blog/${slug}`,
+      publishedTime: post.publishedAt,
+      url: `https://ram.codes/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -45,8 +37,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: post.title,
+      description: post.summary,
       images: [ogImage],
     },
   };
@@ -72,6 +64,7 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
 
       <div className='relative mb-4 mt-2 flex min-h-[200px] flex-col items-center justify-center gap-4 overflow-hidden text-sm  md:min-h-[400px]'>
         <div className='absolute inset-x-0 top-0 z-10 mx-auto h-[35px] w-[75%] max-w-3xl rounded-full bg-devhaven-800/80 blur-3xl' />
+        <div className='h-16'></div>
         <h1 className='max-w-7xl bg-gradient-to-br from-neutral-400 via-neutral-800 via-30% to-neutral-900 bg-clip-text text-center font-space-grotesk text-4xl font-semibold tracking-wide md:text-4xl'>
           <Balancer>{post.title}</Balancer>
         </h1>
@@ -82,7 +75,7 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
           {formatDate(post.publishedAt)}
         </p>
       </div>
-      <div className='relative h-full w-full'>
+      <div className='relative size-full'>
         <div className='relative mx-auto w-full max-w-3xl'>
           <Markdown code={post.body.code} />
         </div>

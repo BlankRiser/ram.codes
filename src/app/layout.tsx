@@ -1,30 +1,30 @@
-import "../styles/global.css";
+import '../styles/global.css';
 
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Footer, Global, Navbar, NavbarOffset } from "~/components/layouts";
-import { Analytics } from "~/components/layouts/analytics";
-import { ScrollToTop } from "~/components/shared";
-import { TooltipProvider } from "~/components/ui/tooltip";
-import { generalSans, inter, jetBrainsMono, spaceGrotesk } from "~/utils/fonts";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { Footer, Global, Navbar, NavbarOffset } from '~/components/layouts';
+import { Analytics } from '~/components/layouts/analytics';
+import { ScrollToTop } from '~/components/shared';
+import { TooltipProvider } from '~/components/ui/tooltip';
+import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
 
 export const metadata = {
-  title: "ram.codes",
-  description: "Portfolio of Ram Shankar",
+  title: 'ram.codes',
+  description: 'Portfolio of Ram Shankar',
   openGraph: {
-    title: "ram.codes",
-    description: "Portfolio of Ram Shankar",
-    url: "https://ram.codes",
-    siteName: "ram.codes",
+    title: 'ram.codes',
+    description: 'Portfolio of Ram Shankar',
+    url: 'https://ram.codes',
+    siteName: 'ram.codes',
     images: [
       {
-        url: "https://ram.codes/og.png",
+        url: 'https://ram.codes/blog/og.excalidraw.png',
         width: 1920,
         height: 1080,
       },
     ],
-    locale: "en-US",
-    type: "website",
+    locale: 'en-US',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -32,17 +32,17 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   twitter: {
-    title: "ram.codes",
-    card: "summary_large_image",
+    title: 'ram.codes',
+    card: 'summary_large_image',
   },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: '/favicon.png',
   },
 };
 
@@ -62,16 +62,16 @@ export default function RootLayout({
   return (
     <TooltipProvider>
       <html
-        lang="en"
-        className={`${inter.className} ${extraFonts.join(" ")} bg-neutral-950`}
+        lang='en'
+        className={`${inter.className} ${extraFonts.join(' ')} bg-neutral-950`}
       >
         <head>
           <Analytics />
           <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="ram.codes rss feed"
-            href="/rss.xml"
+            rel='alternate'
+            type='application/rss+xml'
+            title='ram.codes rss feed'
+            href='/rss.xml'
           />
         </head>
         <body className={`relative bg-stone-950 `}>

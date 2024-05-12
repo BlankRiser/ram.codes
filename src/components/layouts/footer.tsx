@@ -13,10 +13,13 @@ import { ContactMe } from '../shared/contact-me';
 import { Divider } from '../ui';
 import { cn } from '~/utils/text-transforms';
 
-export const SOCIALS_MAP = SOCIALS.reduce((acc, curr) => {
-  acc[curr.name] = curr.link;
-  return acc;
-}, {} as Record<(typeof SOCIALS)[number]['name'], string>);
+export const SOCIALS_MAP = SOCIALS.reduce(
+  (acc, curr) => {
+    acc[curr.name] = curr.link;
+    return acc;
+  },
+  {} as Record<(typeof SOCIALS)[number]['name'], string>,
+);
 
 export function Footer() {
   return (
@@ -47,6 +50,7 @@ export function Footer() {
           ])}
         >
           <a
+            className='text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600'
             href={SOCIALS_MAP.linkedin}
             target='_blank'
             rel='noopener noreferrer'
@@ -54,6 +58,7 @@ export function Footer() {
             LinkedIn
           </a>
           <a
+            className='text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600'
             href={SOCIALS_MAP.twitter}
             target='_blank'
             rel='noopener noreferrer'
@@ -61,6 +66,7 @@ export function Footer() {
             Twitter
           </a>
           <a
+            className='text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600'
             href={SOCIALS_MAP.github}
             target='_blank'
             rel='noopener noreferrer'
@@ -68,6 +74,7 @@ export function Footer() {
             Github
           </a>
           <a
+            className='text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600'
             href={SOCIALS_MAP.medium}
             target='_blank'
             rel='noopener noreferrer'
@@ -77,16 +84,16 @@ export function Footer() {
         </div>
         <div className='flex items-center gap-4 md:hidden'>
           <Link href={SOCIALS_MAP.linkedin}>
-            <SiLinkedin className='h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <SiLinkedin className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.github}>
-            <SiGithub className='h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <SiGithub className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.twitter}>
-            <SiTwitter className='h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <SiTwitter className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.medium}>
-            <SiMedium className='h-8 w-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <SiMedium className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
         </div>
       </div>

@@ -12,7 +12,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [['var(--font-inter)', ...defaultTheme.fontFamily.sans],  { fontFeatureSettings: '"ss01", "cv01", "cv02", "cv03", "cv04", "cv09"' },],
+        sans: [
+          ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+          {
+            fontFeatureSettings:
+              '"ss01", "cv01", "cv02", "cv03", "cv04", "cv09"',
+          },
+        ],
         mono: ['var(--font-geist-mono)'],
         inter: ['var(--font-inter)'],
         'geist-sans': ['var(--font-geist-sans)'],
@@ -25,9 +31,8 @@ module.exports = {
         midas: '0px 0px 50px 5px rgba(15, 98, 254, 0.2)',
         attri: '0px 0px 50px 5px rgba(255, 255, 255, 0.2)',
         potion: '0px 0px 50px 5px rgba(192, 236, 246, 0.2)',
-        "cosmic-zoom": '0px 0px 50px 5px rgba(255, 255, 255, 0.2)',
+        'cosmic-zoom': '0px 0px 50px 5px rgba(255, 255, 255, 0.2)',
         nabler: '0px 0px 50px 5px rgba(229, 53, 46, 0.2)',
-
       },
       colors: {
         primary: '#34d572',
@@ -52,7 +57,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-conic': 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
       },
       keyframes: (theme) => ({
         'text-blink': {
@@ -105,18 +111,36 @@ module.exports = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
+        'spin-around': {
+          '0%': {
+            transform: 'translateZ(0) rotate(0)',
+          },
+          '15%, 35%': {
+            transform: 'translateZ(0) rotate(90deg)',
+          },
+          '65%, 85%': {
+            transform: 'translateZ(0) rotate(270deg)',
+          },
+          '100%': {
+            transform: 'translateZ(0) rotate(360deg)',
+          },
+        },
+        slide: {
+          to: {
+            transform: 'translate(calc(100cqw - 100%), 0)',
+          },
+        },
       }),
       animation: {
         'text-blink': 'text-blink 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         title: 'title 3s ease-out forwards',
         marquee: 'marquee var(--marquee-speed) linear infinite',
         marqueeReverse: 'marqueeReverse var(--marquee-speed) linear infinite',
+        'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+        slide: 'slide var(--speed) ease-in-out infinite alternate',
       },
     },
   },
 
-  plugins: [
-    require('@tailwindcss/typography'),
-    require("tailwindcss-animate")
-  ],
+  plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
 };

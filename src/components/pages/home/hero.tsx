@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FadeInText, RevealCharacter } from '~/components/shared';
 import { ContactMe } from '~/components/shared/contact-me';
 import { Button, Particles } from '~/components/ui';
+import ShimmerButton from '~/components/ui/shimmer-button';
 import { useMediaQuery } from '~/hooks/use-media-query';
 
 export const Hero = () => {
@@ -44,23 +45,14 @@ export const Hero = () => {
           className='my-4'
         >
           <ContactMe>
-            <Button variant='outline' rounded='full'>
-              Contact Me
-            </Button>
+            <ShimmerButton>
+              <span className='whitespace-pre-wrap text-center text-sm  leading-none tracking-tight text-white lg:text-lg dark:from-white dark:to-slate-900/10'>
+                Contact Me
+              </span>
+            </ShimmerButton>
           </ContactMe>
         </motion.div>
       </div>
     </motion.section>
   );
 };
-
-// const ButtonWithIcon = () => {
-//   return (
-//     <button className='group relative flex items-center gap-4 rounded-full border bg-transparent px-4 py-2 text-white transition-all duration-500 hover:bg-neutral-800/70'>
-//       Contact Me
-//       <span className='inline-flex h-0 w-0 -rotate-180 rounded-full p-0 transition-all duration-500 group-hover:h-fit group-hover:w-fit group-hover:-rotate-45'>
-//         <LightArrowCircleRight width={32} height={32} />
-//       </span>
-//     </button>
-//   );
-// };
