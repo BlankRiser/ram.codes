@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     capable: true,
   },
   verification: {
-    // google: 'DATA_TODO',
+    google: 'DBkhHR0Iylo-Wl8knh4wMPUfHf7genYH5v_MGyKyaFQ',
     // yandex: ['DATA_TODO'],
     other: {
       'msvalidate.01': ['C73F80B652B239B3972D7DEF2D58D0BB'],
