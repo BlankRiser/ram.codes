@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     description: 'Portfolio of Ram Shankar',
     images: [
       {
-        url: 'https://ram.codes/images/home/thumbnail.png',
-        width: 1200,
-        height: 630,
+        url: 'https://ram.codes/thumbnail.png',
+        width: 1600,
+        height: 900,
         alt: 'ram.codes',
       },
     ],
