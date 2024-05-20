@@ -35,7 +35,7 @@ module.exports = {
         nabler: '0px 0px 50px 5px rgba(229, 53, 46, 0.2)',
       },
       colors: {
-        primary: '#34d572',
+        primary: '#a0ff00', //'#34d572',
         secondary: '#f4f7fa',
         'off-white': '#fafffd',
         'off-black': '#1a1a1a',

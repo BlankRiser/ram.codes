@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { cn } from "~/utils/text-transforms";
+import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import {
   Input,
   Slider,
@@ -14,8 +13,18 @@ import {
   SliderHeader,
   SliderTitle,
   SliderTrigger,
-} from "../ui";
-import { Button } from "../ui/button";
+} from '../ui';
+import { Button } from '../ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '../ui/form';
+import { Textarea } from '../ui/textarea';
 
 type ContactMeProps = {
   children?: React.ReactNode;
@@ -23,7 +32,7 @@ type ContactMeProps = {
 
 export const ContactMe: React.FC<ContactMeProps> = ({
   children = (
-    <Button variant={"default"} className="max-w-fit">
+    <Button variant={'default'} className='max-w-fit'>
       Contact Me
     </Button>
   ),
@@ -31,9 +40,9 @@ export const ContactMe: React.FC<ContactMeProps> = ({
   return (
     <Slider>
       <SliderTrigger asChild>{children}</SliderTrigger>
-      <SliderContent side={"right"} className="sm:max-w-3xl">
+      <SliderContent side={'right'} className='sm:max-w-3xl'>
         <SliderHeader>
-          <SliderTitle className="font-space-grotesk text-lg font-semibold">
+          <SliderTitle className='font-space-grotesk text-lg font-semibold'>
             Contact Me
           </SliderTitle>
           <SliderDescription>
@@ -41,122 +50,132 @@ export const ContactMe: React.FC<ContactMeProps> = ({
           </SliderDescription>
         </SliderHeader>
         <ContactForm />
+        <div>
+          Want to just speak to me? you can schedule a call with me{' '}
+          <a
+            href='https://cal.com/ram-codes'
+            target='_blank'
+            className='text-primary underline underline-offset-2'
+          >
+            here
+          </a>
+        </div>
       </SliderContent>
     </Slider>
-  );
-};
-
-const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors, isValid },
-  } = useForm<ContactFormFields>({
-    resolver: zodResolver(contactFormFieldSchema),
-  });
-
-  return (
-    <form
-      onSubmit={handleSubmit(async (data) => {
-        const res = await fetch("/api/send", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-      })}
-    >
-      <div className="grid gap-4 py-4">
-        <ContactInput
-          label={"Name"}
-          type="text"
-          {...register("name", { required: true })}
-          error={errors.name?.message}
-        />
-        <ContactInput
-          label={"Email"}
-          placeholder="e.g. example.mail@example.com"
-          {...register("email", { required: true })}
-          error={errors.email?.message}
-        />
-        <ContactInput
-          label={"Company"}
-          placeholder="e.g. acme.inc"
-          {...register("company", { required: true })}
-          error={errors.company?.message}
-        />
-      </div>
-      <SliderClose asChild>
-        <Button disabled={!isValid} type="submit">
-          Send
-        </Button>
-      </SliderClose>
-    </form>
   );
 };
 
 const contactFormFieldSchema = z.object({
   name: z
     .string({
-      required_error: "Name is required",
+      required_error: 'Name is required',
     })
-    .min(1, { message: "Name is required" }),
-  email: z.string().min(1, { message: "Email is required" }).email({
-    message: "Must be a valid email",
+    .min(1, { message: 'Name is required' }),
+  email: z.string().min(1, { message: 'Email is required' }).email({
+    message: 'Must be a valid email',
   }),
   company: z
     .string()
-    .min(1, { message: "Please enter the name of your company" }),
-  // budget: z.number().int().min(0).max(1000000).optional(),
-  // service: z
-  //   .enum(["design", "development", "consulting"], {
-  //     invalid_type_error: "Please select a service",
-  //   })
-  //   .default("development")
-  //   .optional(),
-  // projectDetails: z
-  //   .string({
-  //     required_error: "Please enter some details about your project",
-  //   })
-  //   .min(1, { message: "Please enter some details about your project" })
-  //   .optional(),
+    .min(1, { message: 'Please enter the name of your company' }),
+  budget: z.number().int().min(0).max(1000000).optional(),
+  projectDetails: z
+    .string({
+      required_error: 'Please enter some details about your project',
+    })
+    .min(10, { message: 'Please enter some details about your project' })
+    .optional(),
 });
 
-type ContactFormFields = z.infer<typeof contactFormFieldSchema>;
+const ContactForm = () => {
+  const form = useForm<z.infer<typeof contactFormFieldSchema>>({
+    resolver: zodResolver(contactFormFieldSchema),
+  });
 
-type ContactInputProps = {
-  label: string;
-  error?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  const onSubmit = async (data: z.infer<typeof contactFormFieldSchema>) => {
+    await fetch('/api/send', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  };
 
-const ContactInput = React.forwardRef<HTMLInputElement, ContactInputProps>(
-  ({ label, error, ...rest }, ref) => {
-    return (
-      <div
-        className={cn([
-          " flex flex-col rounded-md border border-neutral-600 bg-neutral-800 px-2 py-1 focus-within:border ",
-          error
-            ? "focus-within:border-red-400 border-red-400"
-            : "focus-within:border-devhaven-500",
-        ])}
-      >
-        <label htmlFor="name" className="p-1 text-left font-geist-sans text-sm">
-          {label}
-        </label>
-        <Input
-          ref={ref}
-          border={false}
-          focus={false}
-          id="name"
-          placeholder="e.g. Van Dyke"
-          className="outline-none"
-          {...rest}
-        />
-        {error && <span className="text-sm">{error}</span>}
-      </div>
-    );
-  }
-);
-ContactInput.displayName = "ContactInput";
+  return (
+    <div className='py-4'>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <FormField
+            control={form.control}
+            name='name'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder='Ruskin Bond' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='email'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type='email'
+                    placeholder='e.g. ruskin.bond@mail.com'
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='company'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Company</FormLabel>
+                <FormControl>
+                  <Input placeholder='e.g. bond.inc' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='projectDetails'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Project Details</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder='e.g. I want to build a website for my company that showcases our products and services. I want the website to be fast, secure, and SEO optimized. I also want to be able to update the content of the website myself.'
+                    className='resize-none'
+                    rows={4}
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  Please provide as much detail as possible
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <SliderClose asChild>
+            <Button disabled={!form.formState.isValid} type='submit'>
+              Send
+            </Button>
+          </SliderClose>
+        </form>
+      </Form>
+    </div>
+  );
+};
