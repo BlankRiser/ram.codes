@@ -23,9 +23,12 @@ import { cn } from '~/utils/text-transforms';
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  const post = allBlogs.find((post) => post.slug === params.slug[0]);
   if (!post) {
-    return;
+    return {
+      title: 'Blog post not found',
+      description: 'Blog post not found',
+    };
   }
 
   const ogImage = post.image
@@ -35,6 +38,9 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.summary,
+    alternates: {
+      canonical: `https://ram.codes/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.summary,

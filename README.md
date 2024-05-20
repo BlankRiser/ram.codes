@@ -2,6 +2,10 @@
 
 Personal portfolio of Ram Shankar
 
+## TODO
+
+- [] Use [imagekit](https://imagekit.io/plans) or [cloudinary](https://cloudinary.com/pricing) to serve images
+
 ### Built using
 
 - NextJS
