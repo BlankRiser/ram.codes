@@ -51,7 +51,7 @@ export const ContactMe: React.FC<ContactMeProps> = ({
         </SliderHeader>
         <ContactForm />
         <div>
-          Want to just speak to me? you can schedule a call with me{' '}
+          Want to speak with me? You can schedule a call with me{' '}
           <a
             href='https://cal.com/ram-codes'
             target='_blank'
