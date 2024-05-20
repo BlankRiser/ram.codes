@@ -1,10 +1,22 @@
 import { allBlogs } from 'contentlayer/generated';
+import { List } from 'iconoir-react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { useMemo } from 'react';
 import Balancer from 'react-wrap-balancer';
 import { LongArrowDownRight } from '~/components/icons/misc';
 import { Markdown } from '~/components/mdx/markdown';
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui';
+import {
+  Button,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '~/components/ui';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '~/components/ui/dropdown-menu';
 import { formatDate } from '~/utils/date-utils';
 import { cn } from '~/utils/text-transforms';
 
@@ -79,44 +91,76 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
         <div className='relative mx-auto w-full max-w-3xl'>
           <Markdown code={post.body.code} />
         </div>
-        <div className='absolute right-0 top-0'>
-          <aside className='sticky right-0 top-0 z-50 mx-2 hidden max-h-[75vh] overflow-y-auto rounded-md bg-neutral-900 py-2 text-neutral-500 opacity-40 hover:opacity-100 md:block'>
-            {post.toc &&
-              post.headings.map((heading: (typeof post.headings)[number]) => {
-                return (
-                  <div
-                    key={`#${heading.slug}`}
-                    className='mb-1 max-w-[40ch] overflow-hidden truncate'
-                  >
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <a
-                          data-level={heading.level}
-                          href={`#${heading.slug}`}
-                          className={cn([
-                            'hover:text-primary',
-                            'flex items-center gap-1',
-                            // "data-[level=one]:pl-2",
-                            'data-[level=two]:pl-4',
-                            'data-[level=three]:pl-8',
-                          ])}
-                        >
-                          {['two', 'three'].includes(heading.level) && (
-                            <LongArrowDownRight />
-                          )}
-                          <span className='truncate'>{heading.text}</span>
-                        </a>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className='capitalize'>{heading.text}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                );
-              })}
-          </aside>
+        <div className='sticky bottom-4 w-full '>
+          {post.toc && <TableOfContent headings={post.headings} />}
         </div>
       </div>
     </section>
   );
 }
+
+const LEVELS = ['one', 'two', 'three']; // contentlayer supports only 3 levels
+type Headings = (typeof allBlogs)[number]['headings'];
+
+const areHeadingsUniform = (headings: Headings, levels: string[]): boolean => {
+  if (headings.length === 0) return false;
+
+  const firstLevel = headings[0].level;
+  if (!levels.includes(firstLevel)) return false;
+
+  return headings.every(
+    (heading: Headings[number]) => heading.level === firstLevel,
+  );
+};
+
+const TableOfContent = ({ headings }: { headings: Headings }) => {
+  const isUniform = useMemo(
+    () => areHeadingsUniform(headings, LEVELS),
+    [headings],
+  );
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button size='icon' variant='secondary'>
+          <List />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className='max-h-[400px] overflow-y-auto px-2 py-1 text-neutral-500'>
+        {headings.map((heading: Headings[number]) => {
+          return (
+            <div
+              key={`#${heading.slug}`}
+              className='mb-1 max-w-[40ch] overflow-hidden truncate'
+            >
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    data-level={heading.level}
+                    href={`#${heading.slug}`}
+                    className={cn([
+                      'flex items-center gap-1',
+                      'opacity-40 hover:text-primary hover:opacity-100',
+                      isUniform && 'pl-2',
+                      isUniform ? '' : 'data-[level=one]:pl-2',
+                      isUniform ? '' : 'data-[level=two]:pl-4',
+                      isUniform ? '' : 'data-[level=three]:pl-8',
+                    ])}
+                  >
+                    {['two', 'three'].includes(heading.level) && !isUniform && (
+                      <LongArrowDownRight />
+                    )}
+                    <span className='truncate'>{heading.text}</span>
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className='capitalize'>{heading.text}</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          );
+        })}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};

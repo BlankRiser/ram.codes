@@ -48,7 +48,5 @@ export async function generateMetadata({
 
 export default async function Blog({ params }: { params: { slug: string[] } }) {
   // const slug = decodeURI(params.slug.join("/"));
-  console.log('params', params);
-
   return <section className='px-2'>work page {JSON.stringify(params)}</section>;
 }

@@ -12,6 +12,8 @@ const buttonVariants = cva(
           'bg-neutral-200 text-neutral-900 shadow hover:bg-devhaven-100/90 active:bg-devhaven-100/80',
         primary:
           'bg-neutral-200 text-neutral-900 shadow hover:bg-neutral-200/90 active:bg-neutral-200/70',
+        secondary:
+          'border border-neutral-700 bg-neutral-900 text-neutral-100 shadow hover:border-neutral-800 hover:bg-neutral-900/90 active:bg-neutral-900/70',
         link: 'text-primary underline-offset-4 hover:underline',
         outline:
           'border border-neutral-700 hover:border-neutral-800 hover:bg-neutral-900 active:bg-neutral-800',
@@ -21,7 +23,7 @@ const buttonVariants = cva(
         default: 'h-9 px-4 py-2 text-sm font-medium',
         sm: 'h-8 px-3 text-xs',
         lg: 'px-8 py-4 font-semibold',
-        icon: 'h-9 w-9',
+        icon: 'size-9 p-1',
       },
       rounded: {
         default: 'rounded-md',

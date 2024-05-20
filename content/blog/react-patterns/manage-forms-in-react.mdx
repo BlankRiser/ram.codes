@@ -4,10 +4,13 @@ publishedAt: 2023-12-03
 summary: Various ways to manage forms in react
 image: '/images/blog/workstation.jpeg'
 draft: true
-toc: false
+toc: true
 ---
 
-## Why are forms essential?
+### nice
+
+### Why are forms essential?
+
 
 Forms are the most common way to collect data from users. They are used for login, registration, checkout, and more. Forms need to be easy to use and accessible to all users.
 
@@ -35,7 +38,13 @@ export const ReactFormData = () => {
 };
 ```
 
+Here is a simple form that collects a username and password. When the form is submitted, the `handleSubmit` function is called. The `FormData` object is created from the form element. The `entries` method returns an iterator of key/value pairs. The `Object.fromEntries` method converts the iterator to an object.
+
 <CodeSandboxIframe
   title='final-form'
   src='https://codesandbox.io/embed/x6g5md?view=Editor+%2B+Preview&module=%2Fsrc%2Fcomponents%2Fformdata-impl.tsx'
 />
+
+
+
+

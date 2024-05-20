@@ -1,8 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  // darkMode: ['class'],
+  // prefix: '',
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +11,13 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       fontFamily: {
         sans: [
@@ -61,6 +69,14 @@ module.exports = {
           'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
       },
       keyframes: (theme) => ({
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
         'text-blink': {
           '0%': {
             color: theme('colors.black'),
@@ -132,6 +148,8 @@ module.exports = {
         },
       }),
       animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
         'text-blink': 'text-blink 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         title: 'title 3s ease-out forwards',
         marquee: 'marquee var(--marquee-speed) linear infinite',
