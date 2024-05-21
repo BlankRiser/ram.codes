@@ -19,10 +19,44 @@ export const metadata: Metadata = {
     default: defaults.name,
     template: '%s | ram.codes',
   },
+  keywords: [
+    'react',
+    'react-native',
+    'python',
+    'javascript',
+    'typescript',
+    'aws',
+  ],
   openGraph: {
     siteName: defaults.name,
     type: 'website',
     locale: 'en_US',
+    url: 'https://ram.codes',
+    title: 'Portfolio of Ram Shankar | ram.codes',
+    description: 'Portfolio of Ram Shankar',
+    images: [
+      {
+        url: 'https://ram.codes/thumbnail.png',
+        width: 1600,
+        height: 900,
+        alt: 'ram.codes',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Build applications | ram.codes',
+    description: 'Portfolio of Ram Shankar',
+    creator: '@rschoudhary1999',
+    site: '@rschoudhary1999',
+    images: [
+      {
+        url: 'https://ram.codes/thumbnail.png',
+        width: 1200,
+        height: 630,
+        alt: 'dminhvu',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -39,6 +73,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
+    canonical: 'https://ram.codes',
     types: {
       'application/rss+xml': 'https://ram.codes/rss.xml',
     },

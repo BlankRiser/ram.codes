@@ -2,36 +2,37 @@ const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images:{
-    domains: ['images.unsplash.com', 'unsplash.it']
+  images: {
+    domains: ['images.unsplash.com', 'unsplash.it'],
   },
-   async redirects() {
+  async redirects() {
     return [
       {
-        source: "/twitter",
-        destination: "https://twitter.com/rschoudhary1999",
+        source: '/twitter',
+        destination: 'https://twitter.com/rschoudhary1999',
         permanent: true,
       },
       {
-        source: "/github",
-        destination: "https://github.com/BlankRiser/",
+        source: '/github',
+        destination: 'https://github.com/BlankRiser/',
         permanent: true,
       },
       {
-        source: "/linkedin",
-        destination: "https://linkedin.com/in/ram-shankar-choudhary",
+        source: '/linkedin',
+        destination: 'https://linkedin.com/in/ram-shankar-choudhary',
         permanent: true,
       },
       {
-				source: '/svgr',
-				destination: 'https://react-svgr.com/playground/?memo=true&typescript=true',
-				permanent: true,
-			},
-			{
-				source: '/peerlist',
-				destination: 'https://peerlist.io/ramshankar',
-				permanent: true,
-			},
+        source: '/svgr',
+        destination:
+          'https://react-svgr.com/playground/?memo=true&typescript=true',
+        permanent: true,
+      },
+      {
+        source: '/peerlist',
+        destination: 'https://peerlist.io/ramshankar',
+        permanent: true,
+      },
     ];
   },
   headers() {
@@ -42,12 +43,12 @@ const nextConfig = {
       },
     ];
   },
-}
+};
 
 // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
-    default-src 'self' vercel.live codesandbox.io;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
+    default-src 'self' vercel.live codesandbox.io app.cal.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live app.cal.com;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
     media-src 'none';
@@ -93,6 +94,4 @@ const securityHeaders = [
   },
 ];
 
-
-
-module.exports = withContentlayer(nextConfig)
+module.exports = withContentlayer(nextConfig);

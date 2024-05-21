@@ -1,12 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
 
 export function Global({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <motion.main
-      initial={{ y: 100 }}
+      initial={{ y: 10 }}
       animate={{ y: 0 }}
       transition={{
         duration: 0.25,

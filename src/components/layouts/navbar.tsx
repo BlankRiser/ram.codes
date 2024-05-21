@@ -24,9 +24,9 @@ export const Navbar = () => {
         stiffness: 100,
         damping: 20,
       }}
-      className={'fixed top-0 z-50 w-full px-4 backdrop-blur-md'}
+      className={'fixed top-0 z-50  w-full px-4 backdrop-blur-md'}
     >
-      <div className={'mx-auto max-w-7xl py-4'}>
+      <div className={'relative mx-auto max-w-7xl py-4'}>
         <nav
           className={cn([
             `flex h-full items-center`,

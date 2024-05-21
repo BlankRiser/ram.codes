@@ -1,32 +1,39 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { MotionValue, motion, useTransform } from 'framer-motion';
 import { FadeInText, RevealCharacter } from '~/components/shared';
 import { ContactMe } from '~/components/shared/contact-me';
-import { Button, Particles } from '~/components/ui';
+import { Particles } from '~/components/ui';
 import ShimmerButton from '~/components/ui/shimmer-button';
 import { useMediaQuery } from '~/hooks/use-media-query';
 
-export const Hero = () => {
+export const Hero: React.FC<{
+  scrollYProgress: MotionValue<number>;
+}> = ({ scrollYProgress }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  // When scroll is 0, scale is 1. When scroll is 1, scale is 0.9
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <motion.section className='relative flex h-[calc(100vh-56px)] flex-col items-center justify-center'>
+    <motion.section
+      style={{ scale }}
+      className='relative flex h-[calc(100vh-56px)] flex-col items-center justify-center'
+    >
       <Particles
         className='absolute inset-0 z-[1] bg-neutral-950'
         quantity={100}
       />
-      <div className='relative z-10 flex flex-col items-center justify-center text-center'>
+      <div className='relative z-[2] flex flex-col items-center justify-center text-center'>
         <RevealCharacter
-          className='pointer-events-none relative z-10 select-none py-4 font-space-grotesk text-5xl font-medium leading-[0.5] md:text-7xl lg:text-8xl'
+          className='pointer-events-none relative z-[2] select-none py-4 font-space-grotesk text-5xl font-medium leading-[0.5] md:text-7xl lg:text-8xl'
           color={'#000'}
           text={isMobile ? 'Ram Shankar' : 'Ram Shankar Choudhary'}
           type='h1'
         />
         <FadeInText
           text={'SOFTWAR ENGINEER'}
-          className='z-10'
-          characterClassName={`pointer-events-none z-10 select-none font-generalSans text-2xl font-light tracking-widest `}
+          className='z-[2]'
+          characterClassName={`pointer-events-none z-[2] select-none font-generalSans text-2xl font-light tracking-widest `}
         />
         <motion.div
           initial={{
