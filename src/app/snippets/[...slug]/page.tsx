@@ -70,7 +70,7 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
 
       <div className="relative mx-auto max-w-3xl flex-col items-center justify-center gap-4 bg-gradient-to-b py-8 text-sm">
         <Link href={"/snippets"}>
-          <span className="block max-w-fit font-generalSans text-sm italic text-neutral-400 hover:bg-devhaven-500 hover:text-black">
+          <span className="block max-w-fit font-generalSans text-xs text-neutral-400 hover:bg-devhaven-500 hover:text-black">
             Snippet
           </span>
         </Link>
