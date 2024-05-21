@@ -4,7 +4,8 @@ Personal portfolio of Ram Shankar
 
 ## TODO
 
-- [] Use [imagekit](https://imagekit.io/plans) or [cloudinary](https://cloudinary.com/pricing) to serve images
+- [ ] Use [imagekit](https://imagekit.io/plans) or [cloudinary](https://cloudinary.com/pricing) to serve images
+- [ ] Improve seo using [google search console](https://search.google.com/search-console?resource_id=https%3A%2F%2Fram.codes%2F) and [microsoft webmaster tools](https://www.bing.com/webmasters/sitescan?siteUrl=https://ram.codes/)
 
 ### Built using
 
