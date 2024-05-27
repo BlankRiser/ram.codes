@@ -1,0 +1,112 @@
+---
+title: React Fetch API Client
+publishedAt: 2024-05-27
+summary: Custom Fetch api client for react 
+image: "/images/blog/workstation.jpeg"
+draft: false
+toc: false
+---
+
+
+```ts
+type ApiClientConstructor = {
+  baseURL: string;
+  authToken: string | null;
+};
+
+class APIClient {
+  baseURL: string;
+  authToken: string | null;
+
+  constructor({ baseURL, authToken }: ApiClientConstructor) {
+    this.baseURL = baseURL;
+    this.authToken = null;
+  }
+
+  addAuthToken(token: string) {
+    this.authToken = token;
+  }
+
+  async request<T>(url: string, options: RequestInit) {
+    const response = await fetch(`${this.baseURL}${url}`, options);
+    if (!response.ok) {
+      const error = new Error('HTTP Error', {
+        cause: response.statusText,
+      });
+
+      throw error;
+    }
+    return response.json() as Promise<T>;
+  }
+
+  get<T>(url: string, signal: AbortSignal | null = null) {
+    return this.request<T>(url, {
+      method: 'GET',
+      signal: signal,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  post<T, B>(url: string, data: B, signal: AbortSignal | null = null) {
+    return this.request<T>(url, {
+      method: 'POST',
+      signal: signal,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  }
+
+  put<T, B>(url: string, data: B, signal: AbortSignal | null = null) {
+    return this.request<T>(url, {
+      method: 'PUT',
+      signal: signal,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  }
+
+  delete<T>(url: string, signal: AbortSignal | null = null) {
+    return this.request<T>(url, {
+      method: 'DELETE',
+      signal: signal,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+}
+
+export const apiClient = new APIClient({
+  baseURL: '',
+  authToken: null,
+});
+
+```
+
+Usage
+
+```tsx
+
+useEffect(() => {
+  const controller = new AbortController();
+  apiClient
+    .get<RootObject>(
+      'https://api.restful-api.dev/objects/4',
+      controller.signal,
+    )
+    .then((res) => {
+      console.log(res); 
+    });
+
+  return () => {
+    controller.abort();
+  };
+}, []);
+
+```
