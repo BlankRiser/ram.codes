@@ -1,8 +1,9 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
+import { Footer } from '~/components/layouts';
 
 export const metadata: Metadata = {
-  title: "Snippets",
-  description: "Snippets of code that I use often",
+  title: 'Snippets',
+  description: 'Snippets of code that I use often',
 };
 
 export default function SnippetsLayout({
@@ -10,5 +11,10 @@ export default function SnippetsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
 }
