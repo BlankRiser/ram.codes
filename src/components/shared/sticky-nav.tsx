@@ -22,12 +22,14 @@ import { cn } from '~/utils/text-transforms';
 import { LongArrowDownRight } from '../icons/misc';
 
 type StickyNavProps = {
+  hasTOC: boolean;
   headings: (typeof allBlogs)[number]['headings'];
   next: Blog;
   prev: Blog;
 };
 
 export const StickyNav: React.FC<StickyNavProps> = ({
+  hasTOC,
   headings,
   next,
   prev,
@@ -88,7 +90,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({
             <ArrowLeft className='size-3' /> <span>Previous Blog</span>
           </Link>
         </Button>
-        <Button
+      {hasTOC &&   <Button
           size='sm'
           variant='outline'
           onClick={() => {
@@ -96,7 +98,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({
           }}
         >
           Table of Content
-        </Button>
+        </Button>}
         <Button
           asChild
           variant='ghost'

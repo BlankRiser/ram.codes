@@ -112,7 +112,7 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
           <TableOfContent headings={post.headings} />
         </div>
       )}
-      <StickyNav headings={post.headings} next={next} prev={prev} />
+      <StickyNav hasTOC={post.toc} headings={post.headings} next={next} prev={prev} />
     </section>
   );
 }
