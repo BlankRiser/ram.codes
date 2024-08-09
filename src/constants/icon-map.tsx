@@ -1,7 +1,6 @@
 /* @ts-ignore */
 import {
-  SiAmazon,
-  SiAmazonaws,
+  SiAmazonwebservices,
   SiAmazonec2,
   SiAmazons3,
   SiApacheecharts,
@@ -174,7 +173,7 @@ export const ICONMAP = {
     />
   ),
   aws: (
-    <SiAmazonaws {...defaultProps} data-title='AWS' className={defaultStyle} />
+    <SiAmazonwebservices {...defaultProps} data-title='AWS' className={defaultStyle} />
   ),
   'postgres-sql': (
     <SiPostgresql
