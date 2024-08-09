@@ -31,7 +31,7 @@ export const Hero: React.FC<{
           type='h1'
         />
         <FadeInText
-          text={'SOFTWAR ENGINEER'}
+          text={'SOFTWARE ENGINEER'}
           className='z-[2]'
           characterClassName={`pointer-events-none z-[2] select-none font-generalSans text-2xl font-light tracking-widest `}
         />

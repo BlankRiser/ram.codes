@@ -22,6 +22,13 @@ Personal portfolio of Ram Shankar
 - analytics from [beam analytics](https://beamanalytics.io/)
 - [Tailwind Color Palette Generator](https://www.tints.dev/brand/1FFF5E)
 
+### Inspiration
+
+- [Rauno Craft](https://rauno.me/craft)
+- [ibelick Lab](https://www.ibelick.com/lab)
+- [Aceternity UI](https://ui.aceternity.com/)
+- [Magic UI](https://magicui.design/)
+
 ### How to use MDX Components
 
 #### Images

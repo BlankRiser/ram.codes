@@ -32,7 +32,7 @@ const Projects: React.FC<{
   scrollYProgress: MotionValue<number>;
 }> = ({ scrollYProgress }) => {
   return (
-    <div className='grid h-[100vh] w-full place-items-center bg-neutral-900'>
+    <div className='grid min-h-[100vh] w-full place-items-center overflow-visible bg-neutral-900'>
       <Cal calLink='ram-codes' className='w-full'></Cal>
     </div>
   );

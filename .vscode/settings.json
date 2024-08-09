@@ -1,76 +1,69 @@
 {
-	// Tailwind
-	"tailwindCSS.experimental.classRegex": [
-		[
-			"cva\\(([^)]*)\\)",
-			"[\"'`]([^\"'`]*).*?[\"'`]"
-		],
-		[
-			"cn\\(([^)]*)\\)",
-			"[\"'`]([^\"'`]*).*?[\"'`]"
-		],
-	],
-	// Git
-	"git.confirmSync": false,
-	"git.autofetch": true,
-	"git.enableSmartCommit": true,
-	"git.untrackedChanges": "separate",
-	"workbench.editor.highlightModifiedTabs": true,
-	"editor.stickyScroll.enabled": true,
-	// "editor.fontFamily": "'Fira Code'",
-	"editor.fontFamily": "DankMono-Regular",
-	"editor.fontLigatures": true,
-	"editor.tabSize": 4,
-	"editor.minimap.enabled": false,
-	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
-	"editor.cursorSmoothCaretAnimation": "explicit",
-	"editor.find.addExtraSpaceOnTop": false,
-	"editor.guides.bracketPairs": "active",
-	"editor.inlineSuggest.enabled": true,
-	"editor.lineNumbers": "on",
-	"editor.renderWhitespace": "selection",
-	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit",
-		"source.addMissingImports": "explicit",
-		"source.fixAll.eslint": "explicit",
-		"source.organizeImports": "never"
-	},
-	"terminal.integrated.env.osx": {},
-	"diffEditor.ignoreTrimWhitespace": true,
-	"search.exclude": {
-		"**/.git": true,
-		"**/.github": true,
-		"**/.nuxt": true,
-		"**/.output": true,
-		"**/.pnpm": true,
-		"**/.vscode": true,
-		"**/.yarn": true,
-		"**/bower_components": true,
-		"**/dist/**": true,
-		"**/logs": true,
-		"**/node_modules": true,
-		"**/out/**": true,
-		"**/package-lock.json": true,
-		"**/pnpm-lock.yaml": true,
-		"**/tmp": true,
-		"**/yarn.lock": true
-	},
-	// language specific settings
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"javascript.preferences.jsxAttributeCompletionStyle": "auto",
-	"typescript.preferences.jsxAttributeCompletionStyle": "auto",
-	"workbench.productIconTheme": "icons-carbon",
-	"github.copilot.enable": {
-		"*": true,
-		"plaintext": false,
-		"markdown": true,
-		"scminput": false,
-		"typescriptreact": true
-	},
-	"workbench.iconTheme": "file-icons",
-	"git.openRepositoryInParentFolders": "never",
-	"liveServer.settings.donotShowInfoMsg": true,
-	"console-ninja.featureSet": "Community",
-	"window.zoomLevel": 1,
+  // Tailwind
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  // Git
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.stickyScroll.enabled": true,
+  // "editor.fontFamily": "'Fira Code'",
+  "editor.fontFamily": "DankMono-Regular",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 4,
+  "editor.minimap.enabled": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.cursorSmoothCaretAnimation": "explicit",
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineNumbers": "on",
+  "editor.renderWhitespace": "selection",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.addMissingImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "terminal.integrated.env.osx": {},
+  "diffEditor.ignoreTrimWhitespace": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  // language specific settings
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.jsxAttributeCompletionStyle": "auto",
+  "typescript.preferences.jsxAttributeCompletionStyle": "auto",
+  "workbench.productIconTheme": "icons-carbon",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "typescriptreact": true
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "console-ninja.featureSet": "Community",
+  "window.zoomLevel": 1
 }

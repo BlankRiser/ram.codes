@@ -74,5 +74,5 @@ const codeStyles = cn([
 
 const articleStyles = cn([
   'prose-a:underline-offset-4',
-  'prose-a:font-normal prose-a:text-neutral-300 hover:prose-a:decoration-wavy hover:prose-a:bg-devhaven-500 hover:prose-a:text-black',
+  'prose-a:font-normal prose-a:text-neutral-300 hover:prose-a:text-devhaven-500',
 ]);
