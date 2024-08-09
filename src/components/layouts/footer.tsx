@@ -1,17 +1,18 @@
 'use client';
 
-import {
-  SiGithub,
-  SiLinkedin,
-  SiMedium,
-  SiTwitter,
-} from '@icons-pack/react-simple-icons';
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
 import { SOCIALS } from '~/constants/me';
 import { ContactMe } from '../shared/contact-me';
 import { Divider } from '../ui';
 import { cn } from '~/utils/text-transforms';
+
+import {
+  GithubLogo,
+  LinkedinLogo,
+  MediumLogo,
+  XLogo,
+} from '@phosphor-icons/react';
 
 export const SOCIALS_MAP = SOCIALS.reduce(
   (acc, curr) => {
@@ -84,16 +85,16 @@ export function Footer() {
         </div>
         <div className='flex items-center gap-4 md:hidden'>
           <Link href={SOCIALS_MAP.linkedin}>
-            <SiLinkedin className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <LinkedinLogo className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.github}>
-            <SiGithub className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <GithubLogo className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.twitter}>
-            <SiTwitter className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <XLogo className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
           <Link href={SOCIALS_MAP.medium}>
-            <SiMedium className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
+            <MediumLogo className='size-8 text-neutral-100 hover:text-devhaven-500 active:text-devhaven-600' />
           </Link>
         </div>
       </div>
