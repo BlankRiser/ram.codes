@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>ram.codes</title>
+        <link>https://ram.codes</link>
+        <description>Personal website of Ram Shankar</description>
+        <lastBuildDate>Fri, 09 Aug 2024 17:01:30 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <copyright>All rights reserved 2023, Ram Shankar Choudhary</copyright>
+        <item>
+            <title><![CDATA[AWS Cloud Practition Certification Notes]]></title>
+            <link>https://ram.codes/blog/blog/aws-cloud-practitioner</link>
+            <guid>https://ram.codes/blog/blog/aws-cloud-practitioner</guid>
+            <description><![CDATA[Study notes for AWS Cloud Practitioner Certification]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Streamlining Git Workflow with Multiple GitHub Accounts and GitHub CLI]]></title>
+            <link>https://ram.codes/blog/blog/multiple-github-account</link>
+            <guid>https://ram.codes/blog/blog/multiple-github-account</guid>
+            <description><![CDATA[GitHub CLI, a game-changer in managing multiple Git accounts, simplifies setup and account switching with finesse.]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[From Novice to SQL Pro:A Comprehensive Learning Journey]]></title>
+            <link>https://ram.codes/blog/blog/novice-to-sql-pro</link>
+            <guid>https://ram.codes/blog/blog/novice-to-sql-pro</guid>
+            <description><![CDATA[All the stuff i use in a daily basis]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Please learn git]]></title>
+            <link>https://ram.codes/blog/blog/please-learn-git</link>
+            <guid>https://ram.codes/blog/blog/please-learn-git</guid>
+            <description><![CDATA[A guide to git for beginners]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[React Hooks]]></title>
+            <link>https://ram.codes/blog/blog/react-hooks</link>
+            <guid>https://ram.codes/blog/blog/react-hooks</guid>
+            <description><![CDATA[Syntax of native hooks and useful custom hooks]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[My Setup]]></title>
+            <link>https://ram.codes/blog/blog/uses</link>
+            <guid>https://ram.codes/blog/blog/uses</guid>
+            <description><![CDATA[All the stuff i use in a daily basis]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Building Spendsmart.quest]]></title>
+            <link>https://ram.codes/blog/blog/architecting-apps/building-spendsmart</link>
+            <guid>https://ram.codes/blog/blog/architecting-apps/building-spendsmart</guid>
+            <description><![CDATA[Challenges and solutions in building a personal finance app]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Manage forms in react]]></title>
+            <link>https://ram.codes/blog/blog/react-patterns/manage-forms-in-react</link>
+            <guid>https://ram.codes/blog/blog/react-patterns/manage-forms-in-react</guid>
+            <description><![CDATA[Various ways to manage forms in react]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[React Fetch API Client]]></title>
+            <link>https://ram.codes/blog/snippets/react-api-client</link>
+            <guid>https://ram.codes/blog/snippets/react-api-client</guid>
+            <description><![CDATA[Custom Fetch api client for react]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[React Hooks]]></title>
+            <link>https://ram.codes/blog/snippets/react-hooks</link>
+            <guid>https://ram.codes/blog/snippets/react-hooks</guid>
+            <description><![CDATA[Syntax of native hooks and useful custom hooks]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[VSCode Snippets for React Hooks]]></title>
+            <link>https://ram.codes/blog/snippets/react-vscode-snippets</link>
+            <guid>https://ram.codes/blog/snippets/react-vscode-snippets</guid>
+            <description><![CDATA[VSCode Snippets to make React Hooks easier to use]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+        <item>
+            <title><![CDATA[Zustand and MMKV middleware]]></title>
+            <link>https://ram.codes/blog/snippets/zustand-mmkv-middleware</link>
+            <guid>https://ram.codes/blog/snippets/zustand-mmkv-middleware</guid>
+            <description><![CDATA[Middleware to persist Zustand state to MMKV]]></description>
+            <author>hi@ram.codes (Ram Shankar Choudhary)</author>
+        </item>
+    </channel>
+</rss>

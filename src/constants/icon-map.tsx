@@ -1,4 +1,6 @@
+/* @ts-ignore */
 import {
+  SiAmazon,
   SiAmazonaws,
   SiAmazonec2,
   SiAmazons3,
