@@ -87,26 +87,30 @@ export const StickyNav: React.FC<StickyNavProps> = ({
           className='flex items-center gap-2'
         >
           <Link href={previousBlogURL}>
-            <ArrowLeft className='size-3' /> <span>Previous Blog</span>
+            <ArrowLeft className='size-3' />{' '}
+            <span className='hidden md:inline-block'>Previous Blog</span>
           </Link>
         </Button>
-      {hasTOC &&   <Button
-          size='sm'
-          variant='outline'
-          onClick={() => {
-            router.push(pathname + '#toc');
-          }}
-        >
-          Table of Content
-        </Button>}
+        {hasTOC && (
+          <Button
+            size='sm'
+            variant='outline'
+            onClick={() => {
+              router.push(pathname + '#toc');
+            }}
+          >
+            Table of Content
+          </Button>
+        )}
         <Button
           asChild
           variant='ghost'
           size='sm'
-          className='hidden items-center gap-2 md:flex'
+          className='flex items-center gap-2'
         >
           <Link href={nextBlogURL}>
-            <ArrowRight className='size-3' /> <span>Next Blog</span>
+            <ArrowRight className='size-3 ' />{' '}
+            <span className='hidden md:inline-block'>Next Blog</span>
           </Link>
         </Button>
       </div>
