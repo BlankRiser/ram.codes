@@ -50,14 +50,10 @@ export const StickyNav: React.FC<StickyNavProps> = ({
   });
 
   const previousBlogURL = useMemo(() => {
-    console.log(window.location.origin + '/blog/' + prev.slug);
-
-    return window.location.origin + '/blog/' + prev.slug;
+    return '/blog/' + prev.slug;
   }, [prev.slug]);
   const nextBlogURL = useMemo(() => {
-    console.log(window.location.origin + '/blog/' + next.slug);
-
-    return window.location.origin + '/blog/' + next.slug;
+    return '/blog/' + next.slug;
   }, [next.slug]);
 
   return (
