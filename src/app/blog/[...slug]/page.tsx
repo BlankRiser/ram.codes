@@ -81,8 +81,6 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
     ? allBlogs[postIndex + 1]
     : allBlogs[0];
 
-  console.log('post.mdx', post.mdx);
-
   return (
     <section className='px-2'>
       <div className='relative mb-4 mt-2 flex min-h-[200px] flex-col items-center justify-center gap-4 overflow-hidden text-sm  md:min-h-[400px]'>

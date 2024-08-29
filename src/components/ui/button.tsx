@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost: 'bg-transparent hover:bg-neutral-900 active:bg-neutral-800',
       },
       size: {
-        default: 'h-9 px-4 py-2 text-sm font-medium',
+        default: 'min-h-9 px-4 py-2 text-sm font-medium',
         sm: 'h-8 px-3 text-xs',
         lg: 'px-8 py-4 font-semibold',
         icon: 'size-9 p-1',

@@ -1,5 +1,5 @@
 @tailwind base;
-@import "./syntax-highlight.css";
+@import './syntax-highlight.css';
 @tailwind components;
 @tailwind utilities;
 
@@ -29,7 +29,7 @@ body {
 }
 
 .mask {
-  mask-image: url("../../public/mask.svg");
+  mask-image: url('../../public/mask.svg');
   mask-repeat: no-repeat;
   mask-size: 40px;
   background: #a0ff00;

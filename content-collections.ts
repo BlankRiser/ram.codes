@@ -1,25 +1,28 @@
-import {
-  Context,
-  defineCollection,
-  defineConfig,
-} from '@content-collections/core';
+import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX, Options } from '@content-collections/mdx';
+import { readFileSync } from 'fs';
 import externalLinks from 'rehype-external-links';
+import rehypeKatex from 'rehype-katex';
 import rehypePrettyCode, {
   type Options as rehypePrettyCodeOptions,
 } from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 
 const mdxOptions = {
-  remarkPlugins: [remarkGfm],
+  remarkPlugins: [remarkMath, remarkGfm],
   rehypePlugins: [
+    rehypeKatex,
     rehypeSlug,
     [externalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
     [
       rehypePrettyCode,
       {
-        theme: 'poimandres',
+        theme: JSON.parse(
+          readFileSync('./src/styles/themes/aura-dark.json', 'utf-8'),
+        ),
+        grid: true,
         filterMetaString: (string) => string.replace(/filename="[^"]*"/, ''),
       } satisfies rehypePrettyCodeOptions,
     ],
@@ -42,34 +45,7 @@ export const Blog = defineCollection({
     toc: z.boolean().default(false),
   }),
   transform: async (document, context) => {
-    const mdx = await compileMDX(context, document, {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        rehypeSlug,
-        [externalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
-        [
-          rehypePrettyCode,
-          {
-            theme: 'poimandres',
-            filterMetaString: (string) =>
-              string.replace(/filename="[^"]*"/, ''),
-            // onVisitLine(node) {
-            //   // Prevent lines from collapsing in `display: grid` mode, and allow empty
-            //   // lines to be copy/pasted
-            //   if (node.children.length === 0) {
-            //     node.children = [{ type: 'text', value: ' ' }];
-            //   }
-            // },
-            // onVisitHighlightedLine(node) {
-            //   node.properties.className = ['line--highlighted'];
-            // },
-            // onVisitHighlightedChars(node) {
-            //   node.properties.className = ['word--highlighted'];
-            // },
-          } satisfies rehypePrettyCodeOptions,
-        ],
-      ],
-    });
+    const mdx = await compileMDX(context, document, mdxOptions);
     return {
       ...document,
       mdx,
@@ -103,3 +79,35 @@ export const Snippets = defineCollection({
 export default defineConfig({
   collections: [Blog, Snippets],
 });
+
+const SupportedThemes = [
+  'css-variables',
+  'dark-plus',
+  'dracula-soft',
+  'dracula',
+  'github-dark-dimmed',
+  'github-dark',
+  'github-light',
+  'hc_light',
+  'light-plus',
+  'material-theme-darker',
+  'material-theme-lighter',
+  'material-theme-ocean',
+  'material-theme-palenight',
+  'material-theme',
+  'min-dark',
+  'min-light',
+  'monokai',
+  'nord',
+  'one-dark-pro',
+  'poimandres',
+  'rose-pine-dawn',
+  'rose-pine-moon',
+  'rose-pine',
+  'slack-dark',
+  'slack-ochin',
+  'solarized-dark',
+  'solarized-light',
+  'vitesse-dark',
+  'vitesse-light',
+];

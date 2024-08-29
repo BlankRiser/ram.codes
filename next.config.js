@@ -1,4 +1,3 @@
-const { withContentlayer } = require('next-contentlayer');
 const { withContentCollections } = require('@content-collections/next');
 
 /** @type {import('next').NextConfig} */
@@ -95,5 +94,4 @@ const securityHeaders = [
   },
 ];
 
-// module.exports = withContentlayer(nextConfig);
 module.exports = withContentCollections(nextConfig);

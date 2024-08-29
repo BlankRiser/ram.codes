@@ -108,7 +108,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({ hasTOC, next, prev }) => {
   );
 };
 
-const LEVELS = ['one', 'two', 'three']; // contentlayer supports only 3 levels
+const LEVELS = ['one', 'two', 'three'];
 type Headings = any;
 
 const areHeadingsUniform = (headings: Headings, levels: string[]): boolean => {
