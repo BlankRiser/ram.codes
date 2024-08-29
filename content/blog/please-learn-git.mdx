@@ -7,6 +7,7 @@ draft: false
 toc: true
 ---
 
+
 This essential read will illuminate the path to version control and equip you with the knowledge you need to elevate your coding game.
 
 ### Installing Git
@@ -73,8 +74,9 @@ git commit --allow-empty -m ''
 
 ### Removing a file from the repository
 
+Removing .env from the repository and the history.
+
 ```shell
-#add .env to .gitignore
 git rm -r --cached .env
 git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch .env" HEAD
 git push --force

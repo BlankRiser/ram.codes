@@ -1,6 +1,5 @@
 'use client';
 
-import { Blog, allBlogs } from 'contentlayer/generated';
 import {
   Variants,
   motion,
@@ -9,7 +8,7 @@ import {
 } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'iconoir-react';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useMemo, useRef, useState } from 'react';
 import {
   Button,
@@ -20,20 +19,15 @@ import {
 } from '~/components/ui';
 import { cn } from '~/utils/text-transforms';
 import { LongArrowDownRight } from '../icons/misc';
+import { allBlogs } from 'content-collections';
 
 type StickyNavProps = {
   hasTOC: boolean;
-  headings: (typeof allBlogs)[number]['headings'];
-  next: Blog;
-  prev: Blog;
+  next: (typeof allBlogs)[number];
+  prev: (typeof allBlogs)[number];
 };
 
-export const StickyNav: React.FC<StickyNavProps> = ({
-  hasTOC,
-  headings,
-  next,
-  prev,
-}) => {
+export const StickyNav: React.FC<StickyNavProps> = ({ hasTOC, next, prev }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -50,11 +44,11 @@ export const StickyNav: React.FC<StickyNavProps> = ({
   });
 
   const previousBlogURL = useMemo(() => {
-    return '/blog/' + prev.slug;
-  }, [prev.slug]);
+    return '/blog/' + prev._meta.path;
+  }, [prev._meta.path]);
   const nextBlogURL = useMemo(() => {
-    return '/blog/' + next.slug;
-  }, [next.slug]);
+    return '/blog/' + next._meta.path;
+  }, [next._meta.path]);
 
   return (
     <motion.div
@@ -115,7 +109,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({
 };
 
 const LEVELS = ['one', 'two', 'three']; // contentlayer supports only 3 levels
-type Headings = (typeof allBlogs)[number]['headings'];
+type Headings = any;
 
 const areHeadingsUniform = (headings: Headings, levels: string[]): boolean => {
   if (headings.length === 0) return false;

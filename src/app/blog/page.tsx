@@ -1,10 +1,11 @@
-import { allBlogs } from 'contentlayer/generated';
+import { allBlogs } from 'content-collections';
 import { Suspense } from 'react';
 import { Footer, NavbarOffset } from '~/components/layouts';
 import ArticleList from '~/components/pages/blog/article-list';
 import { ContentHeader } from '~/components/shared/header';
 
 export default async function BlogPage() {
+  console.log('nice', allBlogs[0]);
   return (
     <div className='mx-auto w-full max-w-7xl px-2 py-8'>
       <NavbarOffset className='h-6 md:h-28' />

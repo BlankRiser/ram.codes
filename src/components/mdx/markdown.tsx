@@ -1,16 +1,17 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent, MDXContent } from '@content-collections/mdx/react';
 import { cn } from '~/utils/text-transforms';
 
-import type { MDXComponents } from 'mdx/types';
 import Image from './mdx-components/image';
 import CustomLink from './mdx-components/link';
 import Pre from './mdx-components/pre';
 import Bleed from './mdx-components/bleed';
 import { CodesandboxIframe } from './mdx-components/codesandbox-iframe';
 
-type MarkdownProps = { code: string };
+type MarkdownProps = {
+  mdx: string;
+};
 
-const components: MDXComponents = {
+const components = {
   Image: Image as any,
   Bleed: Bleed as any,
   a: CustomLink as any,
@@ -18,8 +19,8 @@ const components: MDXComponents = {
   CodeSandboxIframe: CodesandboxIframe as any,
 };
 
-export const Markdown: React.FC<MarkdownProps> = ({ code }) => {
-  const Component = useMDXComponent(code);
+export const Markdown: React.FC<MarkdownProps> = ({ mdx }) => {
+  const Component = useMDXComponent(mdx);
 
   return (
     <article

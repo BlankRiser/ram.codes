@@ -1,6 +1,6 @@
 'use client';
 
-import { Blog } from 'contentlayer/generated';
+import { allBlogs } from 'content-collections';
 import { matchSorter } from 'match-sorter';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -10,7 +10,7 @@ import { Input } from '~/components/ui/input';
 import { formatDate } from '~/utils/date-utils';
 
 type Props = {
-  allArticles: Array<Blog>;
+  allArticles: typeof allBlogs;
 };
 
 const ArticleList: React.FC<Props> = ({ allArticles }) => {
@@ -68,9 +68,9 @@ const ArticleList: React.FC<Props> = ({ allArticles }) => {
 
             return (
               <Link
-                key={post.slug}
+                key={post._meta.path}
                 className='group flex flex-col space-y-1 rounded-md border-b-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-devhaven-500'
-                href={post.path}
+                href={`/blog/${post._meta.path}`}
               >
                 <li className='flex items-start gap-2'>
                   <div className=' w-full flex-col items-start justify-start rounded-md p-2 group-hover:bg-neutral-900 md:flex-row md:gap-8 md:p-4'>

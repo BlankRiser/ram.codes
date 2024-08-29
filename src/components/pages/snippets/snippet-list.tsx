@@ -1,6 +1,6 @@
 'use client';
 
-import { Snippets } from 'contentlayer/generated';
+import { allSnippets } from 'content-collections';
 import { matchSorter } from 'match-sorter';
 import Link from 'next/link';
 import React, { useDeferredValue, useState } from 'react';
@@ -8,7 +8,7 @@ import Balancer from 'react-wrap-balancer';
 import { Input } from '~/components/ui/input';
 
 type Props = {
-  allSnippets: Array<Snippets>;
+  allSnippets: typeof allSnippets;
 };
 
 export const SnippetsList: React.FC<Props> = ({ allSnippets }) => {
@@ -46,9 +46,9 @@ export const SnippetsList: React.FC<Props> = ({ allSnippets }) => {
           })
           .map((post) => (
             <Link
-              key={post.slug}
+              key={post._meta.path}
               className='group flex flex-col space-y-1 border-b-neutral-800'
-              href={`${post.path}`}
+              href={`/snippets/${post._meta.path}`}
             >
               <li className='flex w-full items-start justify-start gap-8 rounded-md p-4 group-hover:bg-neutral-900'>
                 <span className='py-1 font-jet-mono text-sm text-neutral-500 group-hover:text-neutral-200'>

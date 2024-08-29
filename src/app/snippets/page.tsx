@@ -1,4 +1,4 @@
-import { allSnippets } from 'contentlayer/generated';
+import { allSnippets } from 'content-collections';
 import { Metadata } from 'next';
 import { SnippetsList } from '~/components/pages/snippets/snippet-list';
 import { ContentHeader } from '~/components/shared/header';
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     description: 'Snippets for React, React Native, Python, and more',
     images: [
       {
-        url: 'https://dminhvu.com/images/home/thumbnail.png',
+        url: 'https://ram.codes/og?title=Snippets',
         width: 1200,
         height: 630,
-        alt: 'dminhvu',
+        alt: 'ram.codes',
       },
     ],
   },
@@ -34,19 +34,19 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Snippets',
     description: 'Snippets for React, JavaScript, Python, and more',
-    creator: '@dminhvu02',
-    site: '@dminhvu02',
+    creator: '@rschoudhary1999',
+    site: '@rschoudhary1999',
     images: [
       {
-        url: 'https://dminhvu.com/images/home/thumbnail.png',
+        url: 'https://ram.codes/og?title=Snippets',
         width: 1200,
         height: 630,
-        alt: 'dminhvu',
+        alt: 'ram.codes',
       },
     ],
   },
   alternates: {
-    canonical: 'https://dminhvu.com',
+    canonical: 'https://ram.codes',
   },
 };
 export default async function BlogPage() {
