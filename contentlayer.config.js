@@ -71,6 +71,10 @@ export const Blog = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
+    updatedAt: {
+      type: 'string',
+      required: false,
+    },
     updated: {
       type: 'string',
       required: false,
