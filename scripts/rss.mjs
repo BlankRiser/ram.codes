@@ -1,7 +1,7 @@
 import { compareDesc, parseISO } from 'date-fns';
 import { Feed } from 'feed';
 import { writeFileSync } from 'fs';
-import { allBlogs, allSnippets } from '../.content-collections/generated';
+import { allBlogs, allSnippets } from 'content-collections';
 
 const feed = new Feed({
   title: 'ram.codes',

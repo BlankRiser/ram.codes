@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/rss.mjs",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "rss": "node scripts/rss.mjs",
