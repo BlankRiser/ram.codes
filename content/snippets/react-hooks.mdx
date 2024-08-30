@@ -9,7 +9,7 @@ toc: false
 
 ## useState
 
-```jsx title="nmec" showLineNumbers
+```jsx title="useState"
 import { useState } from "react";
 function Counter({ initialCount }) {
   const [count, setCount] = useState(initialCount);
@@ -31,7 +31,7 @@ References:
 
 ## useEffect
 
-```jsx showLineNumbers
+```jsx 
 import { useEffect, useState } from "react";
 function CountSecrets() {
   const [secret, setSecret] = useState({ value: "", countSecrets: 0 });
@@ -58,9 +58,6 @@ References:
 - [A Simple Explanation of React.useEffect()](https://dmitripavlutin.com/react-useeffect-explanation/)
 - [useEffect()](https://reactjs.org/docs/hooks-reference.html#useeffect)
 
-## useContext()
-
-The React context provides data to components no matter how deep they are in the components tree. The context is used to manage global data, e.g. global state, theme, services, user settings, and more.
 
 ```js
 import { useContext, createContext } from "react";

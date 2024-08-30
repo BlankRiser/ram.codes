@@ -2,17 +2,17 @@
 
 import Cal from '@calcom/embed-react';
 import { MotionValue, useScroll } from 'framer-motion';
-import { ElementRef, useRef } from 'react';
+import { useRef } from 'react';
 import { Hero } from '~/components/pages/home/hero';
 import { TechMarquee } from '~/components/shared/tech-marquee';
 
 export default function Home() {
-  const container = useRef<HTMLDivElement | null>(null);
+  const container = useRef<HTMLDivElement | null>( null );
 
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress } = useScroll( {
     target: container,
-    offset: ['start start', 'end end'],
-  });
+    offset: [ 'start start', 'end end' ],
+  } );
 
   return (
     <div ref={container}>
@@ -30,7 +30,7 @@ export default function Home() {
 
 const Projects: React.FC<{
   scrollYProgress: MotionValue<number>;
-}> = ({ scrollYProgress }) => {
+}> = ( { scrollYProgress } ) => {
   return (
     <div className='grid min-h-[100vh] w-full place-items-center overflow-visible bg-neutral-900'>
       <Cal calLink='ram-codes' className='w-full'></Cal>

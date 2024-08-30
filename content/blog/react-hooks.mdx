@@ -7,10 +7,8 @@ draft: false
 toc: false
 ---
 
-## useState
 
-
-```jsx title="useState" {7-22}
+```jsx title="useState"
 import { useState } from "react";
 function Counter({ initialCount }) {
   const [count, setCount] = useState(initialCount);
@@ -30,9 +28,8 @@ References:
 - [useState](https://reactjs.org/docs/hooks-reference.html#:~:text=Basic%20Hooks-,useState,-const%20%5Bstate%2C%20setState)
 - [Why you should use the URL to store state in your application](https://juhanajauhiainen.com/posts/why-you-should-use-url-to-store-state-in-your-application)
 
-## useEffect
 
-```jsx showLineNumbers
+```jsx title="useEffect"
 import { useEffect, useState } from "react";
 function CountSecrets() {
   const [secret, setSecret] = useState({ value: "", countSecrets: 0 });
@@ -59,11 +56,9 @@ References:
 - [A Simple Explanation of React.useEffect()](https://dmitripavlutin.com/react-useeffect-explanation/)
 - [useEffect()](https://reactjs.org/docs/hooks-reference.html#useeffect)
 
-## useContext()
 
-The React context provides data to components no matter how deep they are in the components tree. The context is used to manage global data, e.g. global state, theme, services, user settings, and more.
 
-```js
+```js title="useContext"
 import { useContext, createContext } from "react";
 const UserContext = createContext("Unknown");
 function Application() {
@@ -100,11 +95,9 @@ Refrences:
 - [A Guide to React Context and useContext() Hook](https://dmitripavlutin.com/react-context-and-usecontext/)
 - [useContext()](https://reactjs.org/docs/hooks-reference.html#usecontext)
 
-## useMemo()
 
-By using `useMemo(() => factorialOf(number), [number])` instead of simple `factorialOf(number)`, React memoizes the factorial calculation.
 
-```js
+```js title='useMemo'
 import { useState, useMemo } from "react";
 
 export function CalculateFactorial() {
@@ -136,11 +129,7 @@ function factorialOf(n) {
 
 Refrences: [How to Memoize with React.useMemo()](https://dmitripavlutin.com/react-usememo-hook/)
 
-## useCallback()
-
-One reason to use `useCallback` is to prevent a component from re-rendering unless its props have changed.
-
-```jsx
+```jsx title="useCallback"
 import useSearch from "./fetch-items";
 
 function MyBigList({ term, onItemClick }) {
@@ -170,13 +159,8 @@ Refrences:
 - [Your Guide to React.useCallback()](https://dmitripavlutin.com/dont-overuse-react-usecallback/)
 - [useCallback()](https://reactjs.org/docs/hooks-reference.html#usecallback)
 
-## useReducer()
 
-An alternative to `useState`. Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a dispatch method. `useReducer` is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
-
-`useReducer` also lets you optimize performance for components that trigger deep updates because you can pass dispatch down instead of callbacks. The `useReducer(reducer, initialState)` hook accept 2 arguments: the `reducer` function and the `initial state`. The hook then returns an array of 2 items: the `current state` and the`dispatch` function.
-
-```js
+```js title="useReducer"
 const initialState = { count: 0 };
 
 function reducer(state, action) {
@@ -207,9 +191,8 @@ Refrences:
 - [An Easy Guide to React `useReducer()` Hook](https://dmitripavlutin.com/react-usereducer/)
 - [useReducer()](https://reactjs.org/docs/hooks-reference.html#usereducer)
 
-## useRef()
 
-```js
+```js title="useRef"
 import { useRef, useState, useEffect } from "react";
 
 function Stopwatch() {

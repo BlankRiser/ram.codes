@@ -19,9 +19,10 @@ const mdxOptions = {
     [
       rehypePrettyCode,
       {
-        theme: JSON.parse(
-          readFileSync('./src/styles/themes/aura-dark.json', 'utf-8'),
-        ),
+        theme: "vitesse-dark", // Theme list: https://shiki.style/themes
+        // theme: JSON.parse(
+        //   readFileSync('./src/styles/themes/aura-dark.json', 'utf-8'),
+        // ),
         grid: true,
         filterMetaString: (string) => string.replace(/filename="[^"]*"/, ''),
       } satisfies rehypePrettyCodeOptions,
