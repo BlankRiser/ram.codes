@@ -1,13 +1,10 @@
-import { useMDXComponent, MDXContent } from '@content-collections/mdx/react';
+import { MDXContent } from '@content-collections/mdx/react';
+import { Callout } from 'fumadocs-ui/components/callout';
 import { cn } from '~/utils/text-transforms';
-
-import Image from './mdx-components/image';
-import CustomLink from './mdx-components/link';
-import Pre from './mdx-components/pre';
 import Bleed from './mdx-components/bleed';
 import { CodesandboxIframe } from './mdx-components/codesandbox-iframe';
-import { Callout } from 'fumadocs-ui/components/callout';
-import { CodeBlock, Pre as FumaPre } from './mdx-components/code-block';
+import Image from './mdx-components/image';
+import CustomLink from './mdx-components/link';
 
 type MarkdownProps = {
   mdx: string;
@@ -22,7 +19,6 @@ const components = {
 };
 
 export const Markdown: React.FC<MarkdownProps> = ({ mdx }) => {
-  const Component = useMDXComponent(mdx);
 
   return (
     <article
@@ -31,10 +27,12 @@ export const Markdown: React.FC<MarkdownProps> = ({ mdx }) => {
         articleStyles,
         textStyles,
         listStyles,
-        // codeStyles,
+        codeStyles,
       ])}
     >
-      <Component components={components} />
+      <MDXContent code={mdx} components={{
+        ...components,
+      }} />
     </article>
   );
 };
@@ -69,12 +67,11 @@ const listStyles = cn([
 ]);
 
 const codeStyles = cn([
-  'prose-pre:font-geist-mono prose-code:font-geist-mono prose-code:font-light prose-pre:bg-neutral-900',
-  'prose-pre:my-0',
-  'prose-code:bg-neutral-900  prose-code:text-neutral-400',
+  'prose-pre:font-geist-mono prose-code:font-geist-mono prose-code:font-light ',
+  'prose-code:bg-[#121212]  prose-code:text-neutral-400 prose-pre:bg-[#121212]',
 ]);
 
 const articleStyles = cn([
+  'prose-a:font-normal prose-a:text-neutral-200 transition  hover:prose-a:text-devhaven-500',
   'prose-a:underline-offset-4',
-  'prose-a:font-normal prose-a:text-neutral-300 hover:prose-a:text-devhaven-500',
 ]);

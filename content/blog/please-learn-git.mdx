@@ -85,7 +85,7 @@ git push --force
 - Add the file(`.env` in this case) that is to be removed to .gitignore and remove it from git using [git rm](https://git-scm.com/docs/git-rm).
 - The file(`.env`) still exists in our history and the contents are still visible. We'll have to filter it out of all the branches using [git filter-branch](https://git-scm.com/docs/git-filter-branch).
 
-```
+```shell
 git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch .env" HEAD
 ```
 

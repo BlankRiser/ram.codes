@@ -10,7 +10,7 @@ import { Analytics } from '~/components/layouts/analytics';
 import { ScrollToTop } from '~/components/shared';
 import { TooltipProvider } from '~/components/ui/tooltip';
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
-import { RootProvider } from 'fumadocs-ui/provider';
+
 
 const defaults = {
   name: 'ram.codes',
@@ -207,16 +207,10 @@ export default function RootLayout({
           />
         </head>
         <body className={`relative bg-stone-950 `}>
-          <RootProvider
-            theme={{
-              defaultTheme: 'dark',
-            }}
-          >
-            <Navbar />
-            <NavbarOffset />
-            <Global>{children}</Global>
-            <ScrollToTop />
-          </RootProvider>
+          <Navbar />
+          <NavbarOffset />
+          <Global>{children}</Global>
+          <ScrollToTop />
         </body>
       </html>
     </TooltipProvider>

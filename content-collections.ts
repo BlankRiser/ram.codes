@@ -1,6 +1,5 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX, Options } from '@content-collections/mdx';
-import { readFileSync } from 'fs';
 import externalLinks from 'rehype-external-links';
 import rehypeKatex from 'rehype-katex';
 import rehypePrettyCode, {
@@ -9,9 +8,16 @@ import rehypePrettyCode, {
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
+// import { remarkCodeHike } from "codehike/mdx";
+// import theme from "./src/styles/themes/vitesse-dark.json" assert { type: "json" };
 
 const mdxOptions = {
-  remarkPlugins: [remarkMath, remarkGfm],
+  remarkPlugins: [remarkMath,remarkGfm, 
+  //   [remarkCodeHike, {
+  //   theme,
+  //   showCopyButton: true, autoImport: true
+  // }]
+],
   rehypePlugins: [
     rehypeKatex,
     rehypeSlug,
