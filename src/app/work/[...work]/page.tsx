@@ -1,12 +1,12 @@
-import { allBlogs } from 'contentlayer/generated';
+import { allBlogs } from 'content-collections';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  const post = allBlogs.find((post) => post._meta.path === params.slug);
 
+  const slug = post?._meta.path;
   if (!post) {
     return;
   }
@@ -16,7 +16,6 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
-    slug,
   } = post;
   const ogImage = image
     ? `https://v2.ram.codes${image}`

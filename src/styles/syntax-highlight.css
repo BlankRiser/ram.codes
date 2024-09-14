@@ -1,57 +1,44 @@
-/* Code Block Container */
+figure[data-rehype-pretty-code-figure] {
+  margin-top: 1.6666667em;
+  margin-bottom: 1.6666667em;
 
-div[data-rehype-pretty-code-fragment] {
-	@apply overflow-hidden bg-neutral-950 rounded-md;
+  @screen sm {
+    margin-top: 1.7142857em;
+    margin-bottom: 1.7142857em;
+  }
 }
 
-div[data-rehype-pretty-code-fragment] pre {
-	@apply !bg-neutral-900 rounded-t-none;
-	overflow-x: auto;
-	font-size: 0.875rem;
-	line-height: 1.5rem;
+/* Remove vertical margins in code blocks from Tailwind CSS Typography*/
+figure[data-rehype-pretty-code-figure] > pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
-/* Code Block Title */
-div[data-rehype-pretty-code-title] {
-	@apply bg-neutral-900 px-3 py-1 text-neutral-400 outline outline-1 outline-neutral-700;
+figure[data-rehype-pretty-code-figure] {
+  @apply overflow-hidden rounded sm:rounded-md bg-neutral-900;
 }
 
-/* Code Block Lines and highlighted background of lines */
-
-div[data-rehype-pretty-code-fragment] .line {
-	padding-left: 0.5rem;
-	padding-right: 0.75rem;
-	border-left-width: 4px;
-	border-left-color: transparent;
+figure[data-rehype-pretty-code-figure] pre {
+  @apply overflow-x-auto text-sm sm:text-base;
 }
 
-div[data-rehype-pretty-code-fragment] .line--highlighted {
-	border-left-color: rgb(253 164 175 / 0.7);
-	background-color: rgb(254 205 211 / 0.4);
+figcaption[data-rehype-pretty-code-title] {
+  @apply !my-0 bg-neutral-900 px-3 py-2 text-xs font-medium leading-none text-neutral-300 sm:px-4 sm:py-3 sm:text-sm sm:leading-none;
 }
 
-/* Code Block Line numbers */
+figure[data-rehype-pretty-code-figure] span[data-line] {
+  @apply border-l-4 border-transparent;
+  padding-left: 1em;
+  padding-right: 1em;
 
-[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
-	counter-increment: line;
-	content: counter(line);
-	display: inline-block;
-	width: 1rem;
-	margin-right: 1rem;
-	text-align: right;
-	color: gray;
+  @screen sm {
+    padding-left: 1.1428571em;
+    padding-right: 1.1428571em;
+  }
 }
 
-/* code[data-line-numbers] {
-	counter-reset: lineNumber;
+figure[data-rehype-pretty-code-figure] span[data-line][data-highlighted-line] {
+  @apply border-l-green-500 bg-zinc-500/10;
 }
-
-code[data-line-numbers] .line::before {
-	counter-increment: lineNumber;
-	content: counter(lineNumber);
-	display: inline-block;
-	text-align: right;
-	margin-right: 0.75rem;
-	width: 1rem;
-	color: rgb(255 255 255 / 0.2);
-} */

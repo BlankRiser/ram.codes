@@ -1,14 +1,33 @@
 {
   "recommendations": [
     "formulahendry.auto-rename-tag",
-    "antfu.icons-carbon",
     "catppuccin.catppuccin-vsc",
     "naumovs.color-highlight",
-    "dsznajder.es7-react-js-snippets",
     "dbaeumer.vscode-eslint",
-    "file-icons.file-icons",
-    "eamodio.gitlens",
     "esbenp.prettier-vscode",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens",
+    "wix.vscode-import-cost",
+    "MariusAlchimavicius.json-to-ts",
+    "meganrogge.template-string-converter",
+    "WallabyJs.console-ninja",
+    "rangav.vscode-thunder-client"
+  ],
+  "unwantedRecommendations": [
+    "Catppuccin.catppuccin-vsc",
+    "sdras.night-owl",
+    "pmndrs.pmndrs",
+    "Cardinal90.multi-cursor-case-preserve",
+    "unifiedjs.vscode-mdx",
+    "wayou.vscode-todo-highlight",
+    "antfu.icons-carbon",
+    "eamodio.gitlens",
+    "unifiedjs.vscode-mdx",
+    "file-icons.file-icons",
+    "dsznajder.es7-react-js-snippets",
+    "drcika.apc-extension",
+    "vsls-contrib.gistfs",
+    "YoavBls.pretty-ts-errors",
+    "Codium.codium"
   ]
 }

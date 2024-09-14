@@ -12,8 +12,9 @@ Personal portfolio of Ram Shankar
 - NextJS
 - TailwindCSS
 - Framer Motion
-- [Contentlayer](https://contentlayer.dev/)
+- [content-collections](https://www.content-collections.dev/)
 - Syntax highlight using [rehype-pretty-code](https://rehype-pretty-code.netlify.app/) which is a rehype plugin powered by [shiki](https://github.com/shikijs/shiki)
+
 
 ### Attributions
 

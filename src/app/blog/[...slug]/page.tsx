@@ -9,7 +9,7 @@ import {
   TooltipContent,
 } from '@radix-ui/react-tooltip';
 import { Button } from '@react-email/components';
-import { allBlogs } from 'contentlayer/generated';
+import { allBlogs } from 'content-collections';
 import { LongArrowDownRight } from 'iconoir-react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -23,7 +23,8 @@ import { cn } from '~/utils/text-transforms';
 export async function generateMetadata({
   params,
 }: any): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug[0]);
+  const post = allBlogs.find((post) => post._meta.path === params.slug[0]);
+
   if (!post) {
     return {
       title: 'Blog post not found',
@@ -39,14 +40,14 @@ export async function generateMetadata({
     title: post.title,
     description: post.summary,
     alternates: {
-      canonical: `https://ram.codes/blog/${post.slug}`,
+      canonical: `https://ram.codes/blog/${post._meta.path}`,
     },
     openGraph: {
       title: post.title,
       description: post.summary,
       type: 'article',
       publishedTime: post.publishedAt,
-      url: `https://ram.codes/blog/${post.slug}`,
+      url: `https://ram.codes/blog/${post._meta.path}`,
       images: [
         {
           url: ogImage,
@@ -65,7 +66,7 @@ export async function generateMetadata({
 export default async function Blog({ params }: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join('/'));
 
-  const postIndex = allBlogs.findIndex((p) => p.slug === slug);
+  const postIndex = allBlogs.findIndex((p) => p._meta.path === slug);
   const post = allBlogs[postIndex];
 
   if (!post || postIndex === -1) {
@@ -82,13 +83,6 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
 
   return (
     <section className='px-2'>
-      <script
-        type='application/ld+json'
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(post.structuredData),
-        }}
-      />
       <div className='relative mb-4 mt-2 flex min-h-[200px] flex-col items-center justify-center gap-4 overflow-hidden text-sm  md:min-h-[400px]'>
         <div className='absolute inset-x-0 top-0 z-10 mx-auto h-[35px] w-[75%] max-w-3xl rounded-full bg-devhaven-800/80 blur-3xl' />
         <div className='h-16' />
@@ -104,15 +98,15 @@ export default async function Blog({ params }: { params: { slug: string[] } }) {
       </div>
       <div className='relative size-full'>
         <div className='relative mx-auto w-full max-w-3xl'>
-          <Markdown code={post.body.code} />
+          <Markdown mdx={post.mdx} />
         </div>
       </div>
-      {post.toc && (
+      {/* {post.toc && (
         <div id='toc' className='grid scroll-mt-16 place-items-center py-4'>
           <TableOfContent headings={post.headings} />
         </div>
-      )}
-      <StickyNav hasTOC={post.toc} headings={post.headings} next={next} prev={prev} />
+      )} */}
+      <StickyNav hasTOC={post.toc} next={next} prev={prev} />
     </section>
   );
 }

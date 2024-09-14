@@ -1,4 +1,6 @@
 import '../styles/global.css';
+import 'katex/dist/katex.css';
+import '../styles/syntax-highlight.css';
 
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
@@ -8,6 +10,7 @@ import { Analytics } from '~/components/layouts/analytics';
 import { ScrollToTop } from '~/components/shared';
 import { TooltipProvider } from '~/components/ui/tooltip';
 import { generalSans, inter, jetBrainsMono, spaceGrotesk } from '~/utils/fonts';
+
 
 const defaults = {
   name: 'ram.codes',

@@ -1,20 +1,20 @@
-import { compareDesc, parseISO } from "date-fns";
-import { Feed } from "feed";
-import { writeFileSync } from "fs";
-import { allBlogs, allSnippets } from "../.contentlayer/generated/index.mjs";
+import { compareDesc, parseISO } from 'date-fns';
+import { Feed } from 'feed';
+import { writeFileSync } from 'fs';
+import { allBlogs, allSnippets } from 'content-collections';
 
 const feed = new Feed({
-  title: "ram.codes",
-  description: "Personal website of Ram Shankar",
-  id: "https://ram.codes",
-  link: "https://ram.codes",
-  language: "en",
-  favicon: "https://ram.codes/favicon.ico",
-  copyright: "All rights reserved 2023, Ram Shankar Choudhary",
+  title: 'ram.codes',
+  description: 'Personal website of Ram Shankar',
+  id: 'https://ram.codes',
+  link: 'https://ram.codes',
+  language: 'en',
+  favicon: 'https://ram.codes/favicon.ico',
+  copyright: 'All rights reserved 2023, Ram Shankar Choudhary',
   author: {
-    name: "Ram Shanakar Choudhary",
-    email: "hi@ram.codes",
-    link: "https://ram.codes",
+    name: 'Ram Shanakar Choudhary',
+    email: 'hi@ram.codes',
+    link: 'https://ram.codes',
   },
 });
 
@@ -30,15 +30,16 @@ allBlogs
       date: new Date(post.date).toISOString[0],
       // category: post.tags.map((name) => ({ name })),
       // image: post.image,
-      author: [{
-        name: "Ram Shankar Choudhary",
-        email: "hi@ram.codes",
-        link: "https://ram.codes",
-      }],
+      author: [
+        {
+          name: 'Ram Shankar Choudhary',
+          email: 'hi@ram.codes',
+          link: 'https://ram.codes',
+        },
+      ],
     });
   });
 
-  
 allSnippets
   .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
   .forEach((post) => {
@@ -51,12 +52,14 @@ allSnippets
       date: new Date(post.date).toISOString[0],
       // category: post.tags.map((name) => ({ name })),
       // image: post.image,
-      author: [{
-        name: "Ram Shankar Choudhary",
-        email: "hi@ram.codes",
-        link: "https://ram.codes",
-      }],
+      author: [
+        {
+          name: 'Ram Shankar Choudhary',
+          email: 'hi@ram.codes',
+          link: 'https://ram.codes',
+        },
+      ],
     });
   });
 
-writeFileSync("./public/rss.xml", feed.rss2(), { encoding: "utf-8" });
+writeFileSync('./public/rss.xml', feed.rss2(), { encoding: 'utf-8' });

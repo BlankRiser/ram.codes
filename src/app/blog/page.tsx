@@ -1,6 +1,6 @@
-import { allBlogs } from 'contentlayer/generated';
+import { allBlogs } from 'content-collections';
 import { Suspense } from 'react';
-import { Footer, NavbarOffset } from '~/components/layouts';
+import { NavbarOffset } from '~/components/layouts';
 import ArticleList from '~/components/pages/blog/article-list';
 import { ContentHeader } from '~/components/shared/header';
 

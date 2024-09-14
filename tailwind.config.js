@@ -1,9 +1,10 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // darkMode: ['class'],
   // prefix: '',
+
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -80,9 +81,11 @@ module.exports = {
         'text-blink': {
           '0%': {
             color: theme('colors.black'),
-            textShadow: `-1px -1px 0 ${theme('colors.gray.1')}, 1px -1px 0 ${theme(
+            textShadow: `-1px -1px 0 ${theme(
               'colors.gray.1',
-            )}, -1px 1px 0 ${theme('colors.gray.1')}, 1px 1px 0 ${theme('colors.gray.1')}`,
+            )}, 1px -1px 0 ${theme('colors.gray.1')}, -1px 1px 0 ${theme(
+              'colors.gray.1',
+            )}, 1px 1px 0 ${theme('colors.gray.1')}`,
           },
           '25%': {
             color: 'currentColor',
@@ -91,9 +94,11 @@ module.exports = {
           },
           '50%': {
             color: theme('colors.black'),
-            textShadow: `-1px -1px 0 ${theme('colors.gray.1')}, 1px -1px 0 ${theme(
+            textShadow: `-1px -1px 0 ${theme(
               'colors.gray.1',
-            )}, -1px 1px 0 ${theme('colors.gray.1')}, 1px 1px 0 ${theme('colors.gray.1')}`,
+            )}, 1px -1px 0 ${theme('colors.gray.1')}, -1px 1px 0 ${theme(
+              'colors.gray.1',
+            )}, 1px 1px 0 ${theme('colors.gray.1')}`,
           },
           '100%': {
             color: 'currentColor',

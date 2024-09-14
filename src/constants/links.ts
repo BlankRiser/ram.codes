@@ -1,6 +1,7 @@
 export const LINKS = {
   Blog: '/blog',
   Work: '/work',
+  Snippets: '/snippets',
   // Snippets: '/snippets',
   // ABOUT: '/about',
   // CONTACT: '/contact',
