@@ -55,3 +55,58 @@ I prefer [Dank Mono](https://philpl.gumroad.com/l/dank-mono/), but I have also l
 11. [HitFilm Express](https://fxhome.com/product/hitfilm-express) - Video Editing & Visual Effects
 12. [Da Vinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/) - Editing, color correction, visual effects, motion graphics and audio post production all in one software tool
 13. [Beekeeper Studio](https://www.beekeeperstudio.io/) - A modern, easy to use, and good looking SQL client for MySQL, Postgres, SQLite, SQL Server, and more.
+
+
+### VSCode Extensions
+
+```sh
+code --install-extension aaron-bond.better-comments
+code --install-extension antfu.icons-carbon
+code --install-extension antfu.theme-vitesse
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension cardinal90.multi-cursor-case-preserve
+code --install-extension catppuccin.catppuccin-vsc
+code --install-extension codium.codium
+code --install-extension csstools.postcss
+code --install-extension daltonmenezes.aura-theme
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension devhaven.devhaven
+code --install-extension drcika.apc-extension
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension file-icons.file-icons
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension github.copilot
+code --install-extension github.copilot-chat
+code --install-extension jdinhlife.gruvbox
+code --install-extension lakshits11.best-themes-redefined
+code --install-extension mariusalchimavicius.json-to-ts
+code --install-extension marlosirapuan.nord-deep
+code --install-extension meganrogge.template-string-converter
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension naumovs.color-highlight
+code --install-extension pmndrs.pmndrs
+code --install-extension pomdtr.excalidraw-editor
+code --install-extension rangav.vscode-thunder-client
+code --install-extension ritwickdey.liveserver
+code --install-extension sdras.night-owl
+code --install-extension uctakeoff.vscode-counter
+code --install-extension unifiedjs.vscode-mdx
+code --install-extension usernamehw.errorlens
+code --install-extension vscodevim.vim
+code --install-extension vsls-contrib.gistfs
+code --install-extension wallabyjs.console-ninja
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension wix.vscode-import-cost
+code --install-extension yoavbls.pretty-ts-errors
+```
+
+[Take a look at this stackoverflow to check extensions you have installed](https://stackoverflow.com/questions/35773299/how-can-you-export-the-visual-studio-code-extension-list)
+
+```sh
+code --list-extensions | xargs -L 1 echo code --install-extension # unix
+```
+```sh
+code --list-extensions | % { "code --install-extension $_" } # Windows
+```
