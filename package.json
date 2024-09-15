@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"dev": "next dev",
-		"prebuild": "content-collections build",
+		"cc:build": "content-collections build",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
