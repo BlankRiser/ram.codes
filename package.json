@@ -12,6 +12,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"cc:build": "content-collections build",
+		"prebuild": "content-collections build",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
