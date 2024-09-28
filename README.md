@@ -55,3 +55,18 @@ Personal portfolio of Ram Shankar
   />
 </Bleed>
 ```
+
+
+
+### Issues
+
+Sometimes the build fails becuase of git cache issues. To fix this run the following command
+
+```bash
+git rm -r --cached .
+git add .
+git commit --allow-empty -m "Fixed git cache issues"
+git push
+```
+
+Alternatively you can also delete the `hooks` folder from `.git` folder.

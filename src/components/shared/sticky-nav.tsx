@@ -82,7 +82,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({ hasTOC, next, prev }) => {
 						</span>
 					</Link>
 				</Button>
-				{hasTOC && (
+				{/* {hasTOC && (
 					<Button
 						size="sm"
 						variant="outline"
@@ -92,7 +92,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({ hasTOC, next, prev }) => {
 					>
 						Table of Content
 					</Button>
-				)}
+				)} */}
 				<Button
 					asChild
 					variant="ghost"
@@ -134,6 +134,7 @@ export const TableOfContent = ({ headings }: { headings: Headings }) => {
 		() => areHeadingsUniform(headings, LEVELS),
 		[headings],
 	)
+	console
 
 	return (
 		<div className="mx-auto w-full max-w-3xl overflow-y-auto rounded-md border border-neutral-800 py-2 text-neutral-200">

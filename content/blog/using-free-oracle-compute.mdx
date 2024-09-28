@@ -1,0 +1,70 @@
+---
+title: Provisioning Free Oracle Compute Instance
+publishedAt: 2024-09-28
+summary: Provisioning a free Oracle Compute instance and using it.
+image: "/images/blog/workstation.jpeg"
+draft: true
+toc: false
+---
+
+
+
+### Using the instance
+
+Download the public and private key when creating the instance. 
+
+```sh
+chmod 400 <private-key.key>
+
+ssh -i <private-key.key> <username>@<public-ip>
+# <username> is the default username for the instance. 
+# For Oracle Linux and CentOS images, the default username is "opc". 
+# For Ubuntu images, the default username is "ubuntu".
+```
+
+If you are using oracle linux, you have to enable EPEL repository to install packages like `htop`, `wget`, `curl`, etc. 
+
+```sh
+~ dnf search epel
+
+Last metadata expiration check: 0:02:43 ago on Sat 28 Sep 2024 01:04:40 PM GMT.
+=============================== Name & Summary Matched: epel ================================
+oracle-epel-release-el9.aarch64 : Extra Packages for Enterprise Linux (EPEL) yum repository
+                                : configuration
+oracle-epel-release-el9.src : Extra Packages for Enterprise Linux (EPEL) yum repository
+                            : configuration
+```
+
+From the above command, we get a list of repo's that are available.
+
+```sh
+~ rpm -q oracle-epel-release-el9.aarch64
+
+oracle-epel-release-el9-1.0-1.el9.aarch64
+```
+
+```sh
+~ dnf repolist --all | grep -i epel
+
+ol9_developer_EPEL            Oracle Linux 9 EPEL Packages for Developm disabled
+```
+
+Let's enable the EPEL repo
+
+```sh
+~ sudo dnf config-manager --enable ol9_developer_EPEL
+```
+
+
+Let's verify if it has been enabled:
+
+```sh
+~ dnf repolist --all | grep -i epel
+```
+
+Install your package
+
+```sh
+~ sudo dnf install htop
+```
+
